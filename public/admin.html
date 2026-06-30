@@ -61,7 +61,6 @@
       margin-top: 4px;
     }
 
-    /* Header action buttons container */
     .header-actions {
       display: flex;
       gap: 12px;
@@ -265,6 +264,7 @@
       text-align: left;
       padding: 14px 16px;
       border-bottom: 1px solid var(--border);
+      vertical-align: middle;
     }
 
     .menu-table th {
@@ -290,9 +290,24 @@
       margin-top: 2px;
     }
 
-    .item-price {
-      font-weight: 600;
+    /* Inline input adjustments */
+    .price-input {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
       color: var(--accent);
+      padding: 8px;
+      width: 80px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .price-input:focus {
+      border-color: var(--accent);
     }
 
     /* Toggle Switch Styling */
@@ -301,6 +316,7 @@
       display: inline-block;
       width: 44px;
       height: 24px;
+      vertical-align: middle;
     }
 
     .switch input {
@@ -345,7 +361,7 @@
       margin-left: 8px;
       font-size: 13px;
       font-weight: 600;
-      vertical-align: super;
+      vertical-align: middle;
     }
 
     .status-label.available { color: var(--success); }
@@ -361,8 +377,8 @@
       border-radius: 16px;
     }
 
-    /* Login Gate Overlay style */
-    .login-overlay {
+    /* Overlay styles (Login & Modal) */
+    .login-overlay, .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -377,43 +393,43 @@
       transition: opacity 0.4s ease;
     }
 
-    .login-overlay.hidden {
+    .login-overlay.hidden, .modal-overlay.hidden {
       opacity: 0;
       pointer-events: none;
     }
 
-    .login-card {
+    .login-card, .modal-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 40px;
+      padding: 32px;
       width: 100%;
-      max-width: 400px;
+      max-width: 440px;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
-    .login-card h2 {
+    .login-card h2, .modal-card h2 {
       font-size: 24px;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       letter-spacing: -0.5px;
     }
 
-    .login-card h2 span {
+    .login-card h2 span, .modal-card h2 span {
       color: var(--accent);
     }
 
-    .login-field {
+    .login-field, .modal-field {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .login-field label {
+    .login-field label, .modal-field label {
       font-size: 12px;
       font-weight: 600;
       color: var(--text-secondary);
@@ -421,7 +437,7 @@
       letter-spacing: 0.5px;
     }
 
-    .login-field input {
+    .login-field input, .modal-field input, .modal-field select, .modal-field textarea {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border);
       color: var(--text-primary);
@@ -433,11 +449,16 @@
       transition: border-color 0.3s;
     }
 
-    .login-field input:focus {
+    .login-field input:focus, .modal-field input:focus, .modal-field select:focus, .modal-field textarea:focus {
       border-color: var(--accent);
     }
 
-    .login-btn {
+    .modal-field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .login-btn, .modal-btn {
       background: linear-gradient(135deg, var(--accent), #B5942D);
       border: none;
       color: #000;
@@ -449,8 +470,26 @@
       transition: transform 0.2s, opacity 0.2s;
     }
 
-    .login-btn:active {
+    .login-btn:active, .modal-btn:active {
       transform: scale(0.98);
+    }
+
+    .modal-btn-cancel {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .modal-btn-cancel:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 10px;
     }
 
     .login-error {
@@ -472,9 +511,67 @@
       color: #FFF;
       background-color: var(--danger);
     }
+
+    /* Toast Notification styles */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 11000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background-color: var(--bg-card);
+      border-left: 4px solid var(--accent);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 24px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 280px;
+      animation: slideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .toast.toast-success { border-left-color: var(--success); }
+    .toast.toast-danger { border-left-color: var(--danger); }
+
+    @keyframes slideIn {
+      from { transform: translateX(110%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .edit-btn {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .edit-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
+
+  <!-- TOAST ALERTS CONTAINER -->
+  <div id="toast-root" class="toast-container"></div>
 
   <!-- ADMIN LOGIN GATE OVERLAY -->
   <div id="login-gate" class="login-overlay">
@@ -493,6 +590,45 @@
       </div>
       
       <button class="login-btn" onclick="submitAdminLogin()">Sign In to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- EDIT / ADD MENU ITEM MODAL -->
+  <div id="menu-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2 id="modal-title">Add <span>New Menu Item</span></h2>
+      <input type="hidden" id="item-id-hidden">
+      
+      <div class="modal-field">
+        <label for="item-name-input">Item Name</label>
+        <input type="text" id="item-name-input" placeholder="e.g. Cheese Sandwich">
+      </div>
+      
+      <div class="modal-field">
+        <label for="item-category-input">Category</label>
+        <select id="item-category-input">
+          <option value="Snacks">Snacks</option>
+          <option value="Sandwiches">Sandwiches</option>
+          <option value="Pastas">Pastas</option>
+          <option value="Icecreams">Icecreams</option>
+          <option value="Beverages">Beverages</option>
+        </select>
+      </div>
+      
+      <div class="modal-field">
+        <label for="item-price-input">Price (₹)</label>
+        <input type="number" id="item-price-input" placeholder="e.g. 90">
+      </div>
+      
+      <div class="modal-field">
+        <label for="item-desc-input">Description</label>
+        <textarea id="item-desc-input" placeholder="Enter ingredients or details..."></textarea>
+      </div>
+      
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-cancel" onclick="closeMenuModal()">Cancel</button>
+        <button class="modal-btn" onclick="saveMenuItem()">Save Item</button>
+      </div>
     </div>
   </div>
 
@@ -521,6 +657,10 @@
 
   <!-- VIEW 2: MENU -->
   <div id="menu-view" class="view-content">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h2 style="font-size: 20px; font-weight: 700; color: var(--text-primary);">Menu Registry</h2>
+      <button class="tab-btn" onclick="openMenuModal(null)" style="background-color: var(--accent); color: #000; border: none; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 8px;">+ Add Menu Item</button>
+    </div>
     <div id="menu-container" class="menu-manager">
       <div class="empty-state">Loading menu registry...</div>
     </div>
@@ -528,6 +668,25 @@
 
   <script>
     let activeTab = 'orders-view';
+    let menuCache = []; // Caches menu items to prevent quote escaping issues on Edit click
+
+    // Toast notification utility
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-root');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      
+      const icon = type === 'success' ? '✓' : '⚠️';
+      toast.innerHTML = `<span>${icon}</span> ${message}`;
+      
+      container.appendChild(toast);
+      
+      // Auto-remove after 3 seconds
+      setTimeout(() => {
+        toast.style.animation = 'slideIn 0.3s ease reverse forwards';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
 
     // Verify localStorage admin token on page load
     document.addEventListener("DOMContentLoaded", () => {
@@ -605,10 +764,12 @@
         const orders = await ordersRes.json();
         const menu = await menuRes.json();
         
+        menuCache = menu; // update cache
         renderOrders(orders);
         renderMenu(menu);
       } catch (err) {
         console.error('Error fetching data:', err);
+        showToast('Error syncing data from server', 'danger');
       }
     }
 
@@ -619,7 +780,6 @@
         return;
       }
 
-      // Sort by newest order first
       orders.sort((a,b) => b.id - a.id);
 
       container.innerHTML = orders.map(o => {
@@ -631,7 +791,7 @@
             <div class="order-header">
               <div>
                 <div class="order-id">Order #${o.id}</div>
-                <div class="order-time">Placed at ${time} • Mode: ${o.checkoutMode.toUpperCase()}</div>
+                <div class="order-time">Placed at ${time} • Mode: ${o.checkoutMode.toUpperCase()} • Pay: ${(o.paymentMethod || 'COD').toUpperCase()}</div>
               </div>
               <span class="order-badge badge-${badgeClass}">${o.status}</span>
             </div>
@@ -684,9 +844,10 @@
           <table class="menu-table">
             <thead>
               <tr>
-                <th style="width: 50%;">Item details</th>
-                <th style="width: 25%;">Price</th>
-                <th style="width: 25%;">Availability</th>
+                <th style="width: 40%;">Item details</th>
+                <th style="width: 20%;">Price (₹)</th>
+                <th style="width: 20%;">Availability</th>
+                <th style="width: 20%;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -696,7 +857,11 @@
                     <div class="item-name">${item.name}</div>
                     <div class="item-desc">${item.description}</div>
                   </td>
-                  <td><div class="item-price">₹${item.price}</div></td>
+                  <td>
+                    <input type="number" value="${item.price}" class="price-input" 
+                      onchange="updateMenuPrice('${item.id}', this.value)"
+                      onkeydown="if(event.key === 'Enter') this.blur();">
+                  </td>
                   <td>
                     <label class="switch">
                       <input type="checkbox" ${item.available ? 'checked' : ''} onchange="toggleAvailability('${item.id}', this.checked)">
@@ -706,12 +871,87 @@
                       ${item.available ? 'Available' : 'Unavailable'}
                     </span>
                   </td>
+                  <td>
+                    <button class="edit-btn" onclick="openMenuModal('${item.id}')">✏️ Edit Details</button>
+                  </td>
                 </tr>
               `).join('')}
             </tbody>
           </table>
         </div>
       `).join('');
+    }
+
+    // Modal Manager Logic
+    function openMenuModal(itemId = null) {
+      const titleSpan = document.querySelector("#modal-title span");
+      const hiddenId = document.getElementById("item-id-hidden");
+      const nameInput = document.getElementById("item-name-input");
+      const categoryInput = document.getElementById("item-category-input");
+      const priceInput = document.getElementById("item-price-input");
+      const descInput = document.getElementById("item-desc-input");
+
+      if (itemId) {
+        // Edit existing item
+        const item = menuCache.find(m => m.id === itemId);
+        if (!item) return;
+
+        titleSpan.textContent = "Edit Menu Item";
+        hiddenId.value = item.id;
+        nameInput.value = item.name;
+        categoryInput.value = item.category;
+        priceInput.value = item.price;
+        descInput.value = item.description;
+      } else {
+        // Add new item
+        titleSpan.textContent = "New Menu Item";
+        hiddenId.value = "";
+        nameInput.value = "";
+        categoryInput.value = "Snacks";
+        priceInput.value = "";
+        descInput.value = "";
+      }
+
+      document.getElementById("menu-modal").classList.remove("hidden");
+    }
+
+    function closeMenuModal() {
+      document.getElementById("menu-modal").classList.add("hidden");
+    }
+
+    async function saveMenuItem() {
+      const id = document.getElementById("item-id-hidden").value;
+      const name = document.getElementById("item-name-input").value.trim();
+      const category = document.getElementById("item-category-input").value;
+      const price = parseFloat(document.getElementById("item-price-input").value);
+      const description = document.getElementById("item-desc-input").value.trim();
+
+      if (!name || isNaN(price)) {
+        showToast("Please fill in the Name and a valid Price.", "danger");
+        return;
+      }
+
+      const payload = { name, category, price, description };
+      const url = id ? `/api/menu/${id}` : "/api/menu";
+      const method = id ? "PUT" : "POST";
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          showToast(id ? "Menu item updated successfully!" : "New menu item created successfully!", "success");
+          closeMenuModal();
+          fetchData();
+        } else {
+          showToast("Failed to save menu item details.", "danger");
+        }
+      } catch (err) {
+        showToast("Network error saving menu item.", "danger");
+      }
     }
 
     async function updateOrderStatus(orderId, status) {
@@ -721,7 +961,10 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status })
         });
-        if (res.ok) fetchData();
+        if (res.ok) {
+          showToast(`Order #${orderId} status updated to ${status}`);
+          fetchData();
+        }
       } catch (err) {
         console.error('Error updating order status:', err);
       }
@@ -734,9 +977,37 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ available })
         });
-        if (res.ok) fetchData();
+        if (res.ok) {
+          showToast(available ? "Item marked Available" : "Item marked Unavailable");
+          fetchData();
+        }
       } catch (err) {
         console.error('Error toggling availability:', err);
+      }
+    }
+
+    async function updateMenuPrice(itemId, priceVal) {
+      const price = parseFloat(priceVal);
+      if (isNaN(price) || price < 0) {
+        showToast("Please enter a valid positive price.", "danger");
+        fetchData(); // reset view
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/menu/${itemId}/price`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ price })
+        });
+        if (res.ok) {
+          showToast("Price updated successfully!");
+          fetchData();
+        } else {
+          showToast("Failed to update item price.", "danger");
+        }
+      } catch (err) {
+        showToast("Error updating price.", "danger");
       }
     }
 
