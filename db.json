@@ -751,6 +751,374 @@
       "price": 110,
       "description": "Fiery noodles flavored with green chilies, garlic, and scallions.",
       "available": true
+    },
+    {
+      "id": "tandoor-masala-papad",
+      "name": "Masala Papad",
+      "category": "Tandoori Starters",
+      "price": 60,
+      "description": "Crispy roasted papad topped with spicy onion, tomato, and herb mixture.",
+      "available": true
+    },
+    {
+      "id": "tandoor-paneer-satay",
+      "name": "Paneer Satay (Tandoori)",
+      "category": "Tandoori Starters",
+      "price": 160,
+      "description": "Grilled marinated paneer skewers served with peanut sauce.",
+      "available": true
+    },
+    {
+      "id": "tandoor-paneer-tikka",
+      "name": "Paneer Tikka",
+      "category": "Tandoori Starters",
+      "price": 160,
+      "description": "Classic tandoor-roasted spiced paneer skewers with bell peppers.",
+      "available": true
+    },
+    {
+      "id": "tandoor-harabhara-kabab",
+      "name": "Harabhara Khabab",
+      "category": "Tandoori Starters",
+      "price": 160,
+      "description": "Healthy deep-fried spinach, green peas, and potato patties.",
+      "available": true
+    },
+    {
+      "id": "tandoor-stuffed-paneer",
+      "name": "Stuffed Paneer",
+      "category": "Tandoori Starters",
+      "price": 150,
+      "description": "Paneer sandwiches stuffed with mint chutney and roasted in tandoor.",
+      "available": true
+    },
+    {
+      "id": "tandoor-paneer-papdi",
+      "name": "Paneer Papdi",
+      "category": "Tandoori Starters",
+      "price": 150,
+      "description": "Crispy papdi-crusted deep-fried paneer strips.",
+      "available": true
+    },
+    {
+      "id": "tandoor-paneer-peri-peri",
+      "name": "Paneer Tikka Peri Peri",
+      "category": "Tandoori Starters",
+      "price": 160,
+      "description": "Spicy tandoor-roasted paneer skewers tossed in peri peri marinade.",
+      "available": true
+    },
+    {
+      "id": "tandoor-aloo-tikka",
+      "name": "Aloo Tikka",
+      "category": "Tandoori Starters",
+      "price": 120,
+      "description": "Roasted baby potatoes marinated in spiced yogurt.",
+      "available": true
+    },
+    {
+      "id": "tandoor-veg-platter",
+      "name": "Veg Platter",
+      "category": "Tandoori Starters",
+      "price": 170,
+      "description": "Assorted platter of paneer tikka, hara bhara kabab, and tandoori aloo.",
+      "available": true
+    },
+    {
+      "id": "combo-roti-curry",
+      "name": "Roti Curry",
+      "category": "Combos",
+      "price": 65,
+      "description": "2 Tandoori Rotis served with a delicious mixed veg gravy.",
+      "available": true
+    },
+    {
+      "id": "combo-mini-meals",
+      "name": "North Mini Meals",
+      "category": "Combos",
+      "price": 90,
+      "description": "Standard combo of Roti, Rice, Dal, and one vegetable curry.",
+      "available": true
+    },
+    {
+      "id": "combo-special-meals",
+      "name": "North Special Meals",
+      "category": "Combos",
+      "price": 130,
+      "description": "Special combo: Roti, Jeera Rice, Paneer Curry, Dal, Raita, and Sweet.",
+      "available": true
+    },
+    {
+      "id": "bread-tandoori-roti",
+      "name": "Tandoori Roti",
+      "category": "Indian Breads",
+      "price": 25,
+      "description": "Plain wheat flatbread baked in clay tandoor.",
+      "available": true
+    },
+    {
+      "id": "bread-butter-roti",
+      "name": "Butter Tandoori Roti",
+      "category": "Indian Breads",
+      "price": 30,
+      "description": "Wheat flatbread baked in tandoor and brushed with butter.",
+      "available": true
+    },
+    {
+      "id": "bread-naan",
+      "name": "Naan",
+      "category": "Indian Breads",
+      "price": 35,
+      "description": "Soft leavened refined flour flatbread baked in tandoor.",
+      "available": true
+    },
+    {
+      "id": "bread-butter-naan",
+      "name": "Butter Naan",
+      "category": "Indian Breads",
+      "price": 40,
+      "description": "Soft tandoori naan brushed generously with pure butter.",
+      "available": true
+    },
+    {
+      "id": "bread-garlic-naan",
+      "name": "Garlic Naan",
+      "category": "Indian Breads",
+      "price": 40,
+      "description": "Tandoori naan flavored with fresh minced garlic and butter.",
+      "available": true
+    },
+    {
+      "id": "bread-kulcha",
+      "name": "Kulcha",
+      "category": "Indian Breads",
+      "price": 35,
+      "description": "Soft leavened flatbread baked to order.",
+      "available": true
+    },
+    {
+      "id": "bread-butter-kulcha",
+      "name": "Butter Kulcha",
+      "category": "Indian Breads",
+      "price": 40,
+      "description": "Soft tandoori kulcha brushed with butter.",
+      "available": true
+    },
+    {
+      "id": "bread-lachha-paratha",
+      "name": "Lachha Paratha",
+      "category": "Indian Breads",
+      "price": 45,
+      "description": "Multi-layered tandoori wheat flatbread brushed with butter.",
+      "available": true
+    },
+    {
+      "id": "curry-paneer-butter",
+      "name": "Paneer Butter Masala",
+      "category": "Indian Curries",
+      "price": 170,
+      "description": "Soft paneer cubes cooked in a rich, creamy tomato butter gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-palak-paneer",
+      "name": "Palak Paneer",
+      "category": "Indian Curries",
+      "price": 170,
+      "description": "Paneer chunks in a thick paste made from pur\u00e9ed spinach and spices.",
+      "available": true
+    },
+    {
+      "id": "curry-kadai-paneer",
+      "name": "Kadai Paneer",
+      "category": "Indian Curries",
+      "price": 180,
+      "description": "Paneer cooked with bell peppers in a spicy, freshly ground spice paste.",
+      "available": true
+    },
+    {
+      "id": "curry-paneer-tikka",
+      "name": "Paneer Tikka Masala",
+      "category": "Indian Curries",
+      "price": 180,
+      "description": "Tandoori grilled paneer chunks cooked in spicy tikka gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-paneer-piyaza",
+      "name": "Paneer Do Piyaza",
+      "category": "Indian Curries",
+      "price": 200,
+      "description": "Paneer curry made with twice the amount of onions.",
+      "available": true
+    },
+    {
+      "id": "curry-mutter-paneer",
+      "name": "Mutter Paneer",
+      "category": "Indian Curries",
+      "price": 180,
+      "description": "Classic combo of green peas and paneer in spiced gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-kaju-masala",
+      "name": "Kaju Masala",
+      "category": "Indian Curries",
+      "price": 180,
+      "description": "Roasted cashew nuts cooked in rich onion, tomato, and cashew paste.",
+      "available": true
+    },
+    {
+      "id": "curry-veg-kadai",
+      "name": "Veg Kadai",
+      "category": "Indian Curries",
+      "price": 150,
+      "description": "Mixed vegetables cooked in spicy kadai masala.",
+      "available": true
+    },
+    {
+      "id": "curry-mix-veg",
+      "name": "Mix Veg Curry",
+      "category": "Indian Curries",
+      "price": 150,
+      "description": "Assorted fresh garden vegetables in mildly spiced gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-veg-deewani",
+      "name": "Veg Deewani",
+      "category": "Indian Curries",
+      "price": 160,
+      "description": "Royal vegetable curry cooked in creamy spinach and cashew gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-veg-handi",
+      "name": "Veg Handi",
+      "category": "Indian Curries",
+      "price": 150,
+      "description": "Mixed vegetables cooked in a traditional handi-pot style gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-veg-kofta",
+      "name": "Veg Kofta",
+      "category": "Indian Curries",
+      "price": 160,
+      "description": "Vegetable dumplings cooked in rich spiced cream gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-veg-kholapuri",
+      "name": "Veg Kholapuri",
+      "category": "Indian Curries",
+      "price": 160,
+      "description": "Spicy mixed vegetable curry from the city of Kolhapur.",
+      "available": true
+    },
+    {
+      "id": "curry-mush-kadai",
+      "name": "Mushroom Kadai",
+      "category": "Indian Curries",
+      "price": 160,
+      "description": "Fresh button mushrooms cooked with bell peppers in kadai spices.",
+      "available": true
+    },
+    {
+      "id": "curry-mush-masala",
+      "name": "Mushroom Masala",
+      "category": "Indian Curries",
+      "price": 150,
+      "description": "Button mushrooms cooked in rich onion tomato gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-mush-tikka",
+      "name": "Mushroom Tikka Masala",
+      "category": "Indian Curries",
+      "price": 170,
+      "description": "Roasted marinated mushrooms in spicy masala gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-dal-fry",
+      "name": "Dal Fry",
+      "category": "Indian Curries",
+      "price": 120,
+      "description": "Yellow lentils cooked with onions, tomatoes, and spices.",
+      "available": true
+    },
+    {
+      "id": "curry-dal-tadka",
+      "name": "Dal Tadka",
+      "category": "Indian Curries",
+      "price": 130,
+      "description": "Yellow lentils tempered with ghee, cumin seeds, garlic, and red chilies.",
+      "available": true
+    },
+    {
+      "id": "curry-dal-kholapuri",
+      "name": "Dal Kholapuri",
+      "category": "Indian Curries",
+      "price": 130,
+      "description": "Spicy lentil curry cooked with fiery Kolhapuri spices.",
+      "available": true
+    },
+    {
+      "id": "curry-bindi-fry",
+      "name": "Bindi Fry",
+      "category": "Indian Curries",
+      "price": 140,
+      "description": "Crispy pan-fried ladyfinger tossed in dry spices.",
+      "available": true
+    },
+    {
+      "id": "curry-bindi-masala",
+      "name": "Bindi Masala",
+      "category": "Indian Curries",
+      "price": 140,
+      "description": "Okra cooked in a semi-dry spiced onion tomato gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-capsicum",
+      "name": "Capsicum Masala",
+      "category": "Indian Curries",
+      "price": 130,
+      "description": "Green bell peppers cooked in peanut sesame gravy.",
+      "available": true
+    },
+    {
+      "id": "curry-veg-kurma",
+      "name": "Veg Kurma",
+      "category": "Indian Curries",
+      "price": 140,
+      "description": "Assorted vegetables cooked in coconut cashew paste.",
+      "available": true
+    },
+    {
+      "id": "rice-veg-biriyani",
+      "name": "Veg Biriyani",
+      "category": "Delicious Rice",
+      "price": 140,
+      "description": "Aromatic long-grain basmati rice layered with vegetables, mint, and spices.",
+      "available": true
+    },
+    {
+      "id": "rice-dal-kichidi",
+      "name": "Dal Kichidi",
+      "category": "Delicious Rice",
+      "price": 110,
+      "description": "Comforting dish made of rice and lentils cooked together with mild spices.",
+      "available": true
+    },
+    {
+      "id": "rice-palak-dal-kichidi",
+      "name": "Palak Dal Kichidi",
+      "category": "Delicious Rice",
+      "price": 120,
+      "description": "Nutritious combination of rice, lentils, and fresh pur\u00e9ed spinach.",
+      "available": true
     }
   ],
   "orders": [
