@@ -1,156 +1,756 @@
 {
   "menu": [
     {
-      "id": "fries-french",
+      "id": "snack-french-fries",
       "name": "French Fries",
       "category": "Snacks",
       "price": 60,
-      "available": true,
-      "description": "Crispy golden salted potato fries."
+      "description": "Crispy golden salted potato fries.",
+      "available": true
     },
     {
-      "id": "fries-masala",
+      "id": "snack-masala-fries",
       "name": "Masala Fries",
       "category": "Snacks",
       "price": 70,
-      "available": true,
-      "description": "Crispy fries tossed in aromatic Indian masala spices."
+      "description": "Crispy fries tossed in aromatic Indian masala spices.",
+      "available": true
     },
     {
-      "id": "cheese-shots",
+      "id": "snack-peri-peri",
+      "name": "Peri Peri Fries",
+      "category": "Snacks",
+      "price": 80,
+      "description": "Golden fries tossed in spicy peri peri seasoning.",
+      "available": true
+    },
+    {
+      "id": "snack-cheese-fries",
+      "name": "Cheese Fries",
+      "category": "Snacks",
+      "price": 80,
+      "description": "Crispy french fries topped with warm melted cheese.",
+      "available": true
+    },
+    {
+      "id": "snack-cheese-shots",
       "name": "Cheese Shots",
       "category": "Snacks",
       "price": 80,
-      "available": true,
-      "description": "Crunchy bite-sized cheese nuggets bursting with flavor."
+      "description": "Crunchy bite-sized cheese nuggets bursting with flavor.",
+      "available": true
     },
     {
-      "id": "veg-maggie",
+      "id": "snack-veg-nuggets",
+      "name": "Veg Nuggets",
+      "category": "Snacks",
+      "price": 70,
+      "description": "Golden fried crispy vegetable nuggets.",
+      "available": true
+    },
+    {
+      "id": "snack-smilies",
+      "name": "Smilies",
+      "category": "Snacks",
+      "price": 80,
+      "description": "Crispy potato smiles loved by everyone.",
+      "available": true
+    },
+    {
+      "id": "snack-maggie",
+      "name": "Maggie",
+      "category": "Snacks",
+      "price": 40,
+      "description": "Classic instant noodles cooked to perfection.",
+      "available": true
+    },
+    {
+      "id": "snack-cheese-maggie",
+      "name": "Cheese Maggie",
+      "category": "Snacks",
+      "price": 60,
+      "description": "Hot maggie noodles topped with shredded processed cheese.",
+      "available": true
+    },
+    {
+      "id": "snack-veg-maggie",
       "name": "Veg Maggie",
       "category": "Snacks",
       "price": 50,
-      "available": true,
-      "description": "Traditional maggie noodles cooked with fresh vegetables."
+      "description": "Traditional maggie noodles cooked with fresh garden vegetables.",
+      "available": true
     },
     {
       "id": "sand-superveg",
       "name": "Super Veg Sandwich",
       "category": "Sandwiches",
       "price": 90,
-      "available": true,
-      "description": "Fresh garden veggies layered between toasted slices of bread."
+      "description": "Fresh garden veggies layered between toasted slices of bread.",
+      "available": true
     },
     {
       "id": "sand-exotic",
       "name": "VSS Exotic Sandwich",
       "category": "Sandwiches",
       "price": 110,
-      "available": true,
-      "description": "VSS special exotic vegetable sandwich with signature sauce."
+      "description": "VSS special exotic vegetable sandwich with signature sauce.",
+      "available": true
+    },
+    {
+      "id": "sand-superclub",
+      "name": "Super Club Veg Sandwich",
+      "category": "Sandwiches",
+      "price": 130,
+      "description": "Double decker vegetable club sandwich loaded with cheese.",
+      "available": true
+    },
+    {
+      "id": "sand-veg-cheese",
+      "name": "Veg Cheese Sandwich",
+      "category": "Sandwiches",
+      "price": 90,
+      "description": "Toasted bread slice stuffed with mixed vegetables and cheese.",
+      "available": true
+    },
+    {
+      "id": "sand-chilli-corn",
+      "name": "Chilli Corn Sandwich",
+      "category": "Sandwiches",
+      "price": 80,
+      "description": "Delicious sandwich filled with sweet corn and spicy green chillies.",
+      "available": true
+    },
+    {
+      "id": "sand-cheese-corn",
+      "name": "Cheese Corn Sandwich",
+      "category": "Sandwiches",
+      "price": 90,
+      "description": "Creamy sweet corn and melted cheese toasted sandwich.",
+      "available": true
+    },
+    {
+      "id": "sand-mushroom",
+      "name": "Mushroom Sandwich",
+      "category": "Sandwiches",
+      "price": 90,
+      "description": "Toasted sandwich filled with saut\u00e9ed mushrooms and herbs.",
+      "available": true
+    },
+    {
+      "id": "sand-paneer-cheese",
+      "name": "Paneer Cheese Sandwich",
+      "category": "Sandwiches",
+      "price": 110,
+      "description": "Fresh paneer chunks and mozzarella cheese sandwich.",
+      "available": true
     },
     {
       "id": "burger-spicy",
       "name": "Veg Spicy Burger",
       "category": "Sandwiches",
       "price": 80,
-      "available": true,
-      "description": "Crispy veg patty topped with spicy sauce and fresh lettuce."
+      "description": "Crispy veg patty topped with spicy sauce and fresh lettuce.",
+      "available": true
+    },
+    {
+      "id": "burger-cheesy",
+      "name": "Veg Cheesy Burger",
+      "category": "Sandwiches",
+      "price": 90,
+      "description": "Gourmet vegetable burger with a melting cheese layer.",
+      "available": true
+    },
+    {
+      "id": "burger-superveg",
+      "name": "Super Veg Burger",
+      "category": "Sandwiches",
+      "price": 100,
+      "description": "Fresh vegetable patty burger with premium toppings.",
+      "available": true
+    },
+    {
+      "id": "burger-paneer",
+      "name": "Paneer Burger",
+      "category": "Sandwiches",
+      "price": 100,
+      "description": "Juicy paneer patty burger with garlic mayo sauce.",
+      "available": true
+    },
+    {
+      "id": "burger-alootikki",
+      "name": "Alootikki Burger",
+      "category": "Sandwiches",
+      "price": 80,
+      "description": "Classic crispy potato tikki burger with mint chutney.",
+      "available": true
     },
     {
       "id": "burger-special",
       "name": "VSS Special Burger",
       "category": "Sandwiches",
       "price": 130,
-      "available": true,
-      "description": "Premium double decker vegetable burger loaded with cheese."
+      "description": "Premium double decker vegetable burger loaded with cheese.",
+      "available": true
     },
     {
       "id": "pasta-mac-creamy",
       "name": "Macaroni Creamy Pasta",
       "category": "Pastas",
       "price": 150,
-      "available": true,
-      "description": "Delightful macaroni tossed in rich and creamy white sauce."
+      "description": "Delightful macaroni tossed in rich and creamy white sauce.",
+      "available": true
+    },
+    {
+      "id": "pasta-mac-red",
+      "name": "Macaroni Red Sauce Pasta",
+      "category": "Pastas",
+      "price": 130,
+      "description": "Macaroni cooked in a tangy herb tomato sauce.",
+      "available": true
+    },
+    {
+      "id": "pasta-penne-creamy",
+      "name": "Penne Creamy Pasta",
+      "category": "Pastas",
+      "price": 150,
+      "description": "Classic penne pasta cooked in a rich Alfredo white sauce.",
+      "available": true
     },
     {
       "id": "pasta-penne-red",
       "name": "Penne Red Sauce Pasta",
       "category": "Pastas",
       "price": 130,
-      "available": true,
-      "description": "Penne pasta prepared in hot and tangy herb tomato red sauce."
+      "description": "Penne pasta prepared in hot and tangy herb tomato red sauce.",
+      "available": true
     },
     {
       "id": "pasta-fusilli-creamy",
       "name": "Fusilli Creamy Pasta",
       "category": "Pastas",
       "price": 150,
-      "available": true,
-      "description": "Fusilli pasta prepared in creamy white cheese sauce."
+      "description": "Fusilli pasta prepared in creamy white cheese sauce.",
+      "available": true
+    },
+    {
+      "id": "pasta-fusilli-red",
+      "name": "Fusilli Red Sauce Pasta",
+      "category": "Pastas",
+      "price": 130,
+      "description": "Fusilli pasta cooked in tangy herb tomato sauce.",
+      "available": true
     },
     {
       "id": "ice-scoop",
       "name": "Single Scoop Cup/Cone",
       "category": "Icecreams",
       "price": 40,
-      "available": true,
-      "description": "Single scoop of delicious ice cream."
+      "description": "Single scoop of delicious ice cream. Flavors: Chocolate, Vanilla, Pista, Kulfi.",
+      "available": true
+    },
+    {
+      "id": "ice-double",
+      "name": "Double Scoop Cup",
+      "category": "Icecreams",
+      "price": 70,
+      "description": "Double scoop of delicious ice cream. Mix and match your favorite flavors.",
+      "available": true
     },
     {
       "id": "ice-gudbud",
       "name": "Exotic Gudbud",
       "category": "Icecreams",
       "price": 110,
-      "available": true,
-      "description": "Layered ice cream sundae with jelly, fruits, and dry nuts."
+      "description": "Layered ice cream sundae with jelly, fresh fruits, and dry nuts.",
+      "available": true
+    },
+    {
+      "id": "ice-zest",
+      "name": "Fruit Zest",
+      "category": "Icecreams",
+      "price": 130,
+      "description": "Refreshing fruit-infused premium ice cream compilation.",
+      "available": true
+    },
+    {
+      "id": "ice-mango-berry",
+      "name": "Mango Berry",
+      "category": "Icecreams",
+      "price": 110,
+      "description": "Delicious scoop of mango ice cream paired with fresh berries.",
+      "available": true
     },
     {
       "id": "ice-sundae",
       "name": "Banoffee Sundae",
       "category": "Icecreams",
       "price": 120,
-      "available": true,
-      "description": "Classic banana and rich toffee sundae loaded with fudge."
+      "description": "Classic banana and rich toffee sundae loaded with fudge.",
+      "available": true
+    },
+    {
+      "id": "juice-muskmelon",
+      "name": "Muskmelon Juice",
+      "category": "Beverages",
+      "price": 70,
+      "description": "Freshly squeezed hydrating muskmelon juice.",
+      "available": true
     },
     {
       "id": "juice-watermelon",
       "name": "Watermelon Juice",
       "category": "Beverages",
       "price": 50,
-      "available": true,
-      "description": "Freshly squeezed hydrating watermelon juice."
+      "description": "Freshly squeezed hydrating watermelon juice.",
+      "available": true
+    },
+    {
+      "id": "juice-apple",
+      "name": "Apple Juice",
+      "category": "Beverages",
+      "price": 80,
+      "description": "Freshly pressed sweet red apple juice.",
+      "available": true
+    },
+    {
+      "id": "juice-pineapple",
+      "name": "Pineapple Juice",
+      "category": "Beverages",
+      "price": 60,
+      "description": "Freshly squeezed tangy pineapple juice.",
+      "available": true
+    },
+    {
+      "id": "juice-lemon",
+      "name": "Lemon Juice",
+      "category": "Beverages",
+      "price": 50,
+      "description": "Classic refreshing squeezed lime juice.",
+      "available": true
     },
     {
       "id": "shake-chocolate",
       "name": "Chocolate Milkshake",
       "category": "Beverages",
       "price": 110,
-      "available": true,
-      "description": "Thick and creamy double chocolate blended milkshake."
+      "description": "Thick and creamy double chocolate blended milkshake.",
+      "available": true
+    },
+    {
+      "id": "shake-vanilla",
+      "name": "Vanilla Milkshake",
+      "category": "Beverages",
+      "price": 100,
+      "description": "Thick milkshake blended with premium vanilla.",
+      "available": true
+    },
+    {
+      "id": "shake-butterscotch",
+      "name": "Butterscotch Milkshake",
+      "category": "Beverages",
+      "price": 100,
+      "description": "Creamy milkshake flavored with butterscotch crunch.",
+      "available": true
+    },
+    {
+      "id": "shake-strawberry",
+      "name": "Strawberry Milkshake",
+      "category": "Beverages",
+      "price": 110,
+      "description": "Creamy milkshake blended with fresh strawberries.",
+      "available": true
+    },
+    {
+      "id": "shake-mango",
+      "name": "Mango Milkshake",
+      "category": "Beverages",
+      "price": 110,
+      "description": "Thick blended milkshake made with sweet mango pulp.",
+      "available": true
+    },
+    {
+      "id": "shake-apple",
+      "name": "Apple Milkshake",
+      "category": "Beverages",
+      "price": 110,
+      "description": "Sweet and creamy blended fresh apple milkshake.",
+      "available": true
     },
     {
       "id": "mocktail-mojito",
       "name": "Virgin Mojito",
       "category": "Beverages",
       "price": 145,
-      "available": true,
-      "description": "Refreshing mocktail with fresh mint leaves, lime juice, and soda."
+      "description": "Refreshing mocktail with fresh mint leaves, lime juice, and soda.",
+      "available": true
+    },
+    {
+      "id": "mocktail-sea-blue",
+      "name": "Sea Blue",
+      "category": "Beverages",
+      "price": 150,
+      "description": "Sparkling blue curacao mocktail with a splash of lime.",
+      "available": true
+    },
+    {
+      "id": "mocktail-coconut",
+      "name": "Coconut Paradise",
+      "category": "Beverages",
+      "price": 140,
+      "description": "Tropical creamy coconut mocktail with pineapple juice.",
+      "available": true
     },
     {
       "id": "mocktail-cooler",
       "name": "Green Apple Cooler",
       "category": "Beverages",
       "price": 145,
-      "available": true,
-      "description": "Crisp green apple mocktail with a tangy zesty finish."
+      "description": "Crisp green apple mocktail with a tangy zesty finish.",
+      "available": true
+    },
+    {
+      "id": "mocktail-colada",
+      "name": "Pina Colada",
+      "category": "Beverages",
+      "price": 140,
+      "description": "Classic blend of pineapple juice and coconut cream.",
+      "available": true
+    },
+    {
+      "id": "mocktail-strawberry",
+      "name": "Strawberry Blush",
+      "category": "Beverages",
+      "price": 145,
+      "description": "Sweet strawberry mocktail with a hint of lemon and mint.",
+      "available": true
+    },
+    {
+      "id": "mocktail-passion",
+      "name": "Passion Fruit Basil",
+      "category": "Beverages",
+      "price": 140,
+      "description": "Exotic passion fruit mocktail garnished with fresh basil leaves.",
+      "available": true
+    },
+    {
+      "id": "mocktail-punch",
+      "name": "Fruit Punch",
+      "category": "Beverages",
+      "price": 130,
+      "description": "Tropical mixed fruit mocktail served chilled.",
+      "available": true
+    },
+    {
+      "id": "soda-salt-sweet",
+      "name": "Salt / Sweet Soda",
+      "category": "Beverages",
+      "price": 40,
+      "description": "Crisp carbonated soda served salted or sweet.",
+      "available": true
+    },
+    {
+      "id": "soda-sweet-salt",
+      "name": "Sweet & Salt Soda",
+      "category": "Beverages",
+      "price": 40,
+      "description": "Crisp carbonated soda served with a sweet and salty twist.",
+      "available": true
     },
     {
       "id": "soda-masala",
       "name": "Masala Soda",
       "category": "Beverages",
       "price": 40,
-      "available": true,
-      "description": "Carbonated soda fizz flavored with Indian spices."
+      "description": "Carbonated soda fizz flavored with Indian spices.",
+      "available": true
+    },
+    {
+      "id": "soda-lemon",
+      "name": "Lemon Soda",
+      "category": "Beverages",
+      "price": 40,
+      "description": "Zesty carbonated lime soda served chilled.",
+      "available": true
+    },
+    {
+      "id": "soup-tomato",
+      "name": "Cream of Tomato Soup",
+      "category": "Soups",
+      "price": 80,
+      "description": "Classic creamy rich tomato soup served with croutons.",
+      "available": true
+    },
+    {
+      "id": "soup-manchow",
+      "name": "Veg Manchow Soup",
+      "category": "Soups",
+      "price": 70,
+      "description": "Spicy vegetable soup served with crispy fried noodles.",
+      "available": true
+    },
+    {
+      "id": "soup-hot-sour",
+      "name": "Hot and Sour Soup",
+      "category": "Soups",
+      "price": 70,
+      "description": "Tangy and spicy mixed vegetable soup.",
+      "available": true
+    },
+    {
+      "id": "soup-sweetcorn",
+      "name": "Sweet Corn Soup",
+      "category": "Soups",
+      "price": 80,
+      "description": "Mild and comforting sweet corn kernel soup.",
+      "available": true
+    },
+    {
+      "id": "soup-coriander",
+      "name": "Lemon Coriander Soup",
+      "category": "Soups",
+      "price": 70,
+      "description": "Clear vegetable broth flavored with fresh coriander and lemon.",
+      "available": true
+    },
+    {
+      "id": "start-gobi-manchurian",
+      "name": "Gobi Manchurian",
+      "category": "Starters",
+      "price": 90,
+      "description": "Crispy cauliflower florets tossed in sweet and tangy soy chili sauce.",
+      "available": true
+    },
+    {
+      "id": "start-gobi-chilli",
+      "name": "Gobi Chilli",
+      "category": "Starters",
+      "price": 100,
+      "description": "Cauliflower florets stir-fried with green chilies, capsicum, and soy sauce.",
+      "available": true
+    },
+    {
+      "id": "start-gobi-pepper",
+      "name": "Gobi Pepper Dry",
+      "category": "Starters",
+      "price": 100,
+      "description": "Crispy cauliflower tossed with black pepper and curry leaves.",
+      "available": true
+    },
+    {
+      "id": "start-gobi-65",
+      "name": "Gobi 65",
+      "category": "Starters",
+      "price": 100,
+      "description": "Spicy deep-fried south Indian cauliflower starter.",
+      "available": true
+    },
+    {
+      "id": "start-paneer-manchurian",
+      "name": "Paneer Manchurian",
+      "category": "Starters",
+      "price": 130,
+      "description": "Soft paneer cubes tossed in classic manchurian sauce.",
+      "available": true
+    },
+    {
+      "id": "start-paneer-chilli",
+      "name": "Paneer Chilli",
+      "category": "Starters",
+      "price": 140,
+      "description": "Fresh paneer chunks stir-fried with onions and bell peppers in chili sauce.",
+      "available": true
+    },
+    {
+      "id": "start-paneer-pepper",
+      "name": "Paneer Pepper Dry",
+      "category": "Starters",
+      "price": 130,
+      "description": "Paneer cubes tossed in fresh black pepper and herbs.",
+      "available": true
+    },
+    {
+      "id": "start-cottage-paneer",
+      "name": "Lemon Cottage Paneer",
+      "category": "Starters",
+      "price": 140,
+      "description": "Soft paneer saut\u00e9ed with lemon juice, butter, and green herbs.",
+      "available": true
+    },
+    {
+      "id": "start-paneer-satay",
+      "name": "Paneer Satay",
+      "category": "Starters",
+      "price": 150,
+      "description": "Grilled skewered paneer served with peanut dipping sauce.",
+      "available": true
+    },
+    {
+      "id": "start-paneer-65",
+      "name": "Paneer 65",
+      "category": "Starters",
+      "price": 140,
+      "description": "Spicy deep-fried paneer marinated in classic south Indian spices.",
+      "available": true
+    },
+    {
+      "id": "start-babycorn-manch",
+      "name": "Babycorn Manchurian",
+      "category": "Starters",
+      "price": 100,
+      "description": "Crispy babycorn pieces tossed in tangy manchurian gravy.",
+      "available": true
+    },
+    {
+      "id": "start-babycorn-chilli",
+      "name": "Babycorn Chilli",
+      "category": "Starters",
+      "price": 120,
+      "description": "Stir-fried babycorn with fresh green chilies and bell peppers.",
+      "available": true
+    },
+    {
+      "id": "start-babycorn-pepper",
+      "name": "Babycorn Pepper Dry",
+      "category": "Starters",
+      "price": 110,
+      "description": "Crispy babycorn tossed in garlic, black pepper, and curry leaves.",
+      "available": true
+    },
+    {
+      "id": "start-crispy-babycorn",
+      "name": "Crispy Babycorn",
+      "category": "Starters",
+      "price": 120,
+      "description": "Golden fried crispy babycorn served with sweet chili dip.",
+      "available": true
+    },
+    {
+      "id": "start-golden-babycorn",
+      "name": "Golden Fried Babycorn",
+      "category": "Starters",
+      "price": 120,
+      "description": "Deep-fried tempura battered babycorn sticks.",
+      "available": true
+    },
+    {
+      "id": "start-babycorn-65",
+      "name": "Babycorn 65",
+      "category": "Starters",
+      "price": 110,
+      "description": "Deep-fried babycorn tossed in south Indian red spices.",
+      "available": true
+    },
+    {
+      "id": "start-mush-manch",
+      "name": "Mushroom Manchurian",
+      "category": "Starters",
+      "price": 110,
+      "description": "Crispy fried mushrooms tossed in ginger garlic soy sauce.",
+      "available": true
+    },
+    {
+      "id": "start-mush-chilli",
+      "name": "Mushroom Chilli",
+      "category": "Starters",
+      "price": 120,
+      "description": "Stir-fried fresh mushrooms in spicy soy chili glaze.",
+      "available": true
+    },
+    {
+      "id": "start-mush-pepper",
+      "name": "Mushroom Pepper Dry",
+      "category": "Starters",
+      "price": 120,
+      "description": "Fresh mushrooms tossed with cracked black pepper and green onions.",
+      "available": true
+    },
+    {
+      "id": "start-mush-65",
+      "name": "Mushroom 65",
+      "category": "Starters",
+      "price": 110,
+      "description": "Spicy deep-fried button mushrooms flavored with curry leaves.",
+      "available": true
+    },
+    {
+      "id": "rice-veg-fried",
+      "name": "Veg Fried Rice",
+      "category": "Rice & Noodles",
+      "price": 90,
+      "description": "Stir-fried aromatic basmati rice tossed with fresh chopped vegetables.",
+      "available": true
+    },
+    {
+      "id": "rice-jeera",
+      "name": "Jeera Rice",
+      "category": "Rice & Noodles",
+      "price": 90,
+      "description": "Fragrant basmati rice tempered with ghee and cumin seeds.",
+      "available": true
+    },
+    {
+      "id": "rice-ghee",
+      "name": "Ghee Rice",
+      "category": "Rice & Noodles",
+      "price": 100,
+      "description": "Rich basmati rice cooked in pure ghee, garnished with cashews.",
+      "available": true
+    },
+    {
+      "id": "rice-paneer-fried",
+      "name": "Paneer Fried Rice",
+      "category": "Rice & Noodles",
+      "price": 120,
+      "description": "Vegetable fried rice enriched with stir-fried soft paneer cubes.",
+      "available": true
+    },
+    {
+      "id": "rice-schezwan",
+      "name": "Schezwan Fried Rice",
+      "category": "Rice & Noodles",
+      "price": 110,
+      "description": "Spicy basmati fried rice tossed in fiery homemade Schezwan sauce.",
+      "available": true
+    },
+    {
+      "id": "rice-mushroom",
+      "name": "Mushroom Rice",
+      "category": "Rice & Noodles",
+      "price": 110,
+      "description": "Stir-fried rice tossed with fresh button mushrooms and garlic.",
+      "available": true
+    },
+    {
+      "id": "rice-gobi",
+      "name": "Gobi Rice",
+      "category": "Rice & Noodles",
+      "price": 100,
+      "description": "Flavorful basmati rice cooked with spiced Gobi Manchurian bits.",
+      "available": true
+    },
+    {
+      "id": "noodle-veg",
+      "name": "Veg Noodles",
+      "category": "Rice & Noodles",
+      "price": 100,
+      "description": "Classic Hakka noodles stir-fried with fresh shredded vegetables.",
+      "available": true
+    },
+    {
+      "id": "noodle-schezwan",
+      "name": "Schezwan Noodles",
+      "category": "Rice & Noodles",
+      "price": 120,
+      "description": "Stir-fried noodles tossed with crisp veggies in spicy Schezwan sauce.",
+      "available": true
+    },
+    {
+      "id": "noodle-chilli-garlic",
+      "name": "Chilli Garlic Noodles",
+      "category": "Rice & Noodles",
+      "price": 110,
+      "description": "Fiery noodles flavored with green chilies, garlic, and scallions.",
+      "available": true
     }
   ],
   "orders": [
