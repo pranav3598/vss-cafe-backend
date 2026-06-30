@@ -1,0 +1,254 @@
+{
+  "menu": [
+    {
+      "id": "fries-french",
+      "name": "French Fries",
+      "category": "Snacks",
+      "price": 60,
+      "available": true,
+      "description": "Crispy golden salted potato fries."
+    },
+    {
+      "id": "fries-masala",
+      "name": "Masala Fries",
+      "category": "Snacks",
+      "price": 70,
+      "available": true,
+      "description": "Crispy fries tossed in aromatic Indian masala spices."
+    },
+    {
+      "id": "cheese-shots",
+      "name": "Cheese Shots",
+      "category": "Snacks",
+      "price": 80,
+      "available": true,
+      "description": "Crunchy bite-sized cheese nuggets bursting with flavor."
+    },
+    {
+      "id": "veg-maggie",
+      "name": "Veg Maggie",
+      "category": "Snacks",
+      "price": 50,
+      "available": true,
+      "description": "Traditional maggie noodles cooked with fresh vegetables."
+    },
+    {
+      "id": "sand-superveg",
+      "name": "Super Veg Sandwich",
+      "category": "Sandwiches",
+      "price": 90,
+      "available": true,
+      "description": "Fresh garden veggies layered between toasted slices of bread."
+    },
+    {
+      "id": "sand-exotic",
+      "name": "VSS Exotic Sandwich",
+      "category": "Sandwiches",
+      "price": 110,
+      "available": true,
+      "description": "VSS special exotic vegetable sandwich with signature sauce."
+    },
+    {
+      "id": "burger-spicy",
+      "name": "Veg Spicy Burger",
+      "category": "Sandwiches",
+      "price": 80,
+      "available": true,
+      "description": "Crispy veg patty topped with spicy sauce and fresh lettuce."
+    },
+    {
+      "id": "burger-special",
+      "name": "VSS Special Burger",
+      "category": "Sandwiches",
+      "price": 130,
+      "available": true,
+      "description": "Premium double decker vegetable burger loaded with cheese."
+    },
+    {
+      "id": "pasta-mac-creamy",
+      "name": "Macaroni Creamy Pasta",
+      "category": "Pastas",
+      "price": 150,
+      "available": true,
+      "description": "Delightful macaroni tossed in rich and creamy white sauce."
+    },
+    {
+      "id": "pasta-penne-red",
+      "name": "Penne Red Sauce Pasta",
+      "category": "Pastas",
+      "price": 130,
+      "available": true,
+      "description": "Penne pasta prepared in hot and tangy herb tomato red sauce."
+    },
+    {
+      "id": "pasta-fusilli-creamy",
+      "name": "Fusilli Creamy Pasta",
+      "category": "Pastas",
+      "price": 150,
+      "available": true,
+      "description": "Fusilli pasta prepared in creamy white cheese sauce."
+    },
+    {
+      "id": "ice-scoop",
+      "name": "Single Scoop Cup/Cone",
+      "category": "Icecreams",
+      "price": 40,
+      "available": true,
+      "description": "Single scoop of delicious ice cream."
+    },
+    {
+      "id": "ice-gudbud",
+      "name": "Exotic Gudbud",
+      "category": "Icecreams",
+      "price": 110,
+      "available": true,
+      "description": "Layered ice cream sundae with jelly, fruits, and dry nuts."
+    },
+    {
+      "id": "ice-sundae",
+      "name": "Banoffee Sundae",
+      "category": "Icecreams",
+      "price": 120,
+      "available": true,
+      "description": "Classic banana and rich toffee sundae loaded with fudge."
+    },
+    {
+      "id": "juice-watermelon",
+      "name": "Watermelon Juice",
+      "category": "Beverages",
+      "price": 50,
+      "available": true,
+      "description": "Freshly squeezed hydrating watermelon juice."
+    },
+    {
+      "id": "shake-chocolate",
+      "name": "Chocolate Milkshake",
+      "category": "Beverages",
+      "price": 110,
+      "available": true,
+      "description": "Thick and creamy double chocolate blended milkshake."
+    },
+    {
+      "id": "mocktail-mojito",
+      "name": "Virgin Mojito",
+      "category": "Beverages",
+      "price": 145,
+      "available": true,
+      "description": "Refreshing mocktail with fresh mint leaves, lime juice, and soda."
+    },
+    {
+      "id": "mocktail-cooler",
+      "name": "Green Apple Cooler",
+      "category": "Beverages",
+      "price": 145,
+      "available": true,
+      "description": "Crisp green apple mocktail with a tangy zesty finish."
+    },
+    {
+      "id": "soda-masala",
+      "name": "Masala Soda",
+      "category": "Beverages",
+      "price": 40,
+      "available": true,
+      "description": "Carbonated soda fizz flavored with Indian spices."
+    }
+  ],
+  "orders": [
+    {
+      "id": 1001,
+      "items": [
+        {
+          "product": {
+            "id": "fries-french",
+            "name": "French Fries",
+            "price": 60
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "fries-masala",
+            "name": "Masala Fries",
+            "price": 70
+          },
+          "quantity": 1
+        }
+      ],
+      "customerName": "Guest Customer",
+      "phone": "(555) 019-2834",
+      "address": "123 Coffee Lane, Suite B",
+      "notes": "",
+      "checkoutMode": "delivery",
+      "total": 176.5,
+      "status": "Delivered",
+      "progress": 1,
+      "timestamp": "2026-06-30T10:39:29.267Z"
+    },
+    {
+      "id": 1002,
+      "items": [
+        {
+          "product": {
+            "id": "fries-french",
+            "name": "French Fries",
+            "price": 60
+          },
+          "quantity": 1
+        }
+      ],
+      "customerName": "Guest Customer",
+      "phone": "(555) 019-2834",
+      "address": "123 Coffee Lane, Suite B",
+      "notes": "",
+      "checkoutMode": "pickup",
+      "total": 63,
+      "status": "Received",
+      "progress": 0,
+      "timestamp": "2026-06-30T10:42:23.036Z"
+    },
+    {
+      "id": 1003,
+      "items": [
+        {
+          "product": {
+            "id": "fries-french",
+            "name": "French Fries",
+            "price": 60
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "fries-masala",
+            "name": "Masala Fries",
+            "price": 70
+          },
+          "quantity": 1
+        }
+      ],
+      "customerName": "pranav",
+      "email": "pranavha3598@gmail.com",
+      "phone": "7019985069",
+      "address": "Bengaluru ",
+      "notes": "",
+      "checkoutMode": "delivery",
+      "total": 176.5,
+      "status": "Delivered",
+      "progress": 1,
+      "timestamp": "2026-06-30T12:27:19.888Z"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@vsscafe.com",
+      "password": "admin123",
+      "name": "Administrator",
+      "isAdmin": true
+    },
+    {
+      "email": "pranavha3598@gmail.com",
+      "password": "pranav@1998",
+      "name": "pranav"
+    }
+  ]
+}
