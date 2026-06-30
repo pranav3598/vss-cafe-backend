@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSS Admin Control Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0F0F10;
+      --bg-secondary: #161618;
+      --bg-card: #202024;
+      --border: #2C2C32;
+      --accent: #D4AF37; /* VSS Gold */
+      --accent-glow: rgba(212, 175, 55, 0.15);
+      --text-primary: #F5F5F7;
+      --text-secondary: #A1A1A6;
+      --success: #2ECC71;
+      --warning: #F1C40F;
+      --info: #3498DB;
+      --danger: #E74C3C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* Tabs navigation */
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .tab-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tab-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Views Layout */
+    .view-content {
+      display: none;
+    }
+
+    .view-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Orders View */
+    .orders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .order-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: border-color 0.3s;
+    }
+
+    .order-card:hover {
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .order-id {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .order-time {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .order-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-received { background-color: rgba(241, 196, 15, 0.15); color: var(--warning); border: 1px solid rgba(241, 196, 15, 0.3); }
+    .badge-preparing { background-color: rgba(52, 152, 219, 0.15); color: var(--info); border: 1px solid rgba(52, 152, 219, 0.3); }
+    .badge-outfordelivery { background-color: rgba(212, 175, 55, 0.15); color: var(--accent); border: 1px solid rgba(212, 175, 55, 0.3); }
+    .badge-delivered { background-color: rgba(46, 204, 113, 0.15); color: var(--success); border: 1px solid rgba(46, 204, 113, 0.3); }
+
+    .order-items {
+      list-style: none;
+      padding: 12px;
+      background-color: var(--bg-secondary);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .order-items li {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .order-items li:last-child {
+      border-bottom: none;
+    }
+
+    .order-meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .order-meta strong {
+      color: var(--text-primary);
+    }
+
+    .order-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .order-total {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .status-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .status-select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Menu Manager View */
+    .menu-manager {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .category-section {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .category-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .menu-table th, .menu-table td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .menu-table th {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .menu-table td {
+      font-size: 14px;
+    }
+
+    .item-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .item-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Inline input adjustments */
+    .price-input {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 8px;
+      width: 80px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .price-input:focus {
+      border-color: var(--accent);
+    }
+
+    /* Toggle Switch Styling */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      vertical-align: middle;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #3e3e46;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--success);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    .status-label {
+      margin-left: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+
+    .status-label.available { color: var(--success); }
+    .status-label.unavailable { color: var(--text-secondary); }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px;
+      color: var(--text-secondary);
+      font-size: 15px;
+      background-color: var(--bg-card);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+    }
+
+    /* Overlay styles (Login & Modal) */
+    .login-overlay, .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 15, 16, 0.96);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      transition: opacity 0.4s ease;
+    }
+
+    .login-overlay.hidden, .modal-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .login-card, .modal-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .login-card h2, .modal-card h2 {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .login-card h2 span, .modal-card h2 span {
+      color: var(--accent);
+    }
+
+    .login-field, .modal-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .login-field label, .modal-field label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .login-field input, .modal-field input, .modal-field select, .modal-field textarea {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .login-field input:focus, .modal-field input:focus, .modal-field select:focus, .modal-field textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .modal-field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .login-btn, .modal-btn {
+      background: linear-gradient(135deg, var(--accent), #B5942D);
+      border: none;
+      color: #000;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .login-btn:active, .modal-btn:active {
+      transform: scale(0.98);
+    }
+
+    .modal-btn-cancel {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .modal-btn-cancel:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .login-error {
+      color: var(--danger);
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+    }
+
+    .logout-btn {
+      background-color: rgba(231, 76, 60, 0.15);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      color: var(--danger);
+    }
+
+    .logout-btn:hover {
+      border-color: var(--danger);
+      color: #FFF;
+      background-color: var(--danger);
+    }
+
+    /* Toast Notification styles */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 11000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background-color: var(--bg-card);
+      border-left: 4px solid var(--accent);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 24px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 280px;
+      animation: slideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .toast.toast-success { border-left-color: var(--success); }
+    .toast.toast-danger { border-left-color: var(--danger); }
+
+    @keyframes slideIn {
+      from { transform: translateX(110%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .edit-btn {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .edit-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOAST ALERTS CONTAINER -->
+  <div id="toast-root" class="toast-container"></div>
+
+  <!-- ADMIN LOGIN GATE OVERLAY -->
+  <div id="login-gate" class="login-overlay">
+    <div class="login-card">
+      <h2>VSS <span>Admin Login</span></h2>
+      <div id="login-error-msg" class="login-error"></div>
+      
+      <div class="login-field">
+        <label for="admin-email">Email Address</label>
+        <input type="email" id="admin-email" placeholder="admin@vsscafe.com">
+      </div>
+      
+      <div class="login-field">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" placeholder="••••••••">
+      </div>
+      
+      <button class="login-btn" onclick="submitAdminLogin()">Sign In to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- EDIT / ADD MENU ITEM MODAL -->
+  <div id="menu-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2 id="modal-title">Add <span>New Menu Item</span></h2>
+      <input type="hidden" id="item-id-hidden">
+      
+      <div class="modal-field">
+        <label for="item-name-input">Item Name</label>
+        <input type="text" id="item-name-input" placeholder="e.g. Cheese Sandwich">
+      </div>
+      
+      <div class="modal-field">
+        <label for="item-category-input">Category</label>
+        <select id="item-category-input">
+          <option value="Snacks">Snacks</option>
+          <option value="Sandwiches">Sandwiches</option>
+          <option value="Pastas">Pastas</option>
+          <option value="Icecreams">Icecreams</option>
+          <option value="Beverages">Beverages</option>
+        </select>
+      </div>
+      
+      <div class="modal-field">
+        <label for="item-price-input">Price (₹)</label>
+        <input type="number" id="item-price-input" placeholder="e.g. 90">
+      </div>
+      
+      <div class="modal-field">
+        <label for="item-desc-input">Description</label>
+        <textarea id="item-desc-input" placeholder="Enter ingredients or details..."></textarea>
+      </div>
+      
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-cancel" onclick="closeMenuModal()">Cancel</button>
+        <button class="modal-btn" onclick="saveMenuItem()">Save Item</button>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div>
+      <h1>VSS <span>Sports Square</span></h1>
+      <div class="subtitle">Restaurant Admin Control Panel</div>
+    </div>
+    <div class="header-actions">
+      <div class="tab-btn" onclick="fetchData()">Refresh Data ↻</div>
+      <div class="tab-btn logout-btn" onclick="logoutAdmin()">Logout ⏻</div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchView('orders-view', this)">Orders Dashboard</button>
+    <button class="tab-btn" onclick="switchView('menu-view', this)">Menu Availability Manager</button>
+  </div>
+
+  <!-- VIEW 1: ORDERS -->
+  <div id="orders-view" class="view-content active">
+    <div id="orders-container" class="orders-grid">
+      <div class="empty-state">Loading active orders dashboard...</div>
+    </div>
+  </div>
+
+  <!-- VIEW 2: MENU -->
+  <div id="menu-view" class="view-content">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h2 style="font-size: 20px; font-weight: 700; color: var(--text-primary);">Menu Registry</h2>
+      <button class="tab-btn" onclick="openMenuModal(null)" style="background-color: var(--accent); color: #000; border: none; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 8px;">+ Add Menu Item</button>
+    </div>
+    <div id="menu-container" class="menu-manager">
+      <div class="empty-state">Loading menu registry...</div>
+    </div>
+  </div>
+
+  <script>
+    let activeTab = 'orders-view';
+    let menuCache = []; // Caches menu items to prevent quote escaping issues on Edit click
+
+    // Toast notification utility
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-root');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      
+      const icon = type === 'success' ? '✓' : '⚠️';
+      toast.innerHTML = `<span>${icon}</span> ${message}`;
+      
+      container.appendChild(toast);
+      
+      // Auto-remove after 3 seconds
+      setTimeout(() => {
+        toast.style.animation = 'slideIn 0.3s ease reverse forwards';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Verify localStorage admin token on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      const isAuth = localStorage.getItem("vss_admin_token");
+      if (isAuth === "authorized") {
+        document.getElementById("login-gate").classList.add("hidden");
+        fetchData();
+      }
+    });
+
+    async function submitAdminLogin() {
+      const email = document.getElementById("admin-email").value.trim();
+      const password = document.getElementById("admin-password").value.trim();
+      const errorMsg = document.getElementById("login-error-msg");
+
+      if (!email || !password) {
+        errorMsg.textContent = "Please fill in all fields.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+        
+        if (res.ok) {
+          const user = await res.json();
+          if (user.isAdmin) {
+            errorMsg.style.display = "none";
+            localStorage.setItem("vss_admin_token", "authorized");
+            document.getElementById("login-gate").classList.add("hidden");
+            fetchData();
+          } else {
+            errorMsg.textContent = "Access Denied: Only administrators allowed.";
+            errorMsg.style.display = "block";
+          }
+        } else {
+          errorMsg.textContent = "Invalid email or password.";
+          errorMsg.style.display = "block";
+        }
+      } catch (err) {
+        errorMsg.textContent = "Connection error. Please try again.";
+        errorMsg.style.display = "block";
+      }
+    }
+
+    function logoutAdmin() {
+      localStorage.removeItem("vss_admin_token");
+      document.getElementById("admin-email").value = "";
+      document.getElementById("admin-password").value = "";
+      document.getElementById("login-error-msg").style.display = "none";
+      document.getElementById("login-gate").classList.remove("hidden");
+    }
+
+    function switchView(viewId, btnEl) {
+      document.querySelectorAll('.view-content').forEach(view => view.classList.remove('active'));
+      document.querySelectorAll('.tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(viewId).classList.add('active');
+      btnEl.classList.add('active');
+      activeTab = viewId;
+    }
+
+    async function fetchData() {
+      if (localStorage.getItem("vss_admin_token") !== "authorized") return;
+      
+      try {
+        const [ordersRes, menuRes] = await Promise.all([
+          fetch('/api/orders'),
+          fetch('/api/menu')
+        ]);
+        const orders = await ordersRes.json();
+        const menu = await menuRes.json();
+        
+        menuCache = menu; // update cache
+        renderOrders(orders);
+        renderMenu(menu);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        showToast('Error syncing data from server', 'danger');
+      }
+    }
+
+    function renderOrders(orders) {
+      const container = document.getElementById('orders-container');
+      if (orders.length === 0) {
+        container.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;">No orders placed yet. Placed orders from the mobile app will appear here in real-time.</div>';
+        return;
+      }
+
+      orders.sort((a,b) => b.id - a.id);
+
+      container.innerHTML = orders.map(o => {
+        const time = new Date(o.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        const badgeClass = o.status.replace(/\s+/g, '').toLowerCase();
+        
+        return `
+          <div class="order-card">
+            <div class="order-header">
+              <div>
+                <div class="order-id">Order #${o.id}</div>
+                <div class="order-time">Placed at ${time} • Mode: ${o.checkoutMode.toUpperCase()} • Pay: ${(o.paymentMethod || 'COD').toUpperCase()}</div>
+              </div>
+              <span class="order-badge badge-${badgeClass}">${o.status}</span>
+            </div>
+
+            <ul class="order-items">
+              ${o.items.map(item => `
+                <li>
+                  <span>${item.product.name} <strong>x${item.quantity}</strong></span>
+                  <span>₹${item.product.price * item.quantity}</span>
+                </li>
+              `).join('')}
+            </ul>
+
+            <div class="order-meta">
+              <div><strong>Customer:</strong> ${o.customerName} (${o.email || 'Guest'})</div>
+              <div><strong>Phone:</strong> ${o.phone}</div>
+              ${o.checkoutMode === 'delivery' ? `<div><strong>Address:</strong> ${o.address}</div>` : ''}
+              ${o.notes ? `<div><strong>Notes:</strong> ${o.notes}</div>` : ''}
+            </div>
+
+            <div class="order-total-row">
+              <div>
+                <span style="font-size: 12px; color: var(--text-secondary); display: block;">Total Paid</span>
+                <span class="order-total">₹${o.total}</span>
+              </div>
+              <select class="status-select" onchange="updateOrderStatus(${o.id}, this.value)">
+                <option value="Received" ${o.status === 'Received' ? 'selected' : ''}>Received</option>
+                <option value="Preparing" ${o.status === 'Preparing' ? 'selected' : ''}>Preparing</option>
+                <option value="Out for Delivery" ${o.status === 'Out for Delivery' ? 'selected' : ''}>Out for Delivery</option>
+                <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+              </select>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderMenu(menu) {
+      const container = document.getElementById('menu-container');
+      
+      const categories = {};
+      menu.forEach(item => {
+        if (!categories[item.category]) categories[item.category] = [];
+        categories[item.category].push(item);
+      });
+
+      container.innerHTML = Object.keys(categories).map(catName => `
+        <div class="category-section">
+          <div class="category-title">${catName}</div>
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th style="width: 40%;">Item details</th>
+                <th style="width: 20%;">Price (₹)</th>
+                <th style="width: 20%;">Availability</th>
+                <th style="width: 20%;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${categories[catName].map(item => `
+                <tr>
+                  <td>
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-desc">${item.description}</div>
+                  </td>
+                  <td>
+                    <input type="number" value="${item.price}" class="price-input" 
+                      onchange="updateMenuPrice('${item.id}', this.value)"
+                      onkeydown="if(event.key === 'Enter') this.blur();">
+                  </td>
+                  <td>
+                    <label class="switch">
+                      <input type="checkbox" ${item.available ? 'checked' : ''} onchange="toggleAvailability('${item.id}', this.checked)">
+                      <span class="slider"></span>
+                    </label>
+                    <span class="status-label ${item.available ? 'available' : 'unavailable'}">
+                      ${item.available ? 'Available' : 'Unavailable'}
+                    </span>
+                  </td>
+                  <td>
+                    <button class="edit-btn" onclick="openMenuModal('${item.id}')">✏️ Edit Details</button>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `).join('');
+    }
+
+    // Modal Manager Logic
+    function openMenuModal(itemId = null) {
+      const titleSpan = document.querySelector("#modal-title span");
+      const hiddenId = document.getElementById("item-id-hidden");
+      const nameInput = document.getElementById("item-name-input");
+      const categoryInput = document.getElementById("item-category-input");
+      const priceInput = document.getElementById("item-price-input");
+      const descInput = document.getElementById("item-desc-input");
+
+      if (itemId) {
+        // Edit existing item
+        const item = menuCache.find(m => m.id === itemId);
+        if (!item) return;
+
+        titleSpan.textContent = "Edit Menu Item";
+        hiddenId.value = item.id;
+        nameInput.value = item.name;
+        categoryInput.value = item.category;
+        priceInput.value = item.price;
+        descInput.value = item.description;
+      } else {
+        // Add new item
+        titleSpan.textContent = "New Menu Item";
+        hiddenId.value = "";
+        nameInput.value = "";
+        categoryInput.value = "Snacks";
+        priceInput.value = "";
+        descInput.value = "";
+      }
+
+      document.getElementById("menu-modal").classList.remove("hidden");
+    }
+
+    function closeMenuModal() {
+      document.getElementById("menu-modal").classList.add("hidden");
+    }
+
+    async function saveMenuItem() {
+      const id = document.getElementById("item-id-hidden").value;
+      const name = document.getElementById("item-name-input").value.trim();
+      const category = document.getElementById("item-category-input").value;
+      const price = parseFloat(document.getElementById("item-price-input").value);
+      const description = document.getElementById("item-desc-input").value.trim();
+
+      if (!name || isNaN(price)) {
+        showToast("Please fill in the Name and a valid Price.", "danger");
+        return;
+      }
+
+      const payload = { name, category, price, description };
+      const url = id ? `/api/menu/${id}` : "/api/menu";
+      const method = id ? "PUT" : "POST";
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          showToast(id ? "Menu item updated successfully!" : "New menu item created successfully!", "success");
+          closeMenuModal();
+          fetchData();
+        } else {
+          showToast("Failed to save menu item details.", "danger");
+        }
+      } catch (err) {
+        showToast("Network error saving menu item.", "danger");
+      }
+    }
+
+    async function updateOrderStatus(orderId, status) {
+      try {
+        const res = await fetch(`/api/orders/${orderId}/status`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status })
+        });
+        if (res.ok) {
+          showToast(`Order #${orderId} status updated to ${status}`);
+          fetchData();
+        }
+      } catch (err) {
+        console.error('Error updating order status:', err);
+      }
+    }
+
+    async function toggleAvailability(itemId, available) {
+      try {
+        const res = await fetch(`/api/menu/${itemId}/availability`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ available })
+        });
+        if (res.ok) {
+          showToast(available ? "Item marked Available" : "Item marked Unavailable");
+          fetchData();
+        }
+      } catch (err) {
+        console.error('Error toggling availability:', err);
+      }
+    }
+
+    async function updateMenuPrice(itemId, priceVal) {
+      const price = parseFloat(priceVal);
+      if (isNaN(price) || price < 0) {
+        showToast("Please enter a valid positive price.", "danger");
+        fetchData(); // reset view
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/menu/${itemId}/price`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ price })
+        });
+        if (res.ok) {
+          showToast("Price updated successfully!");
+          fetchData();
+        } else {
+          showToast("Failed to update item price.", "danger");
+        }
+      } catch (err) {
+        showToast("Error updating price.", "danger");
+      }
+    }
+
+    // Auto refresh every 5 seconds for orders view
+    setInterval(() => {
+      if (activeTab === 'orders-view' && localStorage.getItem("vss_admin_token") === "authorized") {
+        fetchData();
+      }
+    }, 5000);
+  </script>
+</body>
+</html>

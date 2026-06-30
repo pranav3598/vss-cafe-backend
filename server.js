@@ -49,6 +49,69 @@ app.patch('/api/menu/:id/availability', async (req, res) => {
   }
 });
 
+// API: Create new menu item
+app.post('/api/menu', async (req, res) => {
+  try {
+    const { name, category, price, description } = req.body;
+    if (!name || !category || price === undefined) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+    
+    // Generate simple readable unique ID
+    const newId = category.toLowerCase().substring(0, 4) + "-" + Date.now();
+    const newItem = {
+      id: newId,
+      name,
+      category,
+      price: parseFloat(price),
+      description: description || "",
+      available: true
+    };
+    
+    const saved = await db.addMenuItem(newItem);
+    res.status(201).json(saved);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// API: Quick update menu item price
+app.patch('/api/menu/:id/price', async (req, res) => {
+  try {
+    const { price } = req.body;
+    if (price === undefined || isNaN(price)) {
+      return res.status(400).json({ error: "Invalid price value" });
+    }
+    
+    await db.updateMenuPrice(req.params.id, parseFloat(price));
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// API: Update full details of a menu item
+app.put('/api/menu/:id', async (req, res) => {
+  try {
+    const { name, category, price, description } = req.body;
+    if (!name || !category || price === undefined) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+    
+    const updates = {
+      name,
+      category,
+      price: parseFloat(price),
+      description: description || ""
+    };
+    
+    await db.updateMenuItem(req.params.id, updates);
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // API: List all orders (for Admin Dashboard)
 app.get('/api/orders', async (req, res) => {
   try {
@@ -62,7 +125,7 @@ app.get('/api/orders', async (req, res) => {
 // API: Place a new order
 app.post('/api/orders', async (req, res) => {
   try {
-    const { items, customerName, phone, address, notes, checkoutMode, total, email } = req.body;
+    const { items, customerName, phone, address, notes, checkoutMode, total, email, paymentMethod } = req.body;
     if (!items || items.length === 0) return res.status(400).json({ error: "Basket is empty" });
 
     const newOrder = {
@@ -73,6 +136,7 @@ app.post('/api/orders', async (req, res) => {
       address: address || "",
       notes: notes || "",
       checkoutMode: checkoutMode || "delivery",
+      paymentMethod: paymentMethod || "COD",
       total: total || 0,
       status: "Received",
       progress: 0.0,

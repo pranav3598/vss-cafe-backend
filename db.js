@@ -139,6 +139,43 @@ async function getUserByEmail(email) {
   return db.users.find(u => u.email.toLowerCase() === email.toLowerCase());
 }
 
+async function addMenuItem(item) {
+  if (mongoDb) {
+    await mongoDb.collection('menu').insertOne(item);
+    return item;
+  }
+  const db = readLocalJson();
+  db.menu.push(item);
+  writeLocalJson(db);
+  return item;
+}
+
+async function updateMenuPrice(id, price) {
+  if (mongoDb) {
+    await mongoDb.collection('menu').updateOne({ id }, { $set: { price } });
+    return;
+  }
+  const db = readLocalJson();
+  const item = db.menu.find(m => m.id === id);
+  if (item) {
+    item.price = price;
+    writeLocalJson(db);
+  }
+}
+
+async function updateMenuItem(id, updates) {
+  if (mongoDb) {
+    await mongoDb.collection('menu').updateOne({ id }, { $set: updates });
+    return;
+  }
+  const db = readLocalJson();
+  const item = db.menu.find(m => m.id === id);
+  if (item) {
+    Object.assign(item, updates);
+    writeLocalJson(db);
+  }
+}
+
 module.exports = {
   getMenu,
   updateMenuAvailability,
@@ -148,5 +185,8 @@ module.exports = {
   updateOrder,
   addUser,
   getUserByEmail,
+  addMenuItem,
+  updateMenuPrice,
+  updateMenuItem,
   isMongo: () => !!mongoDb
 };
