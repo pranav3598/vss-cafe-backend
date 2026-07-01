@@ -358,14 +358,21 @@ app.get('/login-phone', (req, res) => {
     };
 
     function sendOTP() {
-      const phoneNumber = document.getElementById("phone-number").value.trim();
+      let phoneNumber = document.getElementById("phone-number").value.trim();
       const sendBtn = document.getElementById("send-btn");
       const phoneError = document.getElementById("phone-error");
       
       phoneError.innerText = "";
       
-      if (!phoneNumber) {
-        phoneError.innerText = "Please enter a valid phone number with country code (e.g. +919876543210)";
+      // Auto-prefix country code +91 for standard 10-digit Indian numbers
+      if (phoneNumber.length === 10 && !phoneNumber.startsWith("+")) {
+        phoneNumber = "+91" + phoneNumber;
+      } else if (phoneNumber.length > 10 && !phoneNumber.startsWith("+")) {
+        phoneNumber = "+" + phoneNumber;
+      }
+      
+      if (!phoneNumber || !phoneNumber.startsWith("+")) {
+        phoneError.innerText = "Please enter a valid phone number (e.g. 9876543210)";
         return;
       }
 
