@@ -180,7 +180,11 @@ async function getUserByPhone(phone) {
   const formatted = phone.replace(/[^0-9]/g, '').slice(-10); // Match last 10 digits
   if (mongoDb) {
     return await mongoDb.collection('users').findOne({ 
-      phone: { $regex: new RegExp(formatted + "$") } 
+      $or: [
+        { phone: { $regex: new RegExp(formatted + "$") } },
+        { phone: formatted },
+        { phone: parseInt(formatted) || 0 }
+      ]
     });
   }
   const db = readLocalJson();

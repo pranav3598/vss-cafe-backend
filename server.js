@@ -462,7 +462,10 @@ app.post('/api/auth/login-phone', async (req, res) => {
     if (!phone) return res.status(400).json({ error: "Phone number required" });
     
     const formattedPhone = phone.replace(/[^0-9]/g, '');
+    console.log(`[Phone Auth Check] Input: ${phone} -> Formatted: ${formattedPhone}`);
+    
     const user = await db.getUserByPhone(formattedPhone);
+    console.log(`[Phone Auth Check] Result: ${user ? ("Found " + user.name) : "NOT FOUND"}`);
     
     if (user) {
       res.json({ found: true, user });
@@ -470,6 +473,7 @@ app.post('/api/auth/login-phone', async (req, res) => {
       res.json({ found: false });
     }
   } catch (e) {
+    console.error(`[Phone Auth Check Error] ${e.message}`);
     res.status(500).json({ error: e.message });
   }
 });
