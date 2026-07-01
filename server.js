@@ -432,6 +432,66 @@ app.get('/login-phone', (req, res) => {
 </html>`);
 });
 
+// API: Get user orders by phone number
+app.get('/api/orders/phone/:phone', async (req, res) => {
+  try {
+    const orders = await db.getOrders();
+    const phone = req.params.phone.replace(/[^0-9]/g, '');
+    const userOrders = orders.filter(o => {
+      const oPhone = o.phone ? o.phone.replace(/[^0-9]/g, '') : '';
+      return oPhone === phone;
+    });
+    res.json(userOrders);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// API: Phone number check
+app.post('/api/auth/login-phone', async (req, res) => {
+  try {
+    const { phone } = req.body;
+    if (!phone) return res.status(400).json({ error: "Phone number required" });
+    
+    const formattedPhone = phone.replace(/[^0-9]/g, '');
+    const user = await db.getUserByPhone(formattedPhone);
+    
+    if (user) {
+      res.json({ found: true, user });
+    } else {
+      res.json({ found: false });
+    }
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// API: Register new user by phone
+app.post('/api/auth/register-phone', async (req, res) => {
+  try {
+    const { phone, name, email } = req.body;
+    if (!phone || !name) return res.status(400).json({ error: "Missing required fields" });
+    
+    const formattedPhone = phone.replace(/[^0-9]/g, '');
+    let user = await db.getUserByPhone(formattedPhone);
+    
+    if (!user) {
+      user = {
+        email: email || (formattedPhone + "@vss.com"),
+        password: "phone_auth_user",
+        name,
+        phone: formattedPhone,
+        isAdmin: false
+      };
+      await db.addUser(user);
+    }
+    
+    res.status(201).json(user);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`VSS Cafe API Server listening on port ${PORT}`);
 });
