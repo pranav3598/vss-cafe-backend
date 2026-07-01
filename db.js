@@ -14,13 +14,21 @@ if (isMongo) {
     mongoClient.connect().then(client => {
       console.log("Successfully connected to MongoDB Cloud Database!");
       mongoDb = client.db();
-      // Auto-initialize menu if empty in MongoDB
-      mongoDb.collection('menu').countDocuments().then(count => {
+      // Auto-initialize and sync menu image mappings in MongoDB
+      const localMenu = JSON.parse(fs.readFileSync(dbPath, 'utf8')).menu;
+      mongoDb.collection('menu').countDocuments().then(async (count) => {
         if (count === 0) {
-          const localMenu = JSON.parse(fs.readFileSync(dbPath, 'utf8')).menu;
-          mongoDb.collection('menu').insertMany(localMenu).then(() => {
-            console.log("Initialized menu items in MongoDB collection.");
-          });
+          await mongoDb.collection('menu').insertMany(localMenu);
+          console.log("Initialized menu items in MongoDB collection.");
+        } else {
+          // Sync all local image mappings to MongoDB collection
+          for (const item of localMenu) {
+            await mongoDb.collection('menu').updateOne(
+              { id: item.id },
+              { $set: { image: item.image, category: item.category, description: item.description, price: item.price } }
+            );
+          }
+          console.log("Synchronized menu image mappings in MongoDB collection.");
         }
       });
     }).catch(err => {

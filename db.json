@@ -43,7 +43,7 @@
       "price": 80,
       "description": "Crunchy bite-sized cheese nuggets bursting with flavor.",
       "available": true,
-      "image": "croissant"
+      "image": "veg_starters"
     },
     {
       "id": "snack-veg-nuggets",
@@ -52,7 +52,7 @@
       "price": 70,
       "description": "Golden fried crispy vegetable nuggets.",
       "available": true,
-      "image": "croissant"
+      "image": "veg_starters"
     },
     {
       "id": "snack-smilies",
@@ -61,7 +61,7 @@
       "price": 80,
       "description": "Crispy potato smiles loved by everyone.",
       "available": true,
-      "image": "croissant"
+      "image": "veg_starters"
     },
     {
       "id": "snack-maggie",
@@ -149,7 +149,7 @@
       "name": "Mushroom Sandwich",
       "category": "Sandwiches",
       "price": 90,
-      "description": "Toasted sandwich filled with saut\u00e9ed mushrooms and herbs.",
+      "description": "Toasted sandwich filled with sautéed mushrooms and herbs.",
       "available": true,
       "image": "veg_sandwich"
     },
@@ -277,7 +277,7 @@
       "price": 40,
       "description": "Single scoop of delicious ice cream. Flavors: Chocolate, Vanilla, Pista, Kulfi.",
       "available": true,
-      "image": "cappuccino"
+      "image": "ice_cream_sundae"
     },
     {
       "id": "ice-double",
@@ -286,7 +286,7 @@
       "price": 70,
       "description": "Double scoop of delicious ice cream. Mix and match your favorite flavors.",
       "available": true,
-      "image": "cappuccino"
+      "image": "ice_cream_sundae"
     },
     {
       "id": "ice-gudbud",
@@ -385,7 +385,7 @@
       "price": 100,
       "description": "Thick milkshake blended with premium vanilla.",
       "available": true,
-      "image": "iced_latte"
+      "image": "chocolate_shake"
     },
     {
       "id": "shake-butterscotch",
@@ -394,7 +394,7 @@
       "price": 100,
       "description": "Creamy milkshake flavored with butterscotch crunch.",
       "available": true,
-      "image": "iced_latte"
+      "image": "chocolate_shake"
     },
     {
       "id": "shake-strawberry",
@@ -403,7 +403,7 @@
       "price": 110,
       "description": "Creamy milkshake blended with fresh strawberries.",
       "available": true,
-      "image": "iced_latte"
+      "image": "chocolate_shake"
     },
     {
       "id": "shake-mango",
@@ -412,7 +412,7 @@
       "price": 110,
       "description": "Thick blended milkshake made with sweet mango pulp.",
       "available": true,
-      "image": "iced_latte"
+      "image": "chocolate_shake"
     },
     {
       "id": "shake-apple",
@@ -421,7 +421,7 @@
       "price": 110,
       "description": "Sweet and creamy blended fresh apple milkshake.",
       "available": true,
-      "image": "iced_latte"
+      "image": "chocolate_shake"
     },
     {
       "id": "mocktail-mojito",
@@ -619,7 +619,7 @@
       "price": 130,
       "description": "Soft paneer cubes tossed in classic manchurian sauce.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "veg_starters"
     },
     {
       "id": "start-paneer-chilli",
@@ -628,7 +628,7 @@
       "price": 140,
       "description": "Fresh paneer chunks stir-fried with onions and bell peppers in chili sauce.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "veg_starters"
     },
     {
       "id": "start-paneer-pepper",
@@ -637,16 +637,16 @@
       "price": 130,
       "description": "Paneer cubes tossed in fresh black pepper and herbs.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "veg_starters"
     },
     {
       "id": "start-cottage-paneer",
       "name": "Lemon Cottage Paneer",
       "category": "Starters",
       "price": 140,
-      "description": "Soft paneer saut\u00e9ed with lemon juice, butter, and green herbs.",
+      "description": "Soft paneer sautéed with lemon juice, butter, and green herbs.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "veg_starters"
     },
     {
       "id": "start-paneer-satay",
@@ -655,7 +655,7 @@
       "price": 150,
       "description": "Grilled skewered paneer served with peanut dipping sauce.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "start-paneer-65",
@@ -664,7 +664,7 @@
       "price": 140,
       "description": "Spicy deep-fried paneer marinated in classic south Indian spices.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "veg_starters"
     },
     {
       "id": "start-babycorn-manch",
@@ -763,7 +763,7 @@
       "price": 90,
       "description": "Stir-fried aromatic basmati rice tossed with fresh chopped vegetables.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-jeera",
@@ -772,7 +772,7 @@
       "price": 90,
       "description": "Fragrant basmati rice tempered with ghee and cumin seeds.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-ghee",
@@ -781,7 +781,7 @@
       "price": 100,
       "description": "Rich basmati rice cooked in pure ghee, garnished with cashews.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-paneer-fried",
@@ -790,7 +790,7 @@
       "price": 120,
       "description": "Vegetable fried rice enriched with stir-fried soft paneer cubes.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-schezwan",
@@ -799,7 +799,7 @@
       "price": 110,
       "description": "Spicy basmati fried rice tossed in fiery homemade Schezwan sauce.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-mushroom",
@@ -808,7 +808,7 @@
       "price": 110,
       "description": "Stir-fried rice tossed with fresh button mushrooms and garlic.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-gobi",
@@ -817,7 +817,7 @@
       "price": 100,
       "description": "Flavorful basmati rice cooked with spiced Gobi Manchurian bits.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "noodle-veg",
@@ -826,7 +826,7 @@
       "price": 100,
       "description": "Classic Hakka noodles stir-fried with fresh shredded vegetables.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "veg_rice_noodles"
     },
     {
       "id": "noodle-schezwan",
@@ -835,7 +835,7 @@
       "price": 120,
       "description": "Stir-fried noodles tossed with crisp veggies in spicy Schezwan sauce.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "veg_rice_noodles"
     },
     {
       "id": "noodle-chilli-garlic",
@@ -844,7 +844,7 @@
       "price": 110,
       "description": "Fiery noodles flavored with green chilies, garlic, and scallions.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "veg_rice_noodles"
     },
     {
       "id": "tandoor-masala-papad",
@@ -853,7 +853,7 @@
       "price": 60,
       "description": "Crispy roasted papad topped with spicy onion, tomato, and herb mixture.",
       "available": true,
-      "image": "veg_starters"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-paneer-satay",
@@ -862,7 +862,7 @@
       "price": 160,
       "description": "Grilled marinated paneer skewers served with peanut sauce.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-paneer-tikka",
@@ -871,7 +871,7 @@
       "price": 160,
       "description": "Classic tandoor-roasted spiced paneer skewers with bell peppers.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-harabhara-kabab",
@@ -880,7 +880,7 @@
       "price": 160,
       "description": "Healthy deep-fried spinach, green peas, and potato patties.",
       "available": true,
-      "image": "veg_starters"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-stuffed-paneer",
@@ -889,7 +889,7 @@
       "price": 150,
       "description": "Paneer sandwiches stuffed with mint chutney and roasted in tandoor.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-paneer-papdi",
@@ -898,7 +898,7 @@
       "price": 150,
       "description": "Crispy papdi-crusted deep-fried paneer strips.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-paneer-peri-peri",
@@ -907,7 +907,7 @@
       "price": 160,
       "description": "Spicy tandoor-roasted paneer skewers tossed in peri peri marinade.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-aloo-tikka",
@@ -916,7 +916,7 @@
       "price": 120,
       "description": "Roasted baby potatoes marinated in spiced yogurt.",
       "available": true,
-      "image": "veg_starters"
+      "image": "tandoori_starters"
     },
     {
       "id": "tandoor-veg-platter",
@@ -925,7 +925,7 @@
       "price": 170,
       "description": "Assorted platter of paneer tikka, hara bhara kabab, and tandoori aloo.",
       "available": true,
-      "image": "veg_starters"
+      "image": "cappuccino"
     },
     {
       "id": "combo-roti-curry",
@@ -961,7 +961,7 @@
       "price": 25,
       "description": "Plain wheat flatbread baked in clay tandoor.",
       "available": true,
-      "image": "indian_bread"
+      "image": "tandoori_starters"
     },
     {
       "id": "bread-butter-roti",
@@ -1033,16 +1033,16 @@
       "price": 170,
       "description": "Soft paneer cubes cooked in a rich, creamy tomato butter gravy.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "indian_curries"
     },
     {
       "id": "curry-palak-paneer",
       "name": "Palak Paneer",
       "category": "Indian Curries",
       "price": 170,
-      "description": "Paneer chunks in a thick paste made from pur\u00e9ed spinach and spices.",
+      "description": "Paneer chunks in a thick paste made from puréed spinach and spices.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "indian_curries"
     },
     {
       "id": "curry-kadai-paneer",
@@ -1051,7 +1051,7 @@
       "price": 180,
       "description": "Paneer cooked with bell peppers in a spicy, freshly ground spice paste.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "indian_curries"
     },
     {
       "id": "curry-paneer-tikka",
@@ -1060,7 +1060,7 @@
       "price": 180,
       "description": "Tandoori grilled paneer chunks cooked in spicy tikka gravy.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "tandoori_starters"
     },
     {
       "id": "curry-paneer-piyaza",
@@ -1069,7 +1069,7 @@
       "price": 200,
       "description": "Paneer curry made with twice the amount of onions.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "indian_curries"
     },
     {
       "id": "curry-mutter-paneer",
@@ -1078,7 +1078,7 @@
       "price": 180,
       "description": "Classic combo of green peas and paneer in spiced gravy.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "indian_curries"
     },
     {
       "id": "curry-kaju-masala",
@@ -1087,7 +1087,7 @@
       "price": 180,
       "description": "Roasted cashew nuts cooked in rich onion, tomato, and cashew paste.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-veg-kadai",
@@ -1096,7 +1096,7 @@
       "price": 150,
       "description": "Mixed vegetables cooked in spicy kadai masala.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-mix-veg",
@@ -1105,7 +1105,7 @@
       "price": 150,
       "description": "Assorted fresh garden vegetables in mildly spiced gravy.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-veg-deewani",
@@ -1114,7 +1114,7 @@
       "price": 160,
       "description": "Royal vegetable curry cooked in creamy spinach and cashew gravy.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-veg-handi",
@@ -1123,7 +1123,7 @@
       "price": 150,
       "description": "Mixed vegetables cooked in a traditional handi-pot style gravy.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-veg-kofta",
@@ -1132,7 +1132,7 @@
       "price": 160,
       "description": "Vegetable dumplings cooked in rich spiced cream gravy.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-veg-kholapuri",
@@ -1141,7 +1141,7 @@
       "price": 160,
       "description": "Spicy mixed vegetable curry from the city of Kolhapur.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-mush-kadai",
@@ -1150,7 +1150,7 @@
       "price": 160,
       "description": "Fresh button mushrooms cooked with bell peppers in kadai spices.",
       "available": true,
-      "image": "veg_starters"
+      "image": "indian_curries"
     },
     {
       "id": "curry-mush-masala",
@@ -1159,7 +1159,7 @@
       "price": 150,
       "description": "Button mushrooms cooked in rich onion tomato gravy.",
       "available": true,
-      "image": "veg_starters"
+      "image": "indian_curries"
     },
     {
       "id": "curry-mush-tikka",
@@ -1168,7 +1168,7 @@
       "price": 170,
       "description": "Roasted marinated mushrooms in spicy masala gravy.",
       "available": true,
-      "image": "veg_starters"
+      "image": "tandoori_starters"
     },
     {
       "id": "curry-dal-fry",
@@ -1177,7 +1177,7 @@
       "price": 120,
       "description": "Yellow lentils cooked with onions, tomatoes, and spices.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-dal-tadka",
@@ -1186,7 +1186,7 @@
       "price": 130,
       "description": "Yellow lentils tempered with ghee, cumin seeds, garlic, and red chilies.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-dal-kholapuri",
@@ -1195,7 +1195,7 @@
       "price": 130,
       "description": "Spicy lentil curry cooked with fiery Kolhapuri spices.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-bindi-fry",
@@ -1204,7 +1204,7 @@
       "price": 140,
       "description": "Crispy pan-fried ladyfinger tossed in dry spices.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-bindi-masala",
@@ -1213,7 +1213,7 @@
       "price": 140,
       "description": "Okra cooked in a semi-dry spiced onion tomato gravy.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-capsicum",
@@ -1222,7 +1222,7 @@
       "price": 130,
       "description": "Green bell peppers cooked in peanut sesame gravy.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "curry-veg-kurma",
@@ -1231,7 +1231,7 @@
       "price": 140,
       "description": "Assorted vegetables cooked in coconut cashew paste.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "indian_curries"
     },
     {
       "id": "rice-veg-biriyani",
@@ -1240,7 +1240,7 @@
       "price": 140,
       "description": "Aromatic long-grain basmati rice layered with vegetables, mint, and spices.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-dal-kichidi",
@@ -1249,16 +1249,16 @@
       "price": 110,
       "description": "Comforting dish made of rice and lentils cooked together with mild spices.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     },
     {
       "id": "rice-palak-dal-kichidi",
       "name": "Palak Dal Kichidi",
       "category": "Delicious Rice",
       "price": 120,
-      "description": "Nutritious combination of rice, lentils, and fresh pur\u00e9ed spinach.",
+      "description": "Nutritious combination of rice, lentils, and fresh puréed spinach.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "delicious_rice"
     }
   ],
   "orders": [
