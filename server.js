@@ -234,6 +234,197 @@ app.get('/admin', (req, res) => {
 });
 
 // Start Server
+// Serve Firebase Phone Auth web page
+app.get('/login-phone', (req, res) => {
+  res.send(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSS Sports Square - Verification</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #1c1c1e;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .container {
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 24px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #e5e5ea;
+      border-radius: 12px;
+      background-color: #f5f5f7;
+      color: #1c1c1e;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(to right, #d4af37, #ff9f1c);
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+    .btn:disabled {
+      background: #e5e5ea;
+      color: #8e8e93;
+    }
+    #recaptcha-container {
+      margin-top: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+    }
+    .error-msg {
+      color: #ff3b30;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .status-msg {
+      color: #8e8e93;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title" id="page-title">VSS Sports Square</div>
+    
+    <!-- Phone Number Screen -->
+    <div id="phone-screen">
+      <input type="tel" id="phone-number" class="input-field" placeholder="Phone Number (e.g. +919876543210)">
+      <div id="recaptcha-container"></div>
+      <button id="send-btn" class="btn" onclick="sendOTP()">Send Verification Code</button>
+      <div id="phone-error" class="error-msg"></div>
+    </div>
+
+    <!-- OTP Code Screen -->
+    <div id="otp-screen" style="display: none;">
+      <div class="status-msg" id="otp-status" style="margin-bottom: 16px;"></div>
+      <input type="number" id="verification-code" class="input-field" placeholder="Enter 6-Digit OTP">
+      <button id="verify-btn" class="btn" onclick="verifyOTP()">Verify OTP</button>
+      <div id="otp-error" class="error-msg"></div>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCQFoCw-c3r5oeWTjoG9jGYLNvYXsJChTA",
+      authDomain: "vss-cafe.firebaseapp.com",
+      projectId: "vss-cafe",
+      storageBucket: "vss-cafe.firebasestorage.app",
+      messagingSenderId: "49558508166",
+      appId: "1:49558508166:android:dc6d5b0bb2ce59e764f707"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    let confirmationResult = null;
+
+    window.onload = function() {
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible',
+        'callback': (response) => {
+          // reCAPTCHA solved
+        }
+      });
+    };
+
+    function sendOTP() {
+      const phoneNumber = document.getElementById("phone-number").value.trim();
+      const sendBtn = document.getElementById("send-btn");
+      const phoneError = document.getElementById("phone-error");
+      
+      phoneError.innerText = "";
+      
+      if (!phoneNumber) {
+        phoneError.innerText = "Please enter a valid phone number with country code (e.g. +919876543210)";
+        return;
+      }
+
+      sendBtn.disabled = true;
+      sendBtn.innerText = "Sending SMS...";
+
+      const appVerifier = window.recaptchaVerifier;
+      firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+        .then((result) => {
+          confirmationResult = result;
+          document.getElementById("phone-screen").style.display = "none";
+          document.getElementById("otp-screen").style.display = "block";
+          document.getElementById("otp-status").innerText = "OTP sent to " + phoneNumber;
+        })
+        .catch((error) => {
+          console.error(error);
+          phoneError.innerText = error.message;
+          sendBtn.disabled = false;
+          sendBtn.innerText = "Send Verification Code";
+        });
+    }
+
+    function verifyOTP() {
+      const code = document.getElementById("verification-code").value.trim();
+      const verifyBtn = document.getElementById("verify-btn");
+      const otpError = document.getElementById("otp-error");
+      
+      otpError.innerText = "";
+
+      if (code.length !== 6) {
+        otpError.innerText = "Please enter a 6-digit OTP code";
+        return;
+      }
+
+      verifyBtn.disabled = true;
+      verifyBtn.innerText = "Verifying...";
+
+      confirmationResult.confirm(code)
+        .then((result) => {
+          const user = result.user;
+          const phone = user.phoneNumber;
+          if (window.AndroidBridge) {
+            window.AndroidBridge.onLoginSuccess(phone);
+          } else {
+            document.body.innerHTML = "<h3>Login Successful!</h3><p>You can close this window now.</p>";
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          otpError.innerText = "Invalid OTP code. Please check and try again.";
+          verifyBtn.disabled = false;
+          verifyBtn.innerText = "Verify OTP";
+        });
+    }
+  </script>
+</body>
+</html>`);
+});
+
 app.listen(PORT, () => {
   console.log(`VSS Cafe API Server listening on port ${PORT}`);
 });
