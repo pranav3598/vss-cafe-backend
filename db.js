@@ -176,6 +176,19 @@ async function updateMenuItem(id, updates) {
   }
 }
 
+async function getUserByPhone(phone) {
+  const formatted = phone.replace(/[^0-9]/g, '');
+  if (mongoDb) {
+    return await mongoDb.collection('users').findOne({ phone: formatted });
+  }
+  const db = readLocalJson();
+  const users = db.users || [];
+  return users.find(u => {
+    if (!u.phone) return false;
+    return String(u.phone).replace(/[^0-9]/g, '') === formatted;
+  });
+}
+
 module.exports = {
   getMenu,
   updateMenuAvailability,
@@ -185,6 +198,7 @@ module.exports = {
   updateOrder,
   addUser,
   getUserByEmail,
+  getUserByPhone,
   addMenuItem,
   updateMenuPrice,
   updateMenuItem,
