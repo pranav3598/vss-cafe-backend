@@ -7,7 +7,7 @@
       "price": 60,
       "description": "Crispy golden salted potato fries.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,french,fries?lock=1"
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-masala-fries",
@@ -16,7 +16,7 @@
       "price": 70,
       "description": "Crispy fries tossed in aromatic Indian masala spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,masala,fries?lock=2"
+      "image": "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=481&auto=format&fit=crop"
     },
     {
       "id": "snack-peri-peri",
@@ -25,7 +25,7 @@
       "price": 80,
       "description": "Golden fries tossed in spicy peri peri seasoning.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,peri,peri,fries?lock=3"
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=482&auto=format&fit=crop"
     },
     {
       "id": "snack-cheese-fries",
@@ -34,7 +34,7 @@
       "price": 80,
       "description": "Crispy french fries topped with warm melted cheese.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,cheese,fries?lock=4"
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=483&auto=format&fit=crop"
     },
     {
       "id": "snack-cheese-shots",
@@ -43,7 +43,7 @@
       "price": 80,
       "description": "Crunchy bite-sized cheese nuggets bursting with flavor.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,cheese,shots?lock=5"
+      "image": "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=484&auto=format&fit=crop"
     },
     {
       "id": "snack-veg-nuggets",
@@ -52,7 +52,7 @@
       "price": 70,
       "description": "Golden fried crispy vegetable nuggets.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,nuggets?lock=6"
+      "image": "https://images.unsplash.com/photo-1562967914-608f82629710?w=485&auto=format&fit=crop"
     },
     {
       "id": "snack-smilies",
@@ -61,7 +61,7 @@
       "price": 80,
       "description": "Crispy potato smiles loved by everyone.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,smilies?lock=7"
+      "image": "https://images.unsplash.com/photo-1518013006335-ee1f2982d5a3?w=486&auto=format&fit=crop"
     },
     {
       "id": "snack-maggie",
@@ -70,7 +70,7 @@
       "price": 40,
       "description": "Classic instant noodles cooked to perfection.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,maggie?lock=8"
+      "image": "https://images.unsplash.com/photo-1612966608967-302a63388004?w=487&auto=format&fit=crop"
     },
     {
       "id": "snack-cheese-maggie",
@@ -79,7 +79,7 @@
       "price": 60,
       "description": "Hot maggie noodles topped with shredded processed cheese.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,cheese,maggie?lock=9"
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=488&auto=format&fit=crop"
     },
     {
       "id": "snack-veg-maggie",
@@ -88,7 +88,7 @@
       "price": 50,
       "description": "Traditional maggie noodles cooked with fresh garden vegetables.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,maggie?lock=10"
+      "image": "https://images.unsplash.com/photo-1612966608967-302a63388004?w=489&auto=format&fit=crop"
     },
     {
       "id": "sand-superveg",
@@ -97,7 +97,7 @@
       "price": 90,
       "description": "Fresh garden veggies layered between toasted slices of bread.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,super,veg,sandwich?lock=11"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=490&auto=format&fit=crop"
     },
     {
       "id": "sand-exotic",
@@ -106,7 +106,7 @@
       "price": 110,
       "description": "VSS special exotic vegetable sandwich with signature sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,vss,exotic,sandwich?lock=12"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=491&auto=format&fit=crop"
     },
     {
       "id": "sand-superclub",
@@ -115,7 +115,7 @@
       "price": 130,
       "description": "Double decker vegetable club sandwich loaded with cheese.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,super,club,veg,sandwich?lock=13"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=492&auto=format&fit=crop"
     },
     {
       "id": "sand-veg-cheese",
@@ -124,7 +124,7 @@
       "price": 90,
       "description": "Toasted bread slice stuffed with mixed vegetables and cheese.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,cheese,sandwich?lock=14"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=493&auto=format&fit=crop"
     },
     {
       "id": "sand-chilli-corn",
@@ -133,7 +133,7 @@
       "price": 80,
       "description": "Delicious sandwich filled with sweet corn and spicy green chillies.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,chilli,corn,sandwich?lock=15"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=494&auto=format&fit=crop"
     },
     {
       "id": "sand-cheese-corn",
@@ -142,7 +142,7 @@
       "price": 90,
       "description": "Creamy sweet corn and melted cheese toasted sandwich.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,cheese,corn,sandwich?lock=16"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=495&auto=format&fit=crop"
     },
     {
       "id": "sand-mushroom",
@@ -151,7 +151,7 @@
       "price": 90,
       "description": "Toasted sandwich filled with sautéed mushrooms and herbs.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,sandwich?lock=17"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=496&auto=format&fit=crop"
     },
     {
       "id": "sand-paneer-cheese",
@@ -160,7 +160,7 @@
       "price": 110,
       "description": "Fresh paneer chunks and mozzarella cheese sandwich.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,cheese,sandwich?lock=18"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=497&auto=format&fit=crop"
     },
     {
       "id": "burger-spicy",
@@ -169,7 +169,7 @@
       "price": 80,
       "description": "Crispy veg patty topped with spicy sauce and fresh lettuce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,spicy,burger?lock=19"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=498&auto=format&fit=crop"
     },
     {
       "id": "burger-cheesy",
@@ -178,7 +178,7 @@
       "price": 90,
       "description": "Gourmet vegetable burger with a melting cheese layer.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,cheesy,burger?lock=20"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=499&auto=format&fit=crop"
     },
     {
       "id": "burger-superveg",
@@ -187,7 +187,7 @@
       "price": 100,
       "description": "Fresh vegetable patty burger with premium toppings.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,super,veg,burger?lock=21"
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop"
     },
     {
       "id": "burger-paneer",
@@ -196,7 +196,7 @@
       "price": 100,
       "description": "Juicy paneer patty burger with garlic mayo sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,burger?lock=22"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=501&auto=format&fit=crop"
     },
     {
       "id": "burger-alootikki",
@@ -205,7 +205,7 @@
       "price": 80,
       "description": "Classic crispy potato tikki burger with mint chutney.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,alootikki,burger?lock=23"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=502&auto=format&fit=crop"
     },
     {
       "id": "burger-special",
@@ -214,7 +214,7 @@
       "price": 130,
       "description": "Premium double decker vegetable burger loaded with cheese.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,vss,special,burger?lock=24"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=503&auto=format&fit=crop"
     },
     {
       "id": "pasta-mac-creamy",
@@ -223,7 +223,7 @@
       "price": 150,
       "description": "Delightful macaroni tossed in rich and creamy white sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,macaroni,creamy,pasta?lock=25"
+      "image": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=504&auto=format&fit=crop"
     },
     {
       "id": "pasta-mac-red",
@@ -232,7 +232,7 @@
       "price": 130,
       "description": "Macaroni cooked in a tangy herb tomato sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,macaroni,red,sauce,pasta?lock=26"
+      "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=505&auto=format&fit=crop"
     },
     {
       "id": "pasta-penne-creamy",
@@ -241,7 +241,7 @@
       "price": 150,
       "description": "Classic penne pasta cooked in a rich Alfredo white sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,penne,creamy,pasta?lock=27"
+      "image": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=506&auto=format&fit=crop"
     },
     {
       "id": "pasta-penne-red",
@@ -250,7 +250,7 @@
       "price": 130,
       "description": "Penne pasta prepared in hot and tangy herb tomato red sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,penne,red,sauce,pasta?lock=28"
+      "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=507&auto=format&fit=crop"
     },
     {
       "id": "pasta-fusilli-creamy",
@@ -259,7 +259,7 @@
       "price": 150,
       "description": "Fusilli pasta prepared in creamy white cheese sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,fusilli,creamy,pasta?lock=29"
+      "image": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=508&auto=format&fit=crop"
     },
     {
       "id": "pasta-fusilli-red",
@@ -268,7 +268,7 @@
       "price": 130,
       "description": "Fusilli pasta cooked in tangy herb tomato sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,fusilli,red,sauce,pasta?lock=30"
+      "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=509&auto=format&fit=crop"
     },
     {
       "id": "ice-scoop",
@@ -277,7 +277,7 @@
       "price": 40,
       "description": "Single scoop of delicious ice cream. Flavors: Chocolate, Vanilla, Pista, Kulfi.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,single,scoop,cupcone?lock=31"
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=510&auto=format&fit=crop"
     },
     {
       "id": "ice-double",
@@ -286,7 +286,7 @@
       "price": 70,
       "description": "Double scoop of delicious ice cream. Mix and match your favorite flavors.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,double,scoop,cup?lock=32"
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=511&auto=format&fit=crop"
     },
     {
       "id": "ice-gudbud",
@@ -295,7 +295,7 @@
       "price": 110,
       "description": "Layered ice cream sundae with jelly, fresh fruits, and dry nuts.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,exotic,gudbud?lock=33"
+      "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=512&auto=format&fit=crop"
     },
     {
       "id": "ice-zest",
@@ -304,7 +304,7 @@
       "price": 130,
       "description": "Refreshing fruit-infused premium ice cream compilation.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,fruit,zest?lock=34"
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=513&auto=format&fit=crop"
     },
     {
       "id": "ice-mango-berry",
@@ -313,7 +313,7 @@
       "price": 110,
       "description": "Delicious scoop of mango ice cream paired with fresh berries.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mango,berry?lock=35"
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=514&auto=format&fit=crop"
     },
     {
       "id": "ice-sundae",
@@ -322,7 +322,7 @@
       "price": 120,
       "description": "Classic banana and rich toffee sundae loaded with fudge.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,banoffee,sundae?lock=36"
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=515&auto=format&fit=crop"
     },
     {
       "id": "juice-muskmelon",
@@ -331,7 +331,7 @@
       "price": 70,
       "description": "Freshly squeezed hydrating muskmelon juice.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,muskmelon,juice?lock=37"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=516&auto=format&fit=crop"
     },
     {
       "id": "juice-watermelon",
@@ -340,7 +340,7 @@
       "price": 50,
       "description": "Freshly squeezed hydrating watermelon juice.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,watermelon,juice?lock=38"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=517&auto=format&fit=crop"
     },
     {
       "id": "juice-apple",
@@ -349,7 +349,7 @@
       "price": 80,
       "description": "Freshly pressed sweet red apple juice.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,apple,juice?lock=39"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=518&auto=format&fit=crop"
     },
     {
       "id": "juice-pineapple",
@@ -358,7 +358,7 @@
       "price": 60,
       "description": "Freshly squeezed tangy pineapple juice.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,pineapple,juice?lock=40"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=519&auto=format&fit=crop"
     },
     {
       "id": "juice-lemon",
@@ -367,7 +367,7 @@
       "price": 50,
       "description": "Classic refreshing squeezed lime juice.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,lemon,juice?lock=41"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=480&auto=format&fit=crop"
     },
     {
       "id": "shake-chocolate",
@@ -376,7 +376,7 @@
       "price": 110,
       "description": "Thick and creamy double chocolate blended milkshake.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,chocolate,milkshake?lock=42"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=481&auto=format&fit=crop"
     },
     {
       "id": "shake-vanilla",
@@ -385,7 +385,7 @@
       "price": 100,
       "description": "Thick milkshake blended with premium vanilla.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,vanilla,milkshake?lock=43"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=482&auto=format&fit=crop"
     },
     {
       "id": "shake-butterscotch",
@@ -394,7 +394,7 @@
       "price": 100,
       "description": "Creamy milkshake flavored with butterscotch crunch.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,butterscotch,milkshake?lock=44"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=483&auto=format&fit=crop"
     },
     {
       "id": "shake-strawberry",
@@ -403,7 +403,7 @@
       "price": 110,
       "description": "Creamy milkshake blended with fresh strawberries.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,strawberry,milkshake?lock=45"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=484&auto=format&fit=crop"
     },
     {
       "id": "shake-mango",
@@ -412,7 +412,7 @@
       "price": 110,
       "description": "Thick blended milkshake made with sweet mango pulp.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mango,milkshake?lock=46"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=485&auto=format&fit=crop"
     },
     {
       "id": "shake-apple",
@@ -421,7 +421,7 @@
       "price": 110,
       "description": "Sweet and creamy blended fresh apple milkshake.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,apple,milkshake?lock=47"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=486&auto=format&fit=crop"
     },
     {
       "id": "mocktail-mojito",
@@ -430,7 +430,7 @@
       "price": 145,
       "description": "Refreshing mocktail with fresh mint leaves, lime juice, and soda.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,virgin,mojito?lock=48"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=487&auto=format&fit=crop"
     },
     {
       "id": "mocktail-sea-blue",
@@ -439,7 +439,7 @@
       "price": 150,
       "description": "Sparkling blue curacao mocktail with a splash of lime.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,sea,blue?lock=49"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=488&auto=format&fit=crop"
     },
     {
       "id": "mocktail-coconut",
@@ -448,7 +448,7 @@
       "price": 140,
       "description": "Tropical creamy coconut mocktail with pineapple juice.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,coconut,paradise?lock=50"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=489&auto=format&fit=crop"
     },
     {
       "id": "mocktail-cooler",
@@ -457,7 +457,7 @@
       "price": 145,
       "description": "Crisp green apple mocktail with a tangy zesty finish.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,green,apple,cooler?lock=51"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=490&auto=format&fit=crop"
     },
     {
       "id": "mocktail-colada",
@@ -466,7 +466,7 @@
       "price": 140,
       "description": "Classic blend of pineapple juice and coconut cream.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,pina,colada?lock=52"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=491&auto=format&fit=crop"
     },
     {
       "id": "mocktail-strawberry",
@@ -475,7 +475,7 @@
       "price": 145,
       "description": "Sweet strawberry mocktail with a hint of lemon and mint.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,strawberry,blush?lock=53"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=492&auto=format&fit=crop"
     },
     {
       "id": "mocktail-passion",
@@ -484,7 +484,7 @@
       "price": 140,
       "description": "Exotic passion fruit mocktail garnished with fresh basil leaves.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,passion,fruit,basil?lock=54"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=493&auto=format&fit=crop"
     },
     {
       "id": "mocktail-punch",
@@ -493,7 +493,7 @@
       "price": 130,
       "description": "Tropical mixed fruit mocktail served chilled.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,fruit,punch?lock=55"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=494&auto=format&fit=crop"
     },
     {
       "id": "soda-salt-sweet",
@@ -502,7 +502,7 @@
       "price": 40,
       "description": "Crisp carbonated soda served salted or sweet.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,salt,sweet,soda?lock=56"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=495&auto=format&fit=crop"
     },
     {
       "id": "soda-sweet-salt",
@@ -511,7 +511,7 @@
       "price": 40,
       "description": "Crisp carbonated soda served with a sweet and salty twist.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,sweet,salt,soda?lock=57"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=496&auto=format&fit=crop"
     },
     {
       "id": "soda-masala",
@@ -520,7 +520,7 @@
       "price": 40,
       "description": "Carbonated soda fizz flavored with Indian spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,masala,soda?lock=58"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=497&auto=format&fit=crop"
     },
     {
       "id": "soda-lemon",
@@ -529,7 +529,7 @@
       "price": 40,
       "description": "Zesty carbonated lime soda served chilled.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,lemon,soda?lock=59"
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=498&auto=format&fit=crop"
     },
     {
       "id": "soup-tomato",
@@ -538,7 +538,7 @@
       "price": 80,
       "description": "Classic creamy rich tomato soup served with croutons.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,cream,of,tomato,soup?lock=60"
+      "image": "https://images.unsplash.com/photo-1547592165-e1d17fed6006?w=499&auto=format&fit=crop"
     },
     {
       "id": "soup-manchow",
@@ -547,7 +547,7 @@
       "price": 70,
       "description": "Spicy vegetable soup served with crispy fried noodles.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,manchow,soup?lock=61"
+      "image": "https://images.unsplash.com/photo-1547592165-e1d17fed6006?w=500&auto=format&fit=crop"
     },
     {
       "id": "soup-hot-sour",
@@ -556,7 +556,7 @@
       "price": 70,
       "description": "Tangy and spicy mixed vegetable soup.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,hot,and,sour,soup?lock=62"
+      "image": "https://images.unsplash.com/photo-1547592165-e1d17fed6006?w=501&auto=format&fit=crop"
     },
     {
       "id": "soup-sweetcorn",
@@ -565,7 +565,7 @@
       "price": 80,
       "description": "Mild and comforting sweet corn kernel soup.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,sweet,corn,soup?lock=63"
+      "image": "https://images.unsplash.com/photo-1547592165-e1d17fed6006?w=502&auto=format&fit=crop"
     },
     {
       "id": "soup-coriander",
@@ -574,7 +574,7 @@
       "price": 70,
       "description": "Clear vegetable broth flavored with fresh coriander and lemon.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,lemon,coriander,soup?lock=64"
+      "image": "https://images.unsplash.com/photo-1547592165-e1d17fed6006?w=503&auto=format&fit=crop"
     },
     {
       "id": "start-gobi-manchurian",
@@ -583,7 +583,7 @@
       "price": 90,
       "description": "Crispy cauliflower florets tossed in sweet and tangy soy chili sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,gobi,manchurian?lock=65"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=504&auto=format&fit=crop"
     },
     {
       "id": "start-gobi-chilli",
@@ -592,7 +592,7 @@
       "price": 100,
       "description": "Cauliflower florets stir-fried with green chilies, capsicum, and soy sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,gobi,chilli?lock=66"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=505&auto=format&fit=crop"
     },
     {
       "id": "start-gobi-pepper",
@@ -601,7 +601,7 @@
       "price": 100,
       "description": "Crispy cauliflower tossed with black pepper and curry leaves.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,gobi,pepper,dry?lock=67"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=506&auto=format&fit=crop"
     },
     {
       "id": "start-gobi-65",
@@ -610,7 +610,7 @@
       "price": 100,
       "description": "Spicy deep-fried south Indian cauliflower starter.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,gobi,65?lock=68"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=507&auto=format&fit=crop"
     },
     {
       "id": "start-paneer-manchurian",
@@ -619,7 +619,7 @@
       "price": 130,
       "description": "Soft paneer cubes tossed in classic manchurian sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,manchurian?lock=69"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=508&auto=format&fit=crop"
     },
     {
       "id": "start-paneer-chilli",
@@ -628,7 +628,7 @@
       "price": 140,
       "description": "Fresh paneer chunks stir-fried with onions and bell peppers in chili sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,chilli?lock=70"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=509&auto=format&fit=crop"
     },
     {
       "id": "start-paneer-pepper",
@@ -637,7 +637,7 @@
       "price": 130,
       "description": "Paneer cubes tossed in fresh black pepper and herbs.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,pepper,dry?lock=71"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=510&auto=format&fit=crop"
     },
     {
       "id": "start-cottage-paneer",
@@ -646,7 +646,7 @@
       "price": 140,
       "description": "Soft paneer sautéed with lemon juice, butter, and green herbs.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,lemon,cottage,paneer?lock=72"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=511&auto=format&fit=crop"
     },
     {
       "id": "start-paneer-satay",
@@ -655,7 +655,7 @@
       "price": 150,
       "description": "Grilled skewered paneer served with peanut dipping sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,satay?lock=73"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=512&auto=format&fit=crop"
     },
     {
       "id": "start-paneer-65",
@@ -664,7 +664,7 @@
       "price": 140,
       "description": "Spicy deep-fried paneer marinated in classic south Indian spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,65?lock=74"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=513&auto=format&fit=crop"
     },
     {
       "id": "start-babycorn-manch",
@@ -673,7 +673,7 @@
       "price": 100,
       "description": "Crispy babycorn pieces tossed in tangy manchurian gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,babycorn,manchurian?lock=75"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=514&auto=format&fit=crop"
     },
     {
       "id": "start-babycorn-chilli",
@@ -682,7 +682,7 @@
       "price": 120,
       "description": "Stir-fried babycorn with fresh green chilies and bell peppers.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,babycorn,chilli?lock=76"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=515&auto=format&fit=crop"
     },
     {
       "id": "start-babycorn-pepper",
@@ -691,7 +691,7 @@
       "price": 110,
       "description": "Crispy babycorn tossed in garlic, black pepper, and curry leaves.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,babycorn,pepper,dry?lock=77"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=516&auto=format&fit=crop"
     },
     {
       "id": "start-crispy-babycorn",
@@ -700,7 +700,7 @@
       "price": 120,
       "description": "Golden fried crispy babycorn served with sweet chili dip.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,crispy,babycorn?lock=78"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=517&auto=format&fit=crop"
     },
     {
       "id": "start-golden-babycorn",
@@ -709,7 +709,7 @@
       "price": 120,
       "description": "Deep-fried tempura battered babycorn sticks.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,golden,fried,babycorn?lock=79"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=518&auto=format&fit=crop"
     },
     {
       "id": "start-babycorn-65",
@@ -718,7 +718,7 @@
       "price": 110,
       "description": "Deep-fried babycorn tossed in south Indian red spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,babycorn,65?lock=80"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=519&auto=format&fit=crop"
     },
     {
       "id": "start-mush-manch",
@@ -727,7 +727,7 @@
       "price": 110,
       "description": "Crispy fried mushrooms tossed in ginger garlic soy sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,manchurian?lock=81"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=480&auto=format&fit=crop"
     },
     {
       "id": "start-mush-chilli",
@@ -736,7 +736,7 @@
       "price": 120,
       "description": "Stir-fried fresh mushrooms in spicy soy chili glaze.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,chilli?lock=82"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=481&auto=format&fit=crop"
     },
     {
       "id": "start-mush-pepper",
@@ -745,7 +745,7 @@
       "price": 120,
       "description": "Fresh mushrooms tossed with cracked black pepper and green onions.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,pepper,dry?lock=83"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=482&auto=format&fit=crop"
     },
     {
       "id": "start-mush-65",
@@ -754,7 +754,7 @@
       "price": 110,
       "description": "Spicy deep-fried button mushrooms flavored with curry leaves.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,65?lock=84"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=483&auto=format&fit=crop"
     },
     {
       "id": "rice-veg-fried",
@@ -763,7 +763,7 @@
       "price": 90,
       "description": "Stir-fried aromatic basmati rice tossed with fresh chopped vegetables.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,fried,rice?lock=85"
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=484&auto=format&fit=crop"
     },
     {
       "id": "rice-jeera",
@@ -772,7 +772,7 @@
       "price": 90,
       "description": "Fragrant basmati rice tempered with ghee and cumin seeds.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,jeera,rice?lock=86"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=485&auto=format&fit=crop"
     },
     {
       "id": "rice-ghee",
@@ -781,7 +781,7 @@
       "price": 100,
       "description": "Rich basmati rice cooked in pure ghee, garnished with cashews.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,ghee,rice?lock=87"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=486&auto=format&fit=crop"
     },
     {
       "id": "rice-paneer-fried",
@@ -790,7 +790,7 @@
       "price": 120,
       "description": "Vegetable fried rice enriched with stir-fried soft paneer cubes.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,fried,rice?lock=88"
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=487&auto=format&fit=crop"
     },
     {
       "id": "rice-schezwan",
@@ -799,7 +799,7 @@
       "price": 110,
       "description": "Spicy basmati fried rice tossed in fiery homemade Schezwan sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,schezwan,fried,rice?lock=89"
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=488&auto=format&fit=crop"
     },
     {
       "id": "rice-mushroom",
@@ -808,7 +808,7 @@
       "price": 110,
       "description": "Stir-fried rice tossed with fresh button mushrooms and garlic.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,rice?lock=90"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=489&auto=format&fit=crop"
     },
     {
       "id": "rice-gobi",
@@ -817,7 +817,7 @@
       "price": 100,
       "description": "Flavorful basmati rice cooked with spiced Gobi Manchurian bits.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,gobi,rice?lock=91"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=490&auto=format&fit=crop"
     },
     {
       "id": "noodle-veg",
@@ -826,7 +826,7 @@
       "price": 100,
       "description": "Classic Hakka noodles stir-fried with fresh shredded vegetables.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,noodles?lock=92"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=491&auto=format&fit=crop"
     },
     {
       "id": "noodle-schezwan",
@@ -835,7 +835,7 @@
       "price": 120,
       "description": "Stir-fried noodles tossed with crisp veggies in spicy Schezwan sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,schezwan,noodles?lock=93"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=492&auto=format&fit=crop"
     },
     {
       "id": "noodle-chilli-garlic",
@@ -844,7 +844,7 @@
       "price": 110,
       "description": "Fiery noodles flavored with green chilies, garlic, and scallions.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,chilli,garlic,noodles?lock=94"
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=493&auto=format&fit=crop"
     },
     {
       "id": "tandoor-masala-papad",
@@ -853,7 +853,7 @@
       "price": 60,
       "description": "Crispy roasted papad topped with spicy onion, tomato, and herb mixture.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,masala,papad?lock=95"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=494&auto=format&fit=crop"
     },
     {
       "id": "tandoor-paneer-satay",
@@ -862,7 +862,7 @@
       "price": 160,
       "description": "Grilled marinated paneer skewers served with peanut sauce.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,satay,tandoori?lock=96"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=495&auto=format&fit=crop"
     },
     {
       "id": "tandoor-paneer-tikka",
@@ -871,7 +871,7 @@
       "price": 160,
       "description": "Classic tandoor-roasted spiced paneer skewers with bell peppers.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,tikka?lock=97"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=496&auto=format&fit=crop"
     },
     {
       "id": "tandoor-harabhara-kabab",
@@ -880,7 +880,7 @@
       "price": 160,
       "description": "Healthy deep-fried spinach, green peas, and potato patties.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,harabhara,khabab?lock=98"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=497&auto=format&fit=crop"
     },
     {
       "id": "tandoor-stuffed-paneer",
@@ -889,7 +889,7 @@
       "price": 150,
       "description": "Paneer sandwiches stuffed with mint chutney and roasted in tandoor.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,stuffed,paneer?lock=99"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=498&auto=format&fit=crop"
     },
     {
       "id": "tandoor-paneer-papdi",
@@ -898,7 +898,7 @@
       "price": 150,
       "description": "Crispy papdi-crusted deep-fried paneer strips.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,papdi?lock=100"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=499&auto=format&fit=crop"
     },
     {
       "id": "tandoor-paneer-peri-peri",
@@ -907,7 +907,7 @@
       "price": 160,
       "description": "Spicy tandoor-roasted paneer skewers tossed in peri peri marinade.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,tikka,peri,peri?lock=101"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&auto=format&fit=crop"
     },
     {
       "id": "tandoor-aloo-tikka",
@@ -916,7 +916,7 @@
       "price": 120,
       "description": "Roasted baby potatoes marinated in spiced yogurt.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,aloo,tikka?lock=102"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=501&auto=format&fit=crop"
     },
     {
       "id": "tandoor-veg-platter",
@@ -925,7 +925,7 @@
       "price": 170,
       "description": "Assorted platter of paneer tikka, hara bhara kabab, and tandoori aloo.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,platter?lock=103"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=502&auto=format&fit=crop"
     },
     {
       "id": "combo-roti-curry",
@@ -934,7 +934,7 @@
       "price": 65,
       "description": "2 Tandoori Rotis served with a delicious mixed veg gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,roti,curry?lock=104"
+      "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=503&auto=format&fit=crop"
     },
     {
       "id": "combo-mini-meals",
@@ -943,7 +943,7 @@
       "price": 90,
       "description": "Standard combo of Roti, Rice, Dal, and one vegetable curry.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,north,mini,meals?lock=105"
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=504&auto=format&fit=crop"
     },
     {
       "id": "combo-special-meals",
@@ -952,7 +952,7 @@
       "price": 130,
       "description": "Special combo: Roti, Jeera Rice, Paneer Curry, Dal, Raita, and Sweet.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,north,special,meals?lock=106"
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=505&auto=format&fit=crop"
     },
     {
       "id": "bread-tandoori-roti",
@@ -961,7 +961,7 @@
       "price": 25,
       "description": "Plain wheat flatbread baked in clay tandoor.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,tandoori,roti?lock=107"
+      "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=506&auto=format&fit=crop"
     },
     {
       "id": "bread-butter-roti",
@@ -970,7 +970,7 @@
       "price": 30,
       "description": "Wheat flatbread baked in tandoor and brushed with butter.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,butter,tandoori,roti?lock=108"
+      "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=507&auto=format&fit=crop"
     },
     {
       "id": "bread-naan",
@@ -979,7 +979,7 @@
       "price": 35,
       "description": "Soft leavened refined flour flatbread baked in tandoor.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,naan?lock=109"
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=508&auto=format&fit=crop"
     },
     {
       "id": "bread-butter-naan",
@@ -988,7 +988,7 @@
       "price": 40,
       "description": "Soft tandoori naan brushed generously with pure butter.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,butter,naan?lock=110"
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=509&auto=format&fit=crop"
     },
     {
       "id": "bread-garlic-naan",
@@ -997,7 +997,7 @@
       "price": 40,
       "description": "Tandoori naan flavored with fresh minced garlic and butter.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,garlic,naan?lock=111"
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=510&auto=format&fit=crop"
     },
     {
       "id": "bread-kulcha",
@@ -1006,7 +1006,7 @@
       "price": 35,
       "description": "Soft leavened flatbread baked to order.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,kulcha?lock=112"
+      "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=511&auto=format&fit=crop"
     },
     {
       "id": "bread-butter-kulcha",
@@ -1015,7 +1015,7 @@
       "price": 40,
       "description": "Soft tandoori kulcha brushed with butter.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,butter,kulcha?lock=113"
+      "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=512&auto=format&fit=crop"
     },
     {
       "id": "bread-lachha-paratha",
@@ -1024,7 +1024,7 @@
       "price": 45,
       "description": "Multi-layered tandoori wheat flatbread brushed with butter.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,lachha,paratha?lock=114"
+      "image": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=513&auto=format&fit=crop"
     },
     {
       "id": "curry-paneer-butter",
@@ -1033,7 +1033,7 @@
       "price": 170,
       "description": "Soft paneer cubes cooked in a rich, creamy tomato butter gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,butter,masala?lock=115"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=514&auto=format&fit=crop"
     },
     {
       "id": "curry-palak-paneer",
@@ -1042,7 +1042,7 @@
       "price": 170,
       "description": "Paneer chunks in a thick paste made from puréed spinach and spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,palak,paneer?lock=116"
+      "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=515&auto=format&fit=crop"
     },
     {
       "id": "curry-kadai-paneer",
@@ -1051,7 +1051,7 @@
       "price": 180,
       "description": "Paneer cooked with bell peppers in a spicy, freshly ground spice paste.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,kadai,paneer?lock=117"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=516&auto=format&fit=crop"
     },
     {
       "id": "curry-paneer-tikka",
@@ -1060,7 +1060,7 @@
       "price": 180,
       "description": "Tandoori grilled paneer chunks cooked in spicy tikka gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,tikka,masala?lock=118"
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=517&auto=format&fit=crop"
     },
     {
       "id": "curry-paneer-piyaza",
@@ -1069,7 +1069,7 @@
       "price": 200,
       "description": "Paneer curry made with twice the amount of onions.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,paneer,do,piyaza?lock=119"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=518&auto=format&fit=crop"
     },
     {
       "id": "curry-mutter-paneer",
@@ -1078,7 +1078,7 @@
       "price": 180,
       "description": "Classic combo of green peas and paneer in spiced gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mutter,paneer?lock=120"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=519&auto=format&fit=crop"
     },
     {
       "id": "curry-kaju-masala",
@@ -1087,7 +1087,7 @@
       "price": 180,
       "description": "Roasted cashew nuts cooked in rich onion, tomato, and cashew paste.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,kaju,masala?lock=121"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=480&auto=format&fit=crop"
     },
     {
       "id": "curry-veg-kadai",
@@ -1096,7 +1096,7 @@
       "price": 150,
       "description": "Mixed vegetables cooked in spicy kadai masala.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,kadai?lock=122"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=481&auto=format&fit=crop"
     },
     {
       "id": "curry-mix-veg",
@@ -1105,7 +1105,7 @@
       "price": 150,
       "description": "Assorted fresh garden vegetables in mildly spiced gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mix,veg,curry?lock=123"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=482&auto=format&fit=crop"
     },
     {
       "id": "curry-veg-deewani",
@@ -1114,7 +1114,7 @@
       "price": 160,
       "description": "Royal vegetable curry cooked in creamy spinach and cashew gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,deewani?lock=124"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=483&auto=format&fit=crop"
     },
     {
       "id": "curry-veg-handi",
@@ -1123,7 +1123,7 @@
       "price": 150,
       "description": "Mixed vegetables cooked in a traditional handi-pot style gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,handi?lock=125"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=484&auto=format&fit=crop"
     },
     {
       "id": "curry-veg-kofta",
@@ -1132,7 +1132,7 @@
       "price": 160,
       "description": "Vegetable dumplings cooked in rich spiced cream gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,kofta?lock=126"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=485&auto=format&fit=crop"
     },
     {
       "id": "curry-veg-kholapuri",
@@ -1141,7 +1141,7 @@
       "price": 160,
       "description": "Spicy mixed vegetable curry from the city of Kolhapur.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,kholapuri?lock=127"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=486&auto=format&fit=crop"
     },
     {
       "id": "curry-mush-kadai",
@@ -1150,7 +1150,7 @@
       "price": 160,
       "description": "Fresh button mushrooms cooked with bell peppers in kadai spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,kadai?lock=128"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=487&auto=format&fit=crop"
     },
     {
       "id": "curry-mush-masala",
@@ -1159,7 +1159,7 @@
       "price": 150,
       "description": "Button mushrooms cooked in rich onion tomato gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,masala?lock=129"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=488&auto=format&fit=crop"
     },
     {
       "id": "curry-mush-tikka",
@@ -1168,7 +1168,7 @@
       "price": 170,
       "description": "Roasted marinated mushrooms in spicy masala gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,mushroom,tikka,masala?lock=130"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=489&auto=format&fit=crop"
     },
     {
       "id": "curry-dal-fry",
@@ -1177,7 +1177,7 @@
       "price": 120,
       "description": "Yellow lentils cooked with onions, tomatoes, and spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,dal,fry?lock=131"
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=490&auto=format&fit=crop"
     },
     {
       "id": "curry-dal-tadka",
@@ -1186,7 +1186,7 @@
       "price": 130,
       "description": "Yellow lentils tempered with ghee, cumin seeds, garlic, and red chilies.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,dal,tadka?lock=132"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=491&auto=format&fit=crop"
     },
     {
       "id": "curry-dal-kholapuri",
@@ -1195,7 +1195,7 @@
       "price": 130,
       "description": "Spicy lentil curry cooked with fiery Kolhapuri spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,dal,kholapuri?lock=133"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=492&auto=format&fit=crop"
     },
     {
       "id": "curry-bindi-fry",
@@ -1204,7 +1204,7 @@
       "price": 140,
       "description": "Crispy pan-fried ladyfinger tossed in dry spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,bindi,fry?lock=134"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=493&auto=format&fit=crop"
     },
     {
       "id": "curry-bindi-masala",
@@ -1213,7 +1213,7 @@
       "price": 140,
       "description": "Okra cooked in a semi-dry spiced onion tomato gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,bindi,masala?lock=135"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=494&auto=format&fit=crop"
     },
     {
       "id": "curry-capsicum",
@@ -1222,7 +1222,7 @@
       "price": 130,
       "description": "Green bell peppers cooked in peanut sesame gravy.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,capsicum,masala?lock=136"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=495&auto=format&fit=crop"
     },
     {
       "id": "curry-veg-kurma",
@@ -1231,7 +1231,7 @@
       "price": 140,
       "description": "Assorted vegetables cooked in coconut cashew paste.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,kurma?lock=137"
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=496&auto=format&fit=crop"
     },
     {
       "id": "rice-veg-biriyani",
@@ -1240,7 +1240,7 @@
       "price": 140,
       "description": "Aromatic long-grain basmati rice layered with vegetables, mint, and spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,veg,biriyani?lock=138"
+      "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=497&auto=format&fit=crop"
     },
     {
       "id": "rice-dal-kichidi",
@@ -1249,7 +1249,7 @@
       "price": 110,
       "description": "Comforting dish made of rice and lentils cooked together with mild spices.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,dal,kichidi?lock=139"
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=498&auto=format&fit=crop"
     },
     {
       "id": "rice-palak-dal-kichidi",
@@ -1258,7 +1258,7 @@
       "price": 120,
       "description": "Nutritious combination of rice, lentils, and fresh puréed spinach.",
       "available": true,
-      "image": "https://loremflickr.com/500/500/food,palak,dal,kichidi?lock=140"
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=499&auto=format&fit=crop"
     }
   ],
   "orders": [
