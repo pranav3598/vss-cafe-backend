@@ -441,10 +441,10 @@ app.get('/login-phone', (req, res) => {
 app.get('/api/orders/phone/:phone', async (req, res) => {
   try {
     const orders = await db.getOrders();
-    const phone = req.params.phone.replace(/[^0-9]/g, '');
+    const phone = req.params.phone.replace(/[^0-9]/g, '').slice(-10); // Match last 10 digits
     const userOrders = orders.filter(o => {
       const oPhone = o.phone ? o.phone.replace(/[^0-9]/g, '') : '';
-      return oPhone === phone;
+      return oPhone.endsWith(phone);
     });
     res.json(userOrders);
   } catch (e) {
