@@ -783,7 +783,10 @@
       orders.sort((a,b) => b.id - a.id);
 
       container.innerHTML = orders.map(o => {
-        const time = new Date(o.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        const dateObj = new Date(o.timestamp);
+        const dateStr = dateObj.toLocaleDateString([], {day: '2-digit', month: 'short', year: 'numeric'});
+        const timeStr = dateObj.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+        const time = dateStr + " " + timeStr;
         const badgeClass = o.status.replace(/\s+/g, '').toLowerCase();
         
         return `
