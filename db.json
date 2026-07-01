@@ -7,7 +7,7 @@
       "price": 60,
       "description": "Crispy golden salted potato fries.",
       "available": true,
-      "image": "french_fries"
+      "image": "https://loremflickr.com/500/500/food,french,fries"
     },
     {
       "id": "snack-masala-fries",
@@ -16,7 +16,7 @@
       "price": 70,
       "description": "Crispy fries tossed in aromatic Indian masala spices.",
       "available": true,
-      "image": "french_fries"
+      "image": "https://loremflickr.com/500/500/food,masala,fries"
     },
     {
       "id": "snack-peri-peri",
@@ -25,7 +25,7 @@
       "price": 80,
       "description": "Golden fries tossed in spicy peri peri seasoning.",
       "available": true,
-      "image": "french_fries"
+      "image": "https://loremflickr.com/500/500/food,peri,peri,fries"
     },
     {
       "id": "snack-cheese-fries",
@@ -34,7 +34,7 @@
       "price": 80,
       "description": "Crispy french fries topped with warm melted cheese.",
       "available": true,
-      "image": "french_fries"
+      "image": "https://loremflickr.com/500/500/food,cheese,fries"
     },
     {
       "id": "snack-cheese-shots",
@@ -43,7 +43,7 @@
       "price": 80,
       "description": "Crunchy bite-sized cheese nuggets bursting with flavor.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,cheese,shots"
     },
     {
       "id": "snack-veg-nuggets",
@@ -52,7 +52,7 @@
       "price": 70,
       "description": "Golden fried crispy vegetable nuggets.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,veg,nuggets"
     },
     {
       "id": "snack-smilies",
@@ -61,7 +61,7 @@
       "price": 80,
       "description": "Crispy potato smiles loved by everyone.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,smilies"
     },
     {
       "id": "snack-maggie",
@@ -70,7 +70,7 @@
       "price": 40,
       "description": "Classic instant noodles cooked to perfection.",
       "available": true,
-      "image": "veg_maggie"
+      "image": "https://loremflickr.com/500/500/food,maggie"
     },
     {
       "id": "snack-cheese-maggie",
@@ -79,7 +79,7 @@
       "price": 60,
       "description": "Hot maggie noodles topped with shredded processed cheese.",
       "available": true,
-      "image": "veg_maggie"
+      "image": "https://loremflickr.com/500/500/food,cheese,maggie"
     },
     {
       "id": "snack-veg-maggie",
@@ -88,7 +88,7 @@
       "price": 50,
       "description": "Traditional maggie noodles cooked with fresh garden vegetables.",
       "available": true,
-      "image": "veg_maggie"
+      "image": "https://loremflickr.com/500/500/food,veg,maggie"
     },
     {
       "id": "sand-superveg",
@@ -97,7 +97,7 @@
       "price": 90,
       "description": "Fresh garden veggies layered between toasted slices of bread.",
       "available": true,
-      "image": "veg_sandwich"
+      "image": "https://loremflickr.com/500/500/food,super,veg,sandwich"
     },
     {
       "id": "sand-exotic",
@@ -106,7 +106,7 @@
       "price": 110,
       "description": "VSS special exotic vegetable sandwich with signature sauce.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "https://loremflickr.com/500/500/food,vss,exotic,sandwich"
     },
     {
       "id": "sand-superclub",
@@ -115,7 +115,7 @@
       "price": 130,
       "description": "Double decker vegetable club sandwich loaded with cheese.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "https://loremflickr.com/500/500/food,super,club,veg,sandwich"
     },
     {
       "id": "sand-veg-cheese",
@@ -124,7 +124,7 @@
       "price": 90,
       "description": "Toasted bread slice stuffed with mixed vegetables and cheese.",
       "available": true,
-      "image": "veg_sandwich"
+      "image": "https://loremflickr.com/500/500/food,veg,cheese,sandwich"
     },
     {
       "id": "sand-chilli-corn",
@@ -133,7 +133,7 @@
       "price": 80,
       "description": "Delicious sandwich filled with sweet corn and spicy green chillies.",
       "available": true,
-      "image": "veg_sandwich"
+      "image": "https://loremflickr.com/500/500/food,chilli,corn,sandwich"
     },
     {
       "id": "sand-cheese-corn",
@@ -142,7 +142,7 @@
       "price": 90,
       "description": "Creamy sweet corn and melted cheese toasted sandwich.",
       "available": true,
-      "image": "veg_sandwich"
+      "image": "https://loremflickr.com/500/500/food,cheese,corn,sandwich"
     },
     {
       "id": "sand-mushroom",
@@ -151,7 +151,7 @@
       "price": 90,
       "description": "Toasted sandwich filled with sautéed mushrooms and herbs.",
       "available": true,
-      "image": "veg_sandwich"
+      "image": "https://loremflickr.com/500/500/food,mushroom,sandwich"
     },
     {
       "id": "sand-paneer-cheese",
@@ -160,7 +160,7 @@
       "price": 110,
       "description": "Fresh paneer chunks and mozzarella cheese sandwich.",
       "available": true,
-      "image": "avocado_toast"
+      "image": "https://loremflickr.com/500/500/food,paneer,cheese,sandwich"
     },
     {
       "id": "burger-spicy",
@@ -169,7 +169,7 @@
       "price": 80,
       "description": "Crispy veg patty topped with spicy sauce and fresh lettuce.",
       "available": true,
-      "image": "veg_burger"
+      "image": "https://loremflickr.com/500/500/food,veg,spicy,burger"
     },
     {
       "id": "burger-cheesy",
@@ -178,7 +178,7 @@
       "price": 90,
       "description": "Gourmet vegetable burger with a melting cheese layer.",
       "available": true,
-      "image": "veg_burger"
+      "image": "https://loremflickr.com/500/500/food,veg,cheesy,burger"
     },
     {
       "id": "burger-superveg",
@@ -187,7 +187,7 @@
       "price": 100,
       "description": "Fresh vegetable patty burger with premium toppings.",
       "available": true,
-      "image": "veg_burger"
+      "image": "https://loremflickr.com/500/500/food,super,veg,burger"
     },
     {
       "id": "burger-paneer",
@@ -196,7 +196,7 @@
       "price": 100,
       "description": "Juicy paneer patty burger with garlic mayo sauce.",
       "available": true,
-      "image": "veg_burger"
+      "image": "https://loremflickr.com/500/500/food,paneer,burger"
     },
     {
       "id": "burger-alootikki",
@@ -205,7 +205,7 @@
       "price": 80,
       "description": "Classic crispy potato tikki burger with mint chutney.",
       "available": true,
-      "image": "veg_burger"
+      "image": "https://loremflickr.com/500/500/food,alootikki,burger"
     },
     {
       "id": "burger-special",
@@ -214,7 +214,7 @@
       "price": 130,
       "description": "Premium double decker vegetable burger loaded with cheese.",
       "available": true,
-      "image": "veg_burger"
+      "image": "https://loremflickr.com/500/500/food,vss,special,burger"
     },
     {
       "id": "pasta-mac-creamy",
@@ -223,7 +223,7 @@
       "price": 150,
       "description": "Delightful macaroni tossed in rich and creamy white sauce.",
       "available": true,
-      "image": "creamy_pasta"
+      "image": "https://loremflickr.com/500/500/food,macaroni,creamy,pasta"
     },
     {
       "id": "pasta-mac-red",
@@ -232,7 +232,7 @@
       "price": 130,
       "description": "Macaroni cooked in a tangy herb tomato sauce.",
       "available": true,
-      "image": "red_sauce_pasta"
+      "image": "https://loremflickr.com/500/500/food,macaroni,red,sauce,pasta"
     },
     {
       "id": "pasta-penne-creamy",
@@ -241,7 +241,7 @@
       "price": 150,
       "description": "Classic penne pasta cooked in a rich Alfredo white sauce.",
       "available": true,
-      "image": "creamy_pasta"
+      "image": "https://loremflickr.com/500/500/food,penne,creamy,pasta"
     },
     {
       "id": "pasta-penne-red",
@@ -250,7 +250,7 @@
       "price": 130,
       "description": "Penne pasta prepared in hot and tangy herb tomato red sauce.",
       "available": true,
-      "image": "red_sauce_pasta"
+      "image": "https://loremflickr.com/500/500/food,penne,red,sauce,pasta"
     },
     {
       "id": "pasta-fusilli-creamy",
@@ -259,7 +259,7 @@
       "price": 150,
       "description": "Fusilli pasta prepared in creamy white cheese sauce.",
       "available": true,
-      "image": "creamy_pasta"
+      "image": "https://loremflickr.com/500/500/food,fusilli,creamy,pasta"
     },
     {
       "id": "pasta-fusilli-red",
@@ -268,7 +268,7 @@
       "price": 130,
       "description": "Fusilli pasta cooked in tangy herb tomato sauce.",
       "available": true,
-      "image": "red_sauce_pasta"
+      "image": "https://loremflickr.com/500/500/food,fusilli,red,sauce,pasta"
     },
     {
       "id": "ice-scoop",
@@ -277,7 +277,7 @@
       "price": 40,
       "description": "Single scoop of delicious ice cream. Flavors: Chocolate, Vanilla, Pista, Kulfi.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "https://loremflickr.com/500/500/food,single,scoop,cupcone"
     },
     {
       "id": "ice-double",
@@ -286,7 +286,7 @@
       "price": 70,
       "description": "Double scoop of delicious ice cream. Mix and match your favorite flavors.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "https://loremflickr.com/500/500/food,double,scoop,cup"
     },
     {
       "id": "ice-gudbud",
@@ -295,7 +295,7 @@
       "price": 110,
       "description": "Layered ice cream sundae with jelly, fresh fruits, and dry nuts.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "https://loremflickr.com/500/500/food,exotic,gudbud"
     },
     {
       "id": "ice-zest",
@@ -304,7 +304,7 @@
       "price": 130,
       "description": "Refreshing fruit-infused premium ice cream compilation.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "https://loremflickr.com/500/500/food,fruit,zest"
     },
     {
       "id": "ice-mango-berry",
@@ -313,7 +313,7 @@
       "price": 110,
       "description": "Delicious scoop of mango ice cream paired with fresh berries.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "https://loremflickr.com/500/500/food,mango,berry"
     },
     {
       "id": "ice-sundae",
@@ -322,7 +322,7 @@
       "price": 120,
       "description": "Classic banana and rich toffee sundae loaded with fudge.",
       "available": true,
-      "image": "ice_cream_sundae"
+      "image": "https://loremflickr.com/500/500/food,banoffee,sundae"
     },
     {
       "id": "juice-muskmelon",
@@ -331,7 +331,7 @@
       "price": 70,
       "description": "Freshly squeezed hydrating muskmelon juice.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,muskmelon,juice"
     },
     {
       "id": "juice-watermelon",
@@ -340,7 +340,7 @@
       "price": 50,
       "description": "Freshly squeezed hydrating watermelon juice.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,watermelon,juice"
     },
     {
       "id": "juice-apple",
@@ -349,7 +349,7 @@
       "price": 80,
       "description": "Freshly pressed sweet red apple juice.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,apple,juice"
     },
     {
       "id": "juice-pineapple",
@@ -358,7 +358,7 @@
       "price": 60,
       "description": "Freshly squeezed tangy pineapple juice.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,pineapple,juice"
     },
     {
       "id": "juice-lemon",
@@ -367,7 +367,7 @@
       "price": 50,
       "description": "Classic refreshing squeezed lime juice.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,lemon,juice"
     },
     {
       "id": "shake-chocolate",
@@ -376,7 +376,7 @@
       "price": 110,
       "description": "Thick and creamy double chocolate blended milkshake.",
       "available": true,
-      "image": "chocolate_shake"
+      "image": "https://loremflickr.com/500/500/food,chocolate,milkshake"
     },
     {
       "id": "shake-vanilla",
@@ -385,7 +385,7 @@
       "price": 100,
       "description": "Thick milkshake blended with premium vanilla.",
       "available": true,
-      "image": "chocolate_shake"
+      "image": "https://loremflickr.com/500/500/food,vanilla,milkshake"
     },
     {
       "id": "shake-butterscotch",
@@ -394,7 +394,7 @@
       "price": 100,
       "description": "Creamy milkshake flavored with butterscotch crunch.",
       "available": true,
-      "image": "chocolate_shake"
+      "image": "https://loremflickr.com/500/500/food,butterscotch,milkshake"
     },
     {
       "id": "shake-strawberry",
@@ -403,7 +403,7 @@
       "price": 110,
       "description": "Creamy milkshake blended with fresh strawberries.",
       "available": true,
-      "image": "chocolate_shake"
+      "image": "https://loremflickr.com/500/500/food,strawberry,milkshake"
     },
     {
       "id": "shake-mango",
@@ -412,7 +412,7 @@
       "price": 110,
       "description": "Thick blended milkshake made with sweet mango pulp.",
       "available": true,
-      "image": "chocolate_shake"
+      "image": "https://loremflickr.com/500/500/food,mango,milkshake"
     },
     {
       "id": "shake-apple",
@@ -421,7 +421,7 @@
       "price": 110,
       "description": "Sweet and creamy blended fresh apple milkshake.",
       "available": true,
-      "image": "chocolate_shake"
+      "image": "https://loremflickr.com/500/500/food,apple,milkshake"
     },
     {
       "id": "mocktail-mojito",
@@ -430,7 +430,7 @@
       "price": 145,
       "description": "Refreshing mocktail with fresh mint leaves, lime juice, and soda.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,virgin,mojito"
     },
     {
       "id": "mocktail-sea-blue",
@@ -439,7 +439,7 @@
       "price": 150,
       "description": "Sparkling blue curacao mocktail with a splash of lime.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,sea,blue"
     },
     {
       "id": "mocktail-coconut",
@@ -448,7 +448,7 @@
       "price": 140,
       "description": "Tropical creamy coconut mocktail with pineapple juice.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,coconut,paradise"
     },
     {
       "id": "mocktail-cooler",
@@ -457,7 +457,7 @@
       "price": 145,
       "description": "Crisp green apple mocktail with a tangy zesty finish.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,green,apple,cooler"
     },
     {
       "id": "mocktail-colada",
@@ -466,7 +466,7 @@
       "price": 140,
       "description": "Classic blend of pineapple juice and coconut cream.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,pina,colada"
     },
     {
       "id": "mocktail-strawberry",
@@ -475,7 +475,7 @@
       "price": 145,
       "description": "Sweet strawberry mocktail with a hint of lemon and mint.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,strawberry,blush"
     },
     {
       "id": "mocktail-passion",
@@ -484,7 +484,7 @@
       "price": 140,
       "description": "Exotic passion fruit mocktail garnished with fresh basil leaves.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,passion,fruit,basil"
     },
     {
       "id": "mocktail-punch",
@@ -493,7 +493,7 @@
       "price": 130,
       "description": "Tropical mixed fruit mocktail served chilled.",
       "available": true,
-      "image": "fruit_mojito"
+      "image": "https://loremflickr.com/500/500/food,fruit,punch"
     },
     {
       "id": "soda-salt-sweet",
@@ -502,7 +502,7 @@
       "price": 40,
       "description": "Crisp carbonated soda served salted or sweet.",
       "available": true,
-      "image": "iced_latte"
+      "image": "https://loremflickr.com/500/500/food,salt,sweet,soda"
     },
     {
       "id": "soda-sweet-salt",
@@ -511,7 +511,7 @@
       "price": 40,
       "description": "Crisp carbonated soda served with a sweet and salty twist.",
       "available": true,
-      "image": "iced_latte"
+      "image": "https://loremflickr.com/500/500/food,sweet,salt,soda"
     },
     {
       "id": "soda-masala",
@@ -520,7 +520,7 @@
       "price": 40,
       "description": "Carbonated soda fizz flavored with Indian spices.",
       "available": true,
-      "image": "iced_latte"
+      "image": "https://loremflickr.com/500/500/food,masala,soda"
     },
     {
       "id": "soda-lemon",
@@ -529,7 +529,7 @@
       "price": 40,
       "description": "Zesty carbonated lime soda served chilled.",
       "available": true,
-      "image": "iced_latte"
+      "image": "https://loremflickr.com/500/500/food,lemon,soda"
     },
     {
       "id": "soup-tomato",
@@ -538,7 +538,7 @@
       "price": 80,
       "description": "Classic creamy rich tomato soup served with croutons.",
       "available": true,
-      "image": "veg_soup"
+      "image": "https://loremflickr.com/500/500/food,cream,of,tomato,soup"
     },
     {
       "id": "soup-manchow",
@@ -547,7 +547,7 @@
       "price": 70,
       "description": "Spicy vegetable soup served with crispy fried noodles.",
       "available": true,
-      "image": "veg_soup"
+      "image": "https://loremflickr.com/500/500/food,veg,manchow,soup"
     },
     {
       "id": "soup-hot-sour",
@@ -556,7 +556,7 @@
       "price": 70,
       "description": "Tangy and spicy mixed vegetable soup.",
       "available": true,
-      "image": "veg_soup"
+      "image": "https://loremflickr.com/500/500/food,hot,and,sour,soup"
     },
     {
       "id": "soup-sweetcorn",
@@ -565,7 +565,7 @@
       "price": 80,
       "description": "Mild and comforting sweet corn kernel soup.",
       "available": true,
-      "image": "veg_soup"
+      "image": "https://loremflickr.com/500/500/food,sweet,corn,soup"
     },
     {
       "id": "soup-coriander",
@@ -574,7 +574,7 @@
       "price": 70,
       "description": "Clear vegetable broth flavored with fresh coriander and lemon.",
       "available": true,
-      "image": "veg_soup"
+      "image": "https://loremflickr.com/500/500/food,lemon,coriander,soup"
     },
     {
       "id": "start-gobi-manchurian",
@@ -583,7 +583,7 @@
       "price": 90,
       "description": "Crispy cauliflower florets tossed in sweet and tangy soy chili sauce.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,gobi,manchurian"
     },
     {
       "id": "start-gobi-chilli",
@@ -592,7 +592,7 @@
       "price": 100,
       "description": "Cauliflower florets stir-fried with green chilies, capsicum, and soy sauce.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,gobi,chilli"
     },
     {
       "id": "start-gobi-pepper",
@@ -601,7 +601,7 @@
       "price": 100,
       "description": "Crispy cauliflower tossed with black pepper and curry leaves.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,gobi,pepper,dry"
     },
     {
       "id": "start-gobi-65",
@@ -610,7 +610,7 @@
       "price": 100,
       "description": "Spicy deep-fried south Indian cauliflower starter.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,gobi,65"
     },
     {
       "id": "start-paneer-manchurian",
@@ -619,7 +619,7 @@
       "price": 130,
       "description": "Soft paneer cubes tossed in classic manchurian sauce.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,manchurian"
     },
     {
       "id": "start-paneer-chilli",
@@ -628,7 +628,7 @@
       "price": 140,
       "description": "Fresh paneer chunks stir-fried with onions and bell peppers in chili sauce.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,chilli"
     },
     {
       "id": "start-paneer-pepper",
@@ -637,7 +637,7 @@
       "price": 130,
       "description": "Paneer cubes tossed in fresh black pepper and herbs.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,pepper,dry"
     },
     {
       "id": "start-cottage-paneer",
@@ -646,7 +646,7 @@
       "price": 140,
       "description": "Soft paneer sautéed with lemon juice, butter, and green herbs.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,lemon,cottage,paneer"
     },
     {
       "id": "start-paneer-satay",
@@ -655,7 +655,7 @@
       "price": 150,
       "description": "Grilled skewered paneer served with peanut dipping sauce.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,satay"
     },
     {
       "id": "start-paneer-65",
@@ -664,7 +664,7 @@
       "price": 140,
       "description": "Spicy deep-fried paneer marinated in classic south Indian spices.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,65"
     },
     {
       "id": "start-babycorn-manch",
@@ -673,7 +673,7 @@
       "price": 100,
       "description": "Crispy babycorn pieces tossed in tangy manchurian gravy.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,babycorn,manchurian"
     },
     {
       "id": "start-babycorn-chilli",
@@ -682,7 +682,7 @@
       "price": 120,
       "description": "Stir-fried babycorn with fresh green chilies and bell peppers.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,babycorn,chilli"
     },
     {
       "id": "start-babycorn-pepper",
@@ -691,7 +691,7 @@
       "price": 110,
       "description": "Crispy babycorn tossed in garlic, black pepper, and curry leaves.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,babycorn,pepper,dry"
     },
     {
       "id": "start-crispy-babycorn",
@@ -700,7 +700,7 @@
       "price": 120,
       "description": "Golden fried crispy babycorn served with sweet chili dip.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,crispy,babycorn"
     },
     {
       "id": "start-golden-babycorn",
@@ -709,7 +709,7 @@
       "price": 120,
       "description": "Deep-fried tempura battered babycorn sticks.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,golden,fried,babycorn"
     },
     {
       "id": "start-babycorn-65",
@@ -718,7 +718,7 @@
       "price": 110,
       "description": "Deep-fried babycorn tossed in south Indian red spices.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,babycorn,65"
     },
     {
       "id": "start-mush-manch",
@@ -727,7 +727,7 @@
       "price": 110,
       "description": "Crispy fried mushrooms tossed in ginger garlic soy sauce.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,mushroom,manchurian"
     },
     {
       "id": "start-mush-chilli",
@@ -736,7 +736,7 @@
       "price": 120,
       "description": "Stir-fried fresh mushrooms in spicy soy chili glaze.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,mushroom,chilli"
     },
     {
       "id": "start-mush-pepper",
@@ -745,7 +745,7 @@
       "price": 120,
       "description": "Fresh mushrooms tossed with cracked black pepper and green onions.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,mushroom,pepper,dry"
     },
     {
       "id": "start-mush-65",
@@ -754,7 +754,7 @@
       "price": 110,
       "description": "Spicy deep-fried button mushrooms flavored with curry leaves.",
       "available": true,
-      "image": "veg_starters"
+      "image": "https://loremflickr.com/500/500/food,mushroom,65"
     },
     {
       "id": "rice-veg-fried",
@@ -763,7 +763,7 @@
       "price": 90,
       "description": "Stir-fried aromatic basmati rice tossed with fresh chopped vegetables.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,veg,fried,rice"
     },
     {
       "id": "rice-jeera",
@@ -772,7 +772,7 @@
       "price": 90,
       "description": "Fragrant basmati rice tempered with ghee and cumin seeds.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,jeera,rice"
     },
     {
       "id": "rice-ghee",
@@ -781,7 +781,7 @@
       "price": 100,
       "description": "Rich basmati rice cooked in pure ghee, garnished with cashews.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,ghee,rice"
     },
     {
       "id": "rice-paneer-fried",
@@ -790,7 +790,7 @@
       "price": 120,
       "description": "Vegetable fried rice enriched with stir-fried soft paneer cubes.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,paneer,fried,rice"
     },
     {
       "id": "rice-schezwan",
@@ -799,7 +799,7 @@
       "price": 110,
       "description": "Spicy basmati fried rice tossed in fiery homemade Schezwan sauce.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,schezwan,fried,rice"
     },
     {
       "id": "rice-mushroom",
@@ -808,7 +808,7 @@
       "price": 110,
       "description": "Stir-fried rice tossed with fresh button mushrooms and garlic.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,mushroom,rice"
     },
     {
       "id": "rice-gobi",
@@ -817,7 +817,7 @@
       "price": 100,
       "description": "Flavorful basmati rice cooked with spiced Gobi Manchurian bits.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,gobi,rice"
     },
     {
       "id": "noodle-veg",
@@ -826,7 +826,7 @@
       "price": 100,
       "description": "Classic Hakka noodles stir-fried with fresh shredded vegetables.",
       "available": true,
-      "image": "veg_rice_noodles"
+      "image": "https://loremflickr.com/500/500/food,veg,noodles"
     },
     {
       "id": "noodle-schezwan",
@@ -835,7 +835,7 @@
       "price": 120,
       "description": "Stir-fried noodles tossed with crisp veggies in spicy Schezwan sauce.",
       "available": true,
-      "image": "veg_rice_noodles"
+      "image": "https://loremflickr.com/500/500/food,schezwan,noodles"
     },
     {
       "id": "noodle-chilli-garlic",
@@ -844,7 +844,7 @@
       "price": 110,
       "description": "Fiery noodles flavored with green chilies, garlic, and scallions.",
       "available": true,
-      "image": "veg_rice_noodles"
+      "image": "https://loremflickr.com/500/500/food,chilli,garlic,noodles"
     },
     {
       "id": "tandoor-masala-papad",
@@ -853,7 +853,7 @@
       "price": 60,
       "description": "Crispy roasted papad topped with spicy onion, tomato, and herb mixture.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,masala,papad"
     },
     {
       "id": "tandoor-paneer-satay",
@@ -862,7 +862,7 @@
       "price": 160,
       "description": "Grilled marinated paneer skewers served with peanut sauce.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,satay,tandoori"
     },
     {
       "id": "tandoor-paneer-tikka",
@@ -871,7 +871,7 @@
       "price": 160,
       "description": "Classic tandoor-roasted spiced paneer skewers with bell peppers.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,tikka"
     },
     {
       "id": "tandoor-harabhara-kabab",
@@ -880,7 +880,7 @@
       "price": 160,
       "description": "Healthy deep-fried spinach, green peas, and potato patties.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,harabhara,khabab"
     },
     {
       "id": "tandoor-stuffed-paneer",
@@ -889,7 +889,7 @@
       "price": 150,
       "description": "Paneer sandwiches stuffed with mint chutney and roasted in tandoor.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,stuffed,paneer"
     },
     {
       "id": "tandoor-paneer-papdi",
@@ -898,7 +898,7 @@
       "price": 150,
       "description": "Crispy papdi-crusted deep-fried paneer strips.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,papdi"
     },
     {
       "id": "tandoor-paneer-peri-peri",
@@ -907,7 +907,7 @@
       "price": 160,
       "description": "Spicy tandoor-roasted paneer skewers tossed in peri peri marinade.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,tikka,peri,peri"
     },
     {
       "id": "tandoor-aloo-tikka",
@@ -916,7 +916,7 @@
       "price": 120,
       "description": "Roasted baby potatoes marinated in spiced yogurt.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,aloo,tikka"
     },
     {
       "id": "tandoor-veg-platter",
@@ -925,7 +925,7 @@
       "price": 170,
       "description": "Assorted platter of paneer tikka, hara bhara kabab, and tandoori aloo.",
       "available": true,
-      "image": "cappuccino"
+      "image": "https://loremflickr.com/500/500/food,veg,platter"
     },
     {
       "id": "combo-roti-curry",
@@ -934,7 +934,7 @@
       "price": 65,
       "description": "2 Tandoori Rotis served with a delicious mixed veg gravy.",
       "available": true,
-      "image": "combos"
+      "image": "https://loremflickr.com/500/500/food,roti,curry"
     },
     {
       "id": "combo-mini-meals",
@@ -943,7 +943,7 @@
       "price": 90,
       "description": "Standard combo of Roti, Rice, Dal, and one vegetable curry.",
       "available": true,
-      "image": "combos"
+      "image": "https://loremflickr.com/500/500/food,north,mini,meals"
     },
     {
       "id": "combo-special-meals",
@@ -952,7 +952,7 @@
       "price": 130,
       "description": "Special combo: Roti, Jeera Rice, Paneer Curry, Dal, Raita, and Sweet.",
       "available": true,
-      "image": "combos"
+      "image": "https://loremflickr.com/500/500/food,north,special,meals"
     },
     {
       "id": "bread-tandoori-roti",
@@ -961,7 +961,7 @@
       "price": 25,
       "description": "Plain wheat flatbread baked in clay tandoor.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,tandoori,roti"
     },
     {
       "id": "bread-butter-roti",
@@ -970,7 +970,7 @@
       "price": 30,
       "description": "Wheat flatbread baked in tandoor and brushed with butter.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,butter,tandoori,roti"
     },
     {
       "id": "bread-naan",
@@ -979,7 +979,7 @@
       "price": 35,
       "description": "Soft leavened refined flour flatbread baked in tandoor.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,naan"
     },
     {
       "id": "bread-butter-naan",
@@ -988,7 +988,7 @@
       "price": 40,
       "description": "Soft tandoori naan brushed generously with pure butter.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,butter,naan"
     },
     {
       "id": "bread-garlic-naan",
@@ -997,7 +997,7 @@
       "price": 40,
       "description": "Tandoori naan flavored with fresh minced garlic and butter.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,garlic,naan"
     },
     {
       "id": "bread-kulcha",
@@ -1006,7 +1006,7 @@
       "price": 35,
       "description": "Soft leavened flatbread baked to order.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,kulcha"
     },
     {
       "id": "bread-butter-kulcha",
@@ -1015,7 +1015,7 @@
       "price": 40,
       "description": "Soft tandoori kulcha brushed with butter.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,butter,kulcha"
     },
     {
       "id": "bread-lachha-paratha",
@@ -1024,7 +1024,7 @@
       "price": 45,
       "description": "Multi-layered tandoori wheat flatbread brushed with butter.",
       "available": true,
-      "image": "indian_bread"
+      "image": "https://loremflickr.com/500/500/food,lachha,paratha"
     },
     {
       "id": "curry-paneer-butter",
@@ -1033,7 +1033,7 @@
       "price": 170,
       "description": "Soft paneer cubes cooked in a rich, creamy tomato butter gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,paneer,butter,masala"
     },
     {
       "id": "curry-palak-paneer",
@@ -1042,7 +1042,7 @@
       "price": 170,
       "description": "Paneer chunks in a thick paste made from puréed spinach and spices.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,palak,paneer"
     },
     {
       "id": "curry-kadai-paneer",
@@ -1051,7 +1051,7 @@
       "price": 180,
       "description": "Paneer cooked with bell peppers in a spicy, freshly ground spice paste.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,kadai,paneer"
     },
     {
       "id": "curry-paneer-tikka",
@@ -1060,7 +1060,7 @@
       "price": 180,
       "description": "Tandoori grilled paneer chunks cooked in spicy tikka gravy.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,paneer,tikka,masala"
     },
     {
       "id": "curry-paneer-piyaza",
@@ -1069,7 +1069,7 @@
       "price": 200,
       "description": "Paneer curry made with twice the amount of onions.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,paneer,do,piyaza"
     },
     {
       "id": "curry-mutter-paneer",
@@ -1078,7 +1078,7 @@
       "price": 180,
       "description": "Classic combo of green peas and paneer in spiced gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,mutter,paneer"
     },
     {
       "id": "curry-kaju-masala",
@@ -1087,7 +1087,7 @@
       "price": 180,
       "description": "Roasted cashew nuts cooked in rich onion, tomato, and cashew paste.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,kaju,masala"
     },
     {
       "id": "curry-veg-kadai",
@@ -1096,7 +1096,7 @@
       "price": 150,
       "description": "Mixed vegetables cooked in spicy kadai masala.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,veg,kadai"
     },
     {
       "id": "curry-mix-veg",
@@ -1105,7 +1105,7 @@
       "price": 150,
       "description": "Assorted fresh garden vegetables in mildly spiced gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,mix,veg,curry"
     },
     {
       "id": "curry-veg-deewani",
@@ -1114,7 +1114,7 @@
       "price": 160,
       "description": "Royal vegetable curry cooked in creamy spinach and cashew gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,veg,deewani"
     },
     {
       "id": "curry-veg-handi",
@@ -1123,7 +1123,7 @@
       "price": 150,
       "description": "Mixed vegetables cooked in a traditional handi-pot style gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,veg,handi"
     },
     {
       "id": "curry-veg-kofta",
@@ -1132,7 +1132,7 @@
       "price": 160,
       "description": "Vegetable dumplings cooked in rich spiced cream gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,veg,kofta"
     },
     {
       "id": "curry-veg-kholapuri",
@@ -1141,7 +1141,7 @@
       "price": 160,
       "description": "Spicy mixed vegetable curry from the city of Kolhapur.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,veg,kholapuri"
     },
     {
       "id": "curry-mush-kadai",
@@ -1150,7 +1150,7 @@
       "price": 160,
       "description": "Fresh button mushrooms cooked with bell peppers in kadai spices.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,mushroom,kadai"
     },
     {
       "id": "curry-mush-masala",
@@ -1159,7 +1159,7 @@
       "price": 150,
       "description": "Button mushrooms cooked in rich onion tomato gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,mushroom,masala"
     },
     {
       "id": "curry-mush-tikka",
@@ -1168,7 +1168,7 @@
       "price": 170,
       "description": "Roasted marinated mushrooms in spicy masala gravy.",
       "available": true,
-      "image": "tandoori_starters"
+      "image": "https://loremflickr.com/500/500/food,mushroom,tikka,masala"
     },
     {
       "id": "curry-dal-fry",
@@ -1177,7 +1177,7 @@
       "price": 120,
       "description": "Yellow lentils cooked with onions, tomatoes, and spices.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,dal,fry"
     },
     {
       "id": "curry-dal-tadka",
@@ -1186,7 +1186,7 @@
       "price": 130,
       "description": "Yellow lentils tempered with ghee, cumin seeds, garlic, and red chilies.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,dal,tadka"
     },
     {
       "id": "curry-dal-kholapuri",
@@ -1195,7 +1195,7 @@
       "price": 130,
       "description": "Spicy lentil curry cooked with fiery Kolhapuri spices.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,dal,kholapuri"
     },
     {
       "id": "curry-bindi-fry",
@@ -1204,7 +1204,7 @@
       "price": 140,
       "description": "Crispy pan-fried ladyfinger tossed in dry spices.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,bindi,fry"
     },
     {
       "id": "curry-bindi-masala",
@@ -1213,7 +1213,7 @@
       "price": 140,
       "description": "Okra cooked in a semi-dry spiced onion tomato gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,bindi,masala"
     },
     {
       "id": "curry-capsicum",
@@ -1222,7 +1222,7 @@
       "price": 130,
       "description": "Green bell peppers cooked in peanut sesame gravy.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,capsicum,masala"
     },
     {
       "id": "curry-veg-kurma",
@@ -1231,7 +1231,7 @@
       "price": 140,
       "description": "Assorted vegetables cooked in coconut cashew paste.",
       "available": true,
-      "image": "indian_curries"
+      "image": "https://loremflickr.com/500/500/food,veg,kurma"
     },
     {
       "id": "rice-veg-biriyani",
@@ -1240,7 +1240,7 @@
       "price": 140,
       "description": "Aromatic long-grain basmati rice layered with vegetables, mint, and spices.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,veg,biriyani"
     },
     {
       "id": "rice-dal-kichidi",
@@ -1249,7 +1249,7 @@
       "price": 110,
       "description": "Comforting dish made of rice and lentils cooked together with mild spices.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,dal,kichidi"
     },
     {
       "id": "rice-palak-dal-kichidi",
@@ -1258,7 +1258,7 @@
       "price": 120,
       "description": "Nutritious combination of rice, lentils, and fresh puréed spinach.",
       "available": true,
-      "image": "delicious_rice"
+      "image": "https://loremflickr.com/500/500/food,palak,dal,kichidi"
     }
   ],
   "orders": [
