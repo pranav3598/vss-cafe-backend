@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSS Cafe - Premium Menu</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#d4af37',
+              orange: '#ff9f1c',
+              dark: '#1c1c1e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes bounce-pop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    .cart-bounce {
+      animation: bounce-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-brand-dark min-h-screen pb-12">
+
+  <!-- Sticky Header with Glassmorphism -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex items-center justify-between transition-all duration-300">
+    <div class="flex items-center gap-3">
+      <div class="h-10 w-10 bg-gradient-to-tr from-brand-gold to-brand-orange rounded-xl flex items-center justify-center shadow-md">
+        <i data-lucide="coffee" class="text-white h-5 w-5"></i>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold bg-gradient-to-r from-brand-dark to-gray-600 bg-clip-text text-transparent">VSS Cafe</h1>
+        <p class="text-xs text-gray-500 font-medium">Vivekananda Sports Square</p>
+      </div>
+    </div>
+    
+    <!-- Floating Cart Button with Badge -->
+    <button id="cartBtn" class="relative h-11 w-11 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center shadow-sm transition-transform active:scale-95 duration-100">
+      <i data-lucide="shopping-bag" class="text-brand-dark h-5 w-5"></i>
+      <span id="cartBadge" class="absolute -top-1 -right-1 bg-gradient-to-r from-brand-gold to-brand-orange text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white scale-0 transition-transform duration-300">0</span>
+    </button>
+  </header>
+
+  <!-- Main Hero Banner -->
+  <div class="px-6 pt-6 pb-2">
+    <div class="bg-gradient-to-br from-brand-dark to-zinc-800 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+      <div class="absolute right-0 top-0 opacity-10 translate-x-8 -translate-y-8">
+        <i data-lucide="coffee" class="h-64 w-64"></i>
+      </div>
+      <span class="text-xs bg-brand-gold/30 text-brand-gold px-3 py-1 rounded-full font-bold tracking-wider uppercase">VSS Cafe Special</span>
+      <h2 class="text-2xl font-bold mt-2">Satisfy Your Cravings</h2>
+      <p class="text-gray-300 text-xs mt-1 max-w-[220px]">Delicious organic coffee and freshly baked burgers delivered straight to you.</p>
+    </div>
+  </div>
+
+  <!-- Menu Category Tabs -->
+  <div class="sticky top-[73px] z-30 bg-gray-50/95 backdrop-blur-sm px-6 py-4 flex gap-3 overflow-x-auto no-scrollbar">
+    <button onclick="filterCategory('All')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-dark text-white shadow-sm border border-brand-dark transition-all duration-200 whitespace-nowrap">All Items</button>
+    <button onclick="filterCategory('Beverages')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap">Beverages</button>
+    <button onclick="filterCategory('Snacks')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap">Snacks</button>
+    <button onclick="filterCategory('Combos')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap">Combos</button>
+  </div>
+
+  <!-- Product Listing Grid -->
+  <main class="px-6">
+    <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Cards rendered dynamically -->
+    </div>
+  </main>
+
+  <!-- Sliding Cart Side Drawer -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300 opacity-0 invisible">
+    <!-- Backdrop overlay -->
+    <div id="cartOverlay" class="absolute inset-0 bg-brand-dark/40 backdrop-blur-sm pointer-events-auto"></div>
+    
+    <!-- Side panel container -->
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col pointer-events-auto transition-transform duration-300 translate-x-full">
+      
+      <!-- Drawer Header -->
+      <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="text-brand-dark h-5 w-5"></i>
+          <h3 class="text-lg font-bold text-brand-dark">My Basket</h3>
+        </div>
+        <button id="closeCartBtn" class="h-8 w-8 hover:bg-gray-100 rounded-full flex items-center justify-center transition-colors">
+          <i data-lucide="x" class="text-gray-500 h-5 w-5"></i>
+        </button>
+      </div>
+
+      <!-- Scrollable Cart items -->
+      <div id="cartItemsList" class="flex-1 overflow-y-auto p-6 space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Drawer Footer Summary -->
+      <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-4">
+        <div class="flex items-center justify-between text-sm text-gray-500">
+          <span>Subtotal</span>
+          <span id="subtotalVal">₹0</span>
+        </div>
+        <div class="flex items-center justify-between text-sm text-gray-500">
+          <span>Delivery Fee</span>
+          <span id="deliveryVal">₹0</span>
+        </div>
+        <div class="h-px bg-gray-200"></div>
+        <div class="flex items-center justify-between font-bold text-lg text-brand-dark">
+          <span>Total</span>
+          <span id="totalVal">₹0</span>
+        </div>
+
+        <button id="checkoutBtn" class="w-full py-4 bg-gradient-to-r from-brand-gold to-brand-orange text-white font-bold rounded-2xl shadow-lg hover:shadow-xl active:scale-95 transition-all duration-150">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web API Integration -->
+  <script>
+    let products = [];
+    let cart = {};
+    let selectedCategory = 'All';
+
+    // Fetch initial menu items from server API
+    async function loadMenu() {
+      try {
+        const response = await fetch('/api/menu');
+        products = await response.json();
+        renderProducts();
+      } catch (err) {
+        console.error("Failed to load server menu:", err);
+      }
+    }
+
+    // Render Product Cards Grid
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      const filtered = selectedCategory === 'All' 
+        ? products 
+        : products.filter(p => p.category.toLowerCase() === selectedCategory.toLowerCase());
+
+      filtered.forEach(p => {
+        const qty = cart[p.id] ? cart[p.id].quantity : 0;
+        
+        // Build image path
+        const imagePath = `/drawable/${p.image}.jpg`;
+
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-transform hover:-translate-y-1 duration-300";
+        card.innerHTML = `
+          <!-- Image Container (16:9 ratio) -->
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="${imagePath}" alt="${p.name}" class="w-full h-full object-cover">
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+              <i data-lucide="star" class="h-3 w-3 text-brand-gold fill-current"></i>
+              <span class="text-[10px] font-bold text-brand-dark">${p.rating || '4.5'}</span>
+            </div>
+          </div>
+          
+          <!-- Content Panel -->
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h4 class="font-bold text-brand-dark text-sm tracking-tight line-clamp-1">${p.name}</h4>
+              <p class="text-xs text-gray-400 mt-1 line-clamp-2 leading-relaxed min-h-[32px]">${p.description}</p>
+            </div>
+            
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-base font-bold text-brand-orange">₹${p.price}</span>
+              
+              <!-- Custom Transition Stepper -->
+              <div id="stepper-${p.id}">
+                ${qty === 0 
+                  ? `<button onclick="updateQty('${p.id}', 1)" class="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-brand-gold to-brand-orange rounded-full shadow-sm hover:shadow-md transition-all active:scale-95 duration-100">Add</button>`
+                  : `<div class="bg-gray-100 border border-gray-200 rounded-full p-0.5 flex items-center gap-3">
+                      <button onclick="updateQty('${p.id}', ${qty - 1})" class="h-7 w-7 bg-white rounded-full flex items-center justify-center shadow-sm text-brand-dark hover:bg-gray-50 active:scale-90 transition-transform">
+                        <i data-lucide="${qty === 1 ? 'trash-2' : 'minus'}" class="h-3.5 w-3.5 ${qty === 1 ? 'text-red-500' : 'text-brand-dark'}"></i>
+                      </button>
+                      <span class="text-xs font-bold text-brand-dark w-4 text-center">${qty}</span>
+                      <button onclick="updateQty('${p.id}', ${qty + 1})" class="h-7 w-7 bg-white rounded-full flex items-center justify-center shadow-sm text-brand-dark hover:bg-gray-50 active:scale-90 transition-transform">
+                        <i data-lucide="plus" class="h-3.5 w-3.5"></i>
+                      </button>
+                    </div>`
+                }
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    // Filter by Category Click
+    window.filterCategory = function(cat) {
+      selectedCategory = cat;
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        if (tab.innerText.trim().includes(cat)) {
+          tab.className = "category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-dark text-white shadow-sm border border-brand-dark transition-all duration-200 whitespace-nowrap";
+        } else {
+          tab.className = "category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap";
+        }
+      });
+      renderProducts();
+    }
+
+    // Update Quantity with Cart Bounce Micro-animation
+    window.updateQty = function(id, count) {
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+
+      const triggerBounce = count > (cart[id] ? cart[id].quantity : 0);
+
+      if (count <= 0) {
+        delete cart[id];
+      } else {
+        cart[id] = { product: prod, quantity: count };
+      }
+
+      // Update Product list layout
+      renderProducts();
+      
+      // Update Drawer Panel List
+      renderCartList();
+
+      // Trigger Badge count + Animation
+      const badge = document.getElementById('cartBadge');
+      const cartItemsCount = Object.values(cart).reduce((a, b) => a + b.quantity, 0);
+      badge.innerText = cartItemsCount;
+      
+      if (cartItemsCount > 0) {
+        badge.classList.remove('scale-0');
+        badge.classList.add('scale-100');
+      } else {
+        badge.classList.add('scale-0');
+        badge.classList.remove('scale-100');
+      }
+
+      if (triggerBounce) {
+        const cartBtn = document.getElementById('cartBtn');
+        cartBtn.classList.add('cart-bounce');
+        setTimeout(() => cartBtn.classList.remove('cart-bounce'), 350);
+      }
+    }
+
+    // Render side drawer items lists
+    function renderCartList() {
+      const list = document.getElementById('cartItemsList');
+      list.innerHTML = '';
+
+      const items = Object.values(cart);
+      if (items.length === 0) {
+        list.innerHTML = `
+          <div class="flex flex-col items-center justify-center h-full py-16 text-center text-gray-400">
+            <i data-lucide="shopping-bag" class="h-12 w-12 mb-4 opacity-50"></i>
+            <h4 class="font-bold text-gray-500">Your basket is empty</h4>
+            <p class="text-xs mt-1 max-w-[200px]">Select delicious menu items to place an order.</p>
+          </div>
+        `;
+        document.getElementById('subtotalVal').innerText = "₹0";
+        document.getElementById('deliveryVal').innerText = "₹0";
+        document.getElementById('totalVal').innerText = "₹0";
+        lucide.createIcons();
+        return;
+      }
+
+      let subtotal = 0;
+      items.forEach(item => {
+        subtotal += item.product.price * item.quantity;
+        const div = document.createElement('div');
+        div.className = "flex items-center gap-4 bg-gray-50 p-3 rounded-2xl border border-gray-100";
+        div.innerHTML = `
+          <img src="/drawable/${item.product.image}.jpg" alt="${item.product.name}" class="h-16 w-16 object-cover rounded-xl shadow-sm">
+          <div class="flex-1">
+            <h5 class="font-bold text-brand-dark text-xs leading-snug line-clamp-1">${item.product.name}</h5>
+            <span class="text-xs font-bold text-brand-orange block mt-1">₹${item.product.price}</span>
+          </div>
+          <!-- Stepper Pill Inside Drawer -->
+          <div class="bg-white border border-gray-200 rounded-full p-0.5 flex items-center gap-2 shadow-sm">
+            <button onclick="updateQty('${item.product.id}', ${item.quantity - 1})" class="h-6 w-6 rounded-full flex items-center justify-center text-brand-dark hover:bg-gray-100 transition-colors">
+              <i data-lucide="${item.quantity === 1 ? 'trash-2' : 'minus'}" class="h-3 w-3 ${item.quantity === 1 ? 'text-red-500' : 'text-brand-dark'}"></i>
+            </button>
+            <span class="text-[11px] font-bold text-brand-dark w-3 text-center">${item.quantity}</span>
+            <button onclick="updateQty('${item.product.id}', ${item.quantity + 1})" class="h-6 w-6 rounded-full flex items-center justify-center text-brand-dark hover:bg-gray-100 transition-colors">
+              <i data-lucide="plus" class="h-3 w-3"></i>
+            </button>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+
+      const delivery = subtotal < 199 ? 20 : 0;
+      const total = subtotal + delivery;
+
+      document.getElementById('subtotalVal').innerText = `₹${subtotal}`;
+      document.getElementById('deliveryVal').innerText = delivery === 0 ? "FREE" : `₹${delivery}`;
+      document.getElementById('totalVal').innerText = `₹${total}`;
+      lucide.createIcons();
+    }
+
+    // Toggle Drawer slide state
+    const drawer = document.getElementById('cartDrawer');
+    const drawerInner = drawer.querySelector('.absolute.right-0');
+
+    function openDrawer() {
+      drawer.classList.remove('opacity-0', 'invisible');
+      drawer.classList.add('opacity-100');
+      setTimeout(() => drawerInner.classList.remove('translate-x-full'), 50);
+    }
+
+    function closeDrawer() {
+      drawerInner.classList.add('translate-x-full');
+      setTimeout(() => {
+        drawer.classList.remove('opacity-100');
+        drawer.classList.add('opacity-0', 'invisible');
+      }, 300);
+    }
+
+    document.getElementById('cartBtn').addEventListener('click', openDrawer);
+    document.getElementById('closeCartBtn').addEventListener('click', closeDrawer);
+    document.getElementById('cartOverlay').addEventListener('click', closeDrawer);
+
+    // Initial Load
+    loadMenu();
+  </script>
+</body>
+</html>
