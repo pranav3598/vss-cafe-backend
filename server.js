@@ -317,6 +317,9 @@ app.get('/login-phone', (req, res) => {
       color: #8e8e93;
       font-size: 14px;
     }
+    .grecaptcha-badge {
+      display: none !important;
+    }
   </style>
 </head>
 <body>
