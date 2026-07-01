@@ -234,6 +234,11 @@ app.get('/admin', (req, res) => {
 });
 
 // Start Server
+// Serve Redesigned Modern Menu Catalog page
+app.get('/menu', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'menu.html'));
+});
+
 // Serve Firebase Phone Auth web page
 app.get('/login-phone', (req, res) => {
   res.send(`<!DOCTYPE html>
