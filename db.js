@@ -62,10 +62,18 @@ function writeLocalJson(data) {
 
 // API Methods
 async function getMenu() {
+  let menu = [];
   if (mongoDb) {
-    return await mongoDb.collection('menu').find({}).toArray();
+    menu = await mongoDb.collection('menu').find({}).toArray();
+  } else {
+    menu = readLocalJson().menu;
   }
-  return readLocalJson().menu;
+  return menu.map(item => {
+    if (!item.image || (!item.image.startsWith("http://") && !item.image.startsWith("https://"))) {
+      item.image = getIndianFoodImage(item.name, item.category);
+    }
+    return item;
+  });
 }
 
 async function updateMenuAvailability(id, available) {
@@ -219,3 +227,74 @@ module.exports = {
   updateMenuItem,
   isMongo: () => !!mongoDb
 };
+
+// Curated image maps for exact matches, keywords, and categories
+const EXACT_MATCH_IMAGES = {
+  "butter chicken": "photo-1603894584373-5ac82b2ae398",
+  "palak paneer": "photo-1601050690597-df056fb4ce78",
+  "samosa": "photo-1601050690597-df056fb4ce78",
+  "masala dosa": "photo-1589301760014-d929f3979dbc",
+  "chicken biryani": "photo-1633945274405-b6c8069047b0",
+  "dal makhani": "photo-1546833999-b9f581a1996d",
+  "garlic naan": "photo-1626132647523-66f5bf380027",
+  "chole bhature": "photo-1627308595229-7830a5c91f9f",
+  "tandoori chicken": "photo-1610057099443-fde8c4d50f91",
+  "mango lassi": "photo-1553787499-6f9133860278"
+};
+
+const KEYWORD_FALLBACKS = [
+  { keyword: "fries", id: "photo-1573080496219-bb080dd4f877" },
+  { keyword: "burger", id: "photo-1568901346375-23c9450c58cd" },
+  { keyword: "sandwich", id: "photo-1539252554453-80ab65ce3586" },
+  { keyword: "toast", id: "photo-1509440159596-0249088772ff" },
+  { keyword: "pasta", id: "photo-1645112411341-6c4fd023714a" },
+  { keyword: "cappuccino", id: "photo-1541167760496-1628856ab772" },
+  { keyword: "latte", id: "photo-1517701604599-bb29b565090c" },
+  { keyword: "shake", id: "photo-1579954115545-a95591f28bfc" },
+  { keyword: "mojito", id: "photo-1513558161293-cdaf765ed2fd" },
+  { keyword: "lime", id: "photo-1497534446932-c925b458314e" },
+  { keyword: "soup", id: "photo-1547592165-e1d17fed6006" },
+  { keyword: "noodle", id: "photo-1585032226651-759b368d7246" },
+  { keyword: "rice", id: "photo-1512058564366-18510be2db19" },
+  { keyword: "biriyani", id: "photo-1633945274405-b6c8069047b0" },
+  { keyword: "paneer", id: "photo-1631452180519-c014fe946bc7" },
+  { keyword: "kabab", id: "photo-1601050690597-df056fb4ce78" },
+  { keyword: "dal", id: "photo-1546833999-b9f581a1996d" },
+  { keyword: "roti", id: "photo-1626132647523-66f5bf380027" },
+  { keyword: "naan", id: "photo-1589301760014-d929f3979dbc" },
+  { keyword: "sundae", id: "photo-1563805042-7684c019e1cb" },
+  { keyword: "gudbud", id: "photo-1579954115545-a95591f28bfc" }
+];
+
+const CAT_FALLBACKS = {
+  "Snacks": "photo-1573080496219-bb080dd4f877",
+  "Sandwiches": "photo-1539252554453-80ab65ce3586",
+  "Pastas": "photo-1645112411341-6c4fd023714a",
+  "Icecreams": "photo-1563805042-7684c019e1cb",
+  "Beverages": "photo-1513558161293-cdaf765ed2fd",
+  "Soups": "photo-1547592165-e1d17fed6006",
+  "Starters": "photo-1601050690597-df056fb4ce78",
+  "Tandoori Starters": "photo-1567188040759-fb8a883dc6d8",
+  "Combos": "photo-1544025162-d76694265947",
+  "Indian Breads": "photo-1626132647523-66f5bf380027",
+  "Indian Curries": "photo-1631452180519-c014fe946bc7",
+  "Delicious Rice": "photo-1633945274405-b6c8069047b0",
+  "Rice & Noodles": "photo-1585032226651-759b368d7246"
+};
+
+function getIndianFoodImage(name, category) {
+  if (!name) return "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop";
+  const clean = name.toLowerCase().replace(/[^a-z0-9\s]/g, "").replace(/\s+/g, " ").trim();
+  if (EXACT_MATCH_IMAGES[clean]) {
+    return "https://images.unsplash.com/" + EXACT_MATCH_IMAGES[clean] + "?w=500&auto=format&fit=crop";
+  }
+  for (const entry of KEYWORD_FALLBACKS) {
+    if (clean.includes(entry.keyword)) {
+      return "https://images.unsplash.com/" + entry.id + "?w=500&auto=format&fit=crop";
+    }
+  }
+  if (category && CAT_FALLBACKS[category]) {
+    return "https://images.unsplash.com/" + CAT_FALLBACKS[category] + "?w=500&auto=format&fit=crop";
+  }
+  return "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop";
+}
