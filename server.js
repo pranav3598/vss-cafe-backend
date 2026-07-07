@@ -122,6 +122,16 @@ app.get('/api/orders', async (req, res) => {
   }
 });
 
+// API: Clear all orders
+app.delete('/api/orders', async (req, res) => {
+  try {
+    await db.clearOrders();
+    res.json({ success: true, message: "All orders cleared successfully" });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // API: Place a new order
 app.post('/api/orders', async (req, res) => {
   try {
@@ -384,6 +394,17 @@ app.get('/login-phone', (req, res) => {
         return;
       }
 
+      // Development / Testing Mock reCAPTCHA & SMS Bypass Hook
+      const cleanPhone = phoneNumber.replace("+91", "").replace("+", "").trim();
+      if (cleanPhone.startsWith("999") || cleanPhone.startsWith("888") || cleanPhone === "1234567890") {
+          document.getElementById("phone-screen").style.display = "none";
+          document.getElementById("otp-screen").style.display = "block";
+          document.getElementById("otp-status").innerText = "Testing Bypass: Enter verification code 123456 for " + phoneNumber;
+          window.isMockBypass = true;
+          window.mockPhone = phoneNumber;
+          return;
+      }
+
       sendBtn.disabled = true;
       sendBtn.innerText = "Sending SMS...";
 
@@ -413,6 +434,19 @@ app.get('/login-phone', (req, res) => {
       if (code.length !== 6) {
         otpError.innerText = "Please enter a 6-digit OTP code";
         return;
+      }
+
+      if (window.isMockBypass) {
+          if (code === "123456" || code === "111111") {
+              if (window.AndroidBridge) {
+                  window.AndroidBridge.onLoginSuccess(window.mockPhone);
+              } else {
+                  document.body.innerHTML = "<h3>Login Successful!</h3><p>You can close this window now.</p>";
+              }
+          } else {
+              otpError.innerText = "Invalid Mock OTP code. Please enter 123456.";
+          }
+          return;
       }
 
       verifyBtn.disabled = true;
