@@ -638,6 +638,14 @@
       <div class="subtitle">Restaurant Admin Control Panel</div>
     </div>
     <div class="header-actions">
+      <div style="display: flex; align-items: center; gap: 8px; background-color: var(--bg-secondary); border: 1px solid var(--border); padding: 8px 16px; border-radius: 12px; margin-right: 12px;">
+        <span style="font-size: 13px; font-weight: 600; color: var(--text-secondary);">Taking Orders:</span>
+        <label class="switch">
+          <input type="checkbox" id="taking-orders-toggle" onchange="toggleTakingOrders(this.checked)">
+          <span class="slider"></span>
+        </label>
+        <span id="taking-orders-status-label" class="status-label available">Open</span>
+      </div>
       <div class="tab-btn" style="background-color: var(--danger); border-color: rgba(231, 76, 60, 0.3); color: #FFF;" onclick="clearAllOrders()">Clear All Orders 🗑️</div>
       <div class="tab-btn" onclick="fetchData()">Refresh Data ↻</div>
       <div class="tab-btn logout-btn" onclick="logoutAdmin()">Logout ⏻</div>
@@ -766,6 +774,34 @@
       }
     }
 
+    async function toggleTakingOrders(checked) {
+      if (localStorage.getItem("vss_admin_token") !== "authorized") return;
+      try {
+        const res = await fetch("/api/settings/taking-orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ takingOrders: checked })
+        });
+        if (res.ok) {
+          const statusLabel = document.getElementById("taking-orders-status-label");
+          if (checked) {
+            statusLabel.textContent = "Open";
+            statusLabel.className = "status-label available";
+            showToast("Cafe is now open and taking orders", "success");
+          } else {
+            statusLabel.textContent = "Closed";
+            statusLabel.className = "status-label unavailable";
+            showToast("Cafe is now closed. Customers cannot place orders.", "warning");
+          }
+          fetchData();
+        } else {
+          showToast("Error updating cafe status", "danger");
+        }
+      } catch (err) {
+        showToast("Network error: " + err.message, "danger");
+      }
+    }
+
     function switchView(viewId, btnEl) {
       document.querySelectorAll('.view-content').forEach(view => view.classList.remove('active'));
       document.querySelectorAll('.tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -779,12 +815,28 @@
       if (localStorage.getItem("vss_admin_token") !== "authorized") return;
       
       try {
-        const [ordersRes, menuRes] = await Promise.all([
+        const [ordersRes, menuRes, settingsRes] = await Promise.all([
           fetch('/api/orders'),
-          fetch('/api/menu')
+          fetch('/api/menu'),
+          fetch('/api/settings/taking-orders')
         ]);
         const orders = await ordersRes.json();
         const menu = await menuRes.json();
+        const settings = await settingsRes.json();
+        
+        // Update taking orders toggle
+        const toggle = document.getElementById("taking-orders-toggle");
+        const label = document.getElementById("taking-orders-status-label");
+        if (toggle && label) {
+          toggle.checked = settings.takingOrders;
+          if (settings.takingOrders) {
+            label.textContent = "Open";
+            label.className = "status-label available";
+          } else {
+            label.textContent = "Closed";
+            label.className = "status-label unavailable";
+          }
+        }
         
         menuCache = menu; // update cache
         renderOrders(orders);
