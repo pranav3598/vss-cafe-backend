@@ -68,9 +68,13 @@ async function getMenu() {
   } else {
     menu = readLocalJson().menu;
   }
+  const taking = await getTakingOrders();
   return menu.map(item => {
     if (!item.image || (!item.image.startsWith("http://") && !item.image.startsWith("https://"))) {
       item.image = getIndianFoodImage(item.name, item.category);
+    }
+    if (!taking) {
+      item.available = false;
     }
     return item;
   });
@@ -222,6 +226,31 @@ async function getUserByPhone(phone) {
   });
 }
 
+async function getTakingOrders() {
+  if (mongoDb) {
+    const doc = await mongoDb.collection('settings').findOne({ key: 'takingOrders' });
+    return doc ? doc.value : true;
+  }
+  const db = readLocalJson();
+  if (!db.settings) return true;
+  return db.settings.takingOrders !== false;
+}
+
+async function setTakingOrders(taking) {
+  if (mongoDb) {
+    await mongoDb.collection('settings').updateOne(
+      { key: 'takingOrders' },
+      { $set: { value: taking } },
+      { upsert: true }
+    );
+    return;
+  }
+  const db = readLocalJson();
+  if (!db.settings) db.settings = {};
+  db.settings.takingOrders = taking;
+  writeLocalJson(db);
+}
+
 module.exports = {
   getMenu,
   updateMenuAvailability,
@@ -230,6 +259,8 @@ module.exports = {
   getOrder,
   updateOrder,
   clearOrders,
+  getTakingOrders,
+  setTakingOrders,
   addUser,
   getUserByEmail,
   getUserByPhone,

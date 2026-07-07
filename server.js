@@ -38,6 +38,30 @@ app.get('/api/menu', async (req, res) => {
   }
 });
 
+// API: Get taking orders status
+app.get('/api/settings/taking-orders', async (req, res) => {
+  try {
+    const status = await db.getTakingOrders();
+    res.json({ takingOrders: status });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// API: Update taking orders status
+app.post('/api/settings/taking-orders', async (req, res) => {
+  try {
+    const { takingOrders } = req.body;
+    if (takingOrders === undefined) {
+      return res.status(400).json({ error: "Missing takingOrders parameter" });
+    }
+    await db.setTakingOrders(!!takingOrders);
+    res.json({ success: true, takingOrders: !!takingOrders });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // API: Update item availability
 app.patch('/api/menu/:id/availability', async (req, res) => {
   try {
