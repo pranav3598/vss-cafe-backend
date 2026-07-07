@@ -280,7 +280,7 @@ app.get('/login-phone', (req, res) => {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VSS Sports Square - Verification</title>
+  <title>VSS Cafe - Verification</title>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <style>
@@ -358,7 +358,7 @@ app.get('/login-phone', (req, res) => {
 </head>
 <body>
   <div class="container">
-    <div class="title" id="page-title">VSS Sports Square</div>
+    <div class="title" id="page-title">VSS Cafe</div>
     
     <!-- Phone Number Screen -->
     <div id="phone-screen">
