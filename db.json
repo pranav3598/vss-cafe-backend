@@ -16,7 +16,7 @@
       "price": 70,
       "description": "Crispy fries tossed in aromatic Indian masala spices.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=481&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-peri-peri",
@@ -25,7 +25,7 @@
       "price": 80,
       "description": "Golden fries tossed in spicy peri peri seasoning.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=482&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-cheese-fries",
@@ -34,7 +34,7 @@
       "price": 80,
       "description": "Crispy french fries topped with warm melted cheese.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=483&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1585109649108-724d9c72e272?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-cheese-shots",
@@ -43,7 +43,7 @@
       "price": 80,
       "description": "Crunchy bite-sized cheese nuggets bursting with flavor.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=484&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-veg-nuggets",
@@ -52,7 +52,7 @@
       "price": 70,
       "description": "Golden fried crispy vegetable nuggets.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1562967914-608f82629710?w=485&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1562967914-608f82629710?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-smilies",
@@ -61,7 +61,7 @@
       "price": 80,
       "description": "Crispy potato smiles loved by everyone.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1518013006335-ee1f2982d5a3?w=486&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1518013006335-ee1f2982d5a3?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-maggie",
@@ -70,7 +70,7 @@
       "price": 40,
       "description": "Classic instant noodles cooked to perfection.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1612966608967-302a63388004?w=487&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1612966608967-302a63388004?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-cheese-maggie",
@@ -79,7 +79,7 @@
       "price": 60,
       "description": "Hot maggie noodles topped with shredded processed cheese.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=488&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=480&auto=format&fit=crop"
     },
     {
       "id": "snack-veg-maggie",
@@ -88,7 +88,7 @@
       "price": 50,
       "description": "Traditional maggie noodles cooked with fresh garden vegetables.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1612966608967-302a63388004?w=489&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-superveg",
@@ -97,7 +97,7 @@
       "price": 90,
       "description": "Fresh garden veggies layered between toasted slices of bread.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=490&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-exotic",
@@ -106,7 +106,7 @@
       "price": 110,
       "description": "VSS special exotic vegetable sandwich with signature sauce.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=491&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1621800041134-c69901f60d6c?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-superclub",
@@ -115,7 +115,7 @@
       "price": 130,
       "description": "Double decker vegetable club sandwich loaded with cheese.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=492&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-veg-cheese",
@@ -124,7 +124,7 @@
       "price": 90,
       "description": "Toasted bread slice stuffed with mixed vegetables and cheese.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=493&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-chilli-corn",
@@ -133,7 +133,7 @@
       "price": 80,
       "description": "Delicious sandwich filled with sweet corn and spicy green chillies.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=494&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-cheese-corn",
@@ -142,16 +142,16 @@
       "price": 90,
       "description": "Creamy sweet corn and melted cheese toasted sandwich.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=495&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-mushroom",
       "name": "Mushroom Sandwich",
       "category": "Sandwiches",
       "price": 90,
-      "description": "Toasted sandwich filled with sautéed mushrooms and herbs.",
+      "description": "Toasted sandwich filled with saut\u00e9ed mushrooms and herbs.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=496&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1540713434306-53f2485e494f?w=480&auto=format&fit=crop"
     },
     {
       "id": "sand-paneer-cheese",
@@ -160,7 +160,7 @@
       "price": 110,
       "description": "Fresh paneer chunks and mozzarella cheese sandwich.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=497&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1592415499556-74fcb9f18667?w=480&auto=format&fit=crop"
     },
     {
       "id": "burger-spicy",
@@ -169,7 +169,7 @@
       "price": 80,
       "description": "Crispy veg patty topped with spicy sauce and fresh lettuce.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=498&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=480&auto=format&fit=crop"
     },
     {
       "id": "burger-cheesy",
@@ -178,7 +178,7 @@
       "price": 90,
       "description": "Gourmet vegetable burger with a melting cheese layer.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=499&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=480&auto=format&fit=crop"
     },
     {
       "id": "burger-superveg",
@@ -187,7 +187,7 @@
       "price": 100,
       "description": "Fresh vegetable patty burger with premium toppings.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?w=480&auto=format&fit=crop"
     },
     {
       "id": "burger-paneer",
@@ -196,7 +196,7 @@
       "price": 100,
       "description": "Juicy paneer patty burger with garlic mayo sauce.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=501&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=480&auto=format&fit=crop"
     },
     {
       "id": "burger-alootikki",
@@ -205,7 +205,7 @@
       "price": 80,
       "description": "Classic crispy potato tikki burger with mint chutney.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=502&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=480&auto=format&fit=crop"
     },
     {
       "id": "burger-special",
@@ -214,7 +214,7 @@
       "price": 130,
       "description": "Premium double decker vegetable burger loaded with cheese.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=503&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=480&auto=format&fit=crop"
     },
     {
       "id": "pasta-mac-creamy",
@@ -331,7 +331,7 @@
       "price": 70,
       "description": "Freshly squeezed hydrating muskmelon juice.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=516&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=480&auto=format&fit=crop"
     },
     {
       "id": "juice-watermelon",
@@ -340,7 +340,7 @@
       "price": 50,
       "description": "Freshly squeezed hydrating watermelon juice.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=517&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1571767424268-2c946f30c27e?w=480&auto=format&fit=crop"
     },
     {
       "id": "juice-apple",
@@ -349,7 +349,7 @@
       "price": 80,
       "description": "Freshly pressed sweet red apple juice.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=518&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=480&auto=format&fit=crop"
     },
     {
       "id": "juice-pineapple",
@@ -358,7 +358,7 @@
       "price": 60,
       "description": "Freshly squeezed tangy pineapple juice.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=519&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=480&auto=format&fit=crop"
     },
     {
       "id": "juice-lemon",
@@ -367,7 +367,7 @@
       "price": 50,
       "description": "Classic refreshing squeezed lime juice.",
       "available": true,
-      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=480&auto=format&fit=crop"
+      "image": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=480&auto=format&fit=crop"
     },
     {
       "id": "shake-chocolate",
@@ -644,7 +644,7 @@
       "name": "Lemon Cottage Paneer",
       "category": "Starters",
       "price": 140,
-      "description": "Soft paneer sautéed with lemon juice, butter, and green herbs.",
+      "description": "Soft paneer saut\u00e9ed with lemon juice, butter, and green herbs.",
       "available": true,
       "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=511&auto=format&fit=crop"
     },
@@ -1040,7 +1040,7 @@
       "name": "Palak Paneer",
       "category": "Indian Curries",
       "price": 170,
-      "description": "Paneer chunks in a thick paste made from puréed spinach and spices.",
+      "description": "Paneer chunks in a thick paste made from pur\u00e9ed spinach and spices.",
       "available": true,
       "image": "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?w=515&auto=format&fit=crop"
     },
@@ -1256,96 +1256,12 @@
       "name": "Palak Dal Kichidi",
       "category": "Delicious Rice",
       "price": 120,
-      "description": "Nutritious combination of rice, lentils, and fresh puréed spinach.",
+      "description": "Nutritious combination of rice, lentils, and fresh pur\u00e9ed spinach.",
       "available": true,
       "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=499&auto=format&fit=crop"
     }
   ],
-  "orders": [
-    {
-      "id": 1001,
-      "items": [
-        {
-          "product": {
-            "id": "fries-french",
-            "name": "French Fries",
-            "price": 60
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "fries-masala",
-            "name": "Masala Fries",
-            "price": 70
-          },
-          "quantity": 1
-        }
-      ],
-      "customerName": "Guest Customer",
-      "phone": "(555) 019-2834",
-      "address": "123 Coffee Lane, Suite B",
-      "notes": "",
-      "checkoutMode": "delivery",
-      "total": 176.5,
-      "status": "Delivered",
-      "progress": 1,
-      "timestamp": "2026-06-30T10:39:29.267Z"
-    },
-    {
-      "id": 1002,
-      "items": [
-        {
-          "product": {
-            "id": "fries-french",
-            "name": "French Fries",
-            "price": 60
-          },
-          "quantity": 1
-        }
-      ],
-      "customerName": "Guest Customer",
-      "phone": "(555) 019-2834",
-      "address": "123 Coffee Lane, Suite B",
-      "notes": "",
-      "checkoutMode": "pickup",
-      "total": 63,
-      "status": "Received",
-      "progress": 0,
-      "timestamp": "2026-06-30T10:42:23.036Z"
-    },
-    {
-      "id": 1003,
-      "items": [
-        {
-          "product": {
-            "id": "fries-french",
-            "name": "French Fries",
-            "price": 60
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "fries-masala",
-            "name": "Masala Fries",
-            "price": 70
-          },
-          "quantity": 1
-        }
-      ],
-      "customerName": "pranav",
-      "email": "pranavha3598@gmail.com",
-      "phone": "7019985069",
-      "address": "Bengaluru ",
-      "notes": "",
-      "checkoutMode": "delivery",
-      "total": 176.5,
-      "status": "Delivered",
-      "progress": 1,
-      "timestamp": "2026-06-30T12:27:19.888Z"
-    }
-  ],
+  "orders": [],
   "users": [
     {
       "email": "admin@vsscafe.com",

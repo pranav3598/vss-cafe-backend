@@ -136,6 +136,16 @@ async function updateOrder(id, updates) {
   return order;
 }
 
+async function clearOrders() {
+  if (mongoDb) {
+    await mongoDb.collection('orders').deleteMany({});
+    return;
+  }
+  const db = readLocalJson();
+  db.orders = [];
+  writeLocalJson(db);
+}
+
 async function addUser(user) {
   if (mongoDb) {
     await mongoDb.collection('users').insertOne(user);
@@ -219,6 +229,7 @@ module.exports = {
   addOrder,
   getOrder,
   updateOrder,
+  clearOrders,
   addUser,
   getUserByEmail,
   getUserByPhone,
