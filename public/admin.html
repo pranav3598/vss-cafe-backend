@@ -638,6 +638,7 @@
       <div class="subtitle">Restaurant Admin Control Panel</div>
     </div>
     <div class="header-actions">
+      <div class="tab-btn" style="background-color: var(--danger); border-color: rgba(231, 76, 60, 0.3); color: #FFF;" onclick="clearAllOrders()">Clear All Orders 🗑️</div>
       <div class="tab-btn" onclick="fetchData()">Refresh Data ↻</div>
       <div class="tab-btn logout-btn" onclick="logoutAdmin()">Logout ⏻</div>
     </div>
@@ -742,6 +743,27 @@
       document.getElementById("admin-password").value = "";
       document.getElementById("login-error-msg").style.display = "none";
       document.getElementById("login-gate").classList.remove("hidden");
+    }
+
+    async function clearAllOrders() {
+      if (localStorage.getItem("vss_admin_token") !== "authorized") return;
+      if (!confirm("Are you sure you want to delete ALL orders from the database? This cannot be undone.")) {
+        return;
+      }
+      try {
+        const res = await fetch("/api/orders", {
+          method: "DELETE"
+        });
+        if (res.ok) {
+          showToast("All orders have been cleared successfully", "success");
+          fetchData();
+        } else {
+          const err = await res.json();
+          showToast("Error clearing orders: " + (err.error || "Unknown error"), "danger");
+        }
+      } catch (err) {
+        showToast("Network error: " + err.message, "danger");
+      }
     }
 
     function switchView(viewId, btnEl) {
