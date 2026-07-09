@@ -159,7 +159,7 @@ app.delete('/api/orders', async (req, res) => {
 // API: Place a new order
 app.post('/api/orders', async (req, res) => {
   try {
-    const { items, customerName, phone, address, notes, checkoutMode, total, email, paymentMethod } = req.body;
+    const { items, customerName, phone, address, notes, checkoutMode, total, email, paymentMethod, latitude, longitude } = req.body;
     if (!items || items.length === 0) return res.status(400).json({ error: "Basket is empty" });
 
     const newOrder = {
@@ -172,12 +172,20 @@ app.post('/api/orders', async (req, res) => {
       checkoutMode: checkoutMode || "delivery",
       paymentMethod: paymentMethod || "COD",
       total: total || 0,
+      latitude: latitude || 0.0,
+      longitude: longitude || 0.0,
       status: "Received",
       progress: 0.0,
       timestamp: new Date().toISOString()
     };
 
     const savedOrder = await db.addOrder(newOrder);
+    
+    // Trigger WhatsApp notification asynchronously (does not block client response)
+    sendWhatsAppAlert(savedOrder).catch(err => {
+      console.error("Async WhatsApp notification failed:", err.message);
+    });
+
     res.status(201).json(savedOrder);
   } catch (e) {
     res.status(500).json({ error: e.message });
@@ -303,9 +311,12 @@ app.get('/login-phone', (req, res) => {
       text-align: center;
     }
     .title {
-      font-size: 22px;
+      font-family: Georgia, serif;
+      font-style: italic;
       font-weight: bold;
+      font-size: 26px;
       color: #d4af37;
+      letter-spacing: 0.15em;
       margin-bottom: 24px;
     }
     .input-field {
@@ -561,6 +572,88 @@ app.post('/api/auth/register-phone', async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
+async function sendWhatsAppAlert(order) {
+  const targetNumber = "+917353068030";
+  
+  // Format items text
+  let itemsText = "";
+  if (Array.isArray(order.items)) {
+    itemsText = order.items.map(i => {
+      const pName = (i.product && i.product.name) ? i.product.name : "Item";
+      const pPrice = (i.product && i.product.price) ? i.product.price : 0;
+      return `- ${i.quantity}x ${pName} (₹${pPrice * i.quantity})`;
+    }).join("\n");
+  }
+
+  // Location map link builder
+  let mapLinkText = "";
+  if (order.latitude && order.longitude) {
+    mapLinkText = `📍 *Maps Location:*\nhttps://www.google.com/maps/search/?api=1&query=${order.latitude},${order.longitude}`;
+  } else {
+    mapLinkText = `📍 *Address:* ${order.address}`;
+  }
+
+  const messageBody = `🚨 *NEW ORDER RECEIVED!* (Order ID: #${order.id})
+--------------------------------------
+👤 *Customer:* ${order.customerName}
+📞 *Phone:* ${order.phone}
+🚚 *Mode:* ${order.checkoutMode.toUpperCase()}
+💳 *Payment:* ${order.paymentMethod}
+
+🛒 *Items:*
+${itemsText}
+
+💰 *Total Amount:* ₹${parseFloat(order.total).toFixed(2)}
+--------------------------------------
+${mapLinkText}
+--------------------------------------
+Check dashboard at: https://vss-cafe-backend.onrender.com/admin`;
+
+  console.log("=== WHATSAPP NOTIFICATION ALIGNED ===");
+  console.log(messageBody);
+
+  const instanceId = process.env.ULTRAMSG_INSTANCE_ID;
+  const ultraMsgToken = process.env.ULTRAMSG_TOKEN;
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const senderNumber = process.env.TWILIO_SENDER_NUMBER || "whatsapp:+14155238886";
+
+  if (instanceId && ultraMsgToken) {
+    try {
+      const response = await fetch(`https://api.ultramsg.com/${instanceId}/messages/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          token: ultraMsgToken,
+          to: targetNumber,
+          body: messageBody
+        })
+      });
+      const resJson = await response.json();
+      console.log("WhatsApp notification successfully transmitted via UltraMsg!", resJson);
+    } catch (err) {
+      console.error("UltraMsg WhatsApp transmission failed:", err.message);
+    }
+  } else if (accountSid && authToken) {
+    try {
+      const twilio = require('twilio');
+      const client = new twilio(accountSid, authToken);
+      await client.messages.create({
+        body: messageBody,
+        from: senderNumber,
+        to: `whatsapp:${targetNumber}`
+      });
+      console.log("WhatsApp notification successfully transmitted via Twilio Cloud!");
+    } catch (err) {
+      console.error("Twilio WhatsApp transmission failed:", err.message);
+    }
+  } else {
+    console.log("Notice: Neither UltraMsg nor Twilio credentials are set. Configure ULTRAMSG_INSTANCE_ID and ULTRAMSG_TOKEN (or TWILIO credentials) in Render environment settings.");
+  }
+}
 
 app.listen(PORT, () => {
   console.log(`VSS Cafe API Server listening on port ${PORT}`);
