@@ -112,11 +112,66 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Orders View */
-    .orders-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    /* Kanban Board Layout */
+    .kanban-board {
+      display: flex;
       gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 24px;
+      align-items: flex-start;
+      margin-top: 16px;
+    }
+
+    .kanban-column {
+      flex: 1;
+      min-width: 320px;
+      max-width: 420px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .kanban-column-header {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+    }
+
+    .kanban-column-count {
+      background-color: var(--accent);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 2px 10px;
+    }
+
+    .kanban-column-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 300px;
+    }
+
+    .empty-state-column {
+      text-align: center;
+      padding: 40px 16px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      background-color: rgba(255, 255, 255, 0.02);
     }
 
     .order-card {
@@ -659,8 +714,52 @@
 
   <!-- VIEW 1: ORDERS -->
   <div id="orders-view" class="view-content active">
-    <div id="orders-container" class="orders-grid">
-      <div class="empty-state">Loading active orders dashboard...</div>
+    <div class="kanban-board">
+      
+      <!-- COLUMN 1: RECEIVED -->
+      <div class="kanban-column">
+        <div class="kanban-column-header">
+          <span>New Orders</span>
+          <span id="count-received" class="kanban-column-count">0</span>
+        </div>
+        <div id="list-received" class="kanban-column-list">
+          <div class="empty-state-column">No new orders.</div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: PREPARING -->
+      <div class="kanban-column">
+        <div class="kanban-column-header">
+          <span>Kitchen (Preparing)</span>
+          <span id="count-preparing" class="kanban-column-count">0</span>
+        </div>
+        <div id="list-preparing" class="kanban-column-list">
+          <div class="empty-state-column">No orders in kitchen.</div>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: OUT FOR DELIVERY -->
+      <div class="kanban-column">
+        <div class="kanban-column-header">
+          <span>Transit (Out for Delivery)</span>
+          <span id="count-delivery" class="kanban-column-count">0</span>
+        </div>
+        <div id="list-delivery" class="kanban-column-list">
+          <div class="empty-state-column">No orders in transit.</div>
+        </div>
+      </div>
+
+      <!-- COLUMN 4: DELIVERED -->
+      <div class="kanban-column">
+        <div class="kanban-column-header">
+          <span>Completed (Delivered)</span>
+          <span id="count-completed" class="kanban-column-count">0</span>
+        </div>
+        <div id="list-completed" class="kanban-column-list">
+          <div class="empty-state-column">No completed orders.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -848,15 +947,20 @@
     }
 
     function renderOrders(orders) {
-      const container = document.getElementById('orders-container');
-      if (orders.length === 0) {
-        container.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;">No orders placed yet. Placed orders from the mobile app will appear here in real-time.</div>';
-        return;
-      }
+      // 1. Group orders by status
+      const received = orders.filter(o => o.status === 'Received').sort((a,b) => b.id - a.id);
+      const preparing = orders.filter(o => o.status === 'Preparing').sort((a,b) => b.id - a.id);
+      const delivery = orders.filter(o => o.status === 'Out for Delivery').sort((a,b) => b.id - a.id);
+      const completed = orders.filter(o => o.status === 'Delivered').sort((a,b) => b.id - a.id);
 
-      orders.sort((a,b) => b.id - a.id);
+      // 2. Set counts
+      document.getElementById('count-received').innerText = received.length;
+      document.getElementById('count-preparing').innerText = preparing.length;
+      document.getElementById('count-delivery').innerText = delivery.length;
+      document.getElementById('count-completed').innerText = completed.length;
 
-      container.innerHTML = orders.map(o => {
+      // 3. Render function for individual cards
+      const renderCard = o => {
         const dateObj = new Date(o.timestamp);
         const dateStr = dateObj.toLocaleDateString([], {day: '2-digit', month: 'short', year: 'numeric'});
         const timeStr = dateObj.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
@@ -910,7 +1014,22 @@
             </div>
           </div>
         `;
-      }).join('');
+      };
+
+      // 4. Update lists in columns
+      const populateList = (listId, listOrders, defaultText) => {
+        const el = document.getElementById(listId);
+        if (listOrders.length === 0) {
+          el.innerHTML = `<div class="empty-state-column">${defaultText}</div>`;
+        } else {
+          el.innerHTML = listOrders.map(renderCard).join('');
+        }
+      };
+
+      populateList('list-received', received, 'No new orders.');
+      populateList('list-preparing', preparing, 'No orders in kitchen.');
+      populateList('list-delivery', delivery, 'No orders in transit.');
+      populateList('list-completed', completed, 'No completed orders.');
     }
 
     function renderMenu(menu) {
