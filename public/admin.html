@@ -885,7 +885,14 @@
             <div class="order-meta">
               <div><strong>Customer:</strong> ${o.customerName} (${o.email || 'Guest'})</div>
               <div><strong>Phone:</strong> ${o.phone}</div>
-              ${o.checkoutMode === 'delivery' ? `<div><strong>Address:</strong> ${o.address}</div>` : ''}
+              ${o.address ? `<div><strong>Address:</strong> ${o.address}</div>` : ''}
+              ${o.latitude && o.longitude ? `
+                <div style="margin-top: 4px;">
+                  <a href="https://www.google.com/maps/search/?api=1&query=${o.latitude},${o.longitude}" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold; font-size: 13px;">
+                    📍 View on Google Maps (${o.latitude.toFixed(6)}, ${o.longitude.toFixed(6)})
+                  </a>
+                </div>
+              ` : ''}
               ${o.notes ? `<div><strong>Notes:</strong> ${o.notes}</div>` : ''}
             </div>
 
