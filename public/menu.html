@@ -80,11 +80,8 @@
   </div>
 
   <!-- Menu Category Tabs -->
-  <div class="sticky top-[73px] z-30 bg-gray-50/95 backdrop-blur-sm px-6 py-4 flex gap-3 overflow-x-auto no-scrollbar">
+  <div id="categoryTabs" class="sticky top-[73px] z-30 bg-gray-50/95 backdrop-blur-sm px-6 py-4 flex gap-3 overflow-x-auto no-scrollbar">
     <button onclick="filterCategory('All')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-dark text-white shadow-sm border border-brand-dark transition-all duration-200 whitespace-nowrap">All Items</button>
-    <button onclick="filterCategory('Beverages')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap">Beverages</button>
-    <button onclick="filterCategory('Snacks')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap">Snacks</button>
-    <button onclick="filterCategory('Combos')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all duration-200 whitespace-nowrap">Combos</button>
   </div>
 
   <!-- Product Listing Grid -->
@@ -152,10 +149,38 @@
       try {
         const response = await fetch('/api/menu');
         products = await response.json();
+        renderCategoryTabs();
         renderProducts();
       } catch (err) {
         console.error("Failed to load server menu:", err);
       }
+    }
+
+    function renderCategoryTabs() {
+      const container = document.getElementById('categoryTabs');
+      if (!container) return;
+
+      const categoriesSet = new Set(['All']);
+      products.forEach(p => {
+        if (p.category && p.category.trim()) {
+          categoriesSet.add(p.category.trim());
+        }
+      });
+
+      container.innerHTML = Array.from(categoriesSet).map(cat => {
+        const isSelected = cat.toLowerCase() === selectedCategory.toLowerCase();
+        const activeClass = isSelected
+          ? 'bg-brand-dark text-white shadow-sm border-brand-dark'
+          : 'bg-white text-gray-600 hover:bg-gray-100 border-gray-200';
+        const escapedCat = cat.replace(/'/g, "\\'");
+        return `<button onclick="filterCategory('${escapedCat}')" class="category-tab px-5 py-2.5 rounded-full text-xs font-semibold ${activeClass} border transition-all duration-200 whitespace-nowrap">${cat === 'All' ? 'All Items' : cat}</button>`;
+      }).join('');
+    }
+
+    function filterCategory(cat) {
+      selectedCategory = cat;
+      renderCategoryTabs();
+      renderProducts();
     }
 
     // Render Product Cards Grid
@@ -170,15 +195,20 @@
       filtered.forEach(p => {
         const qty = cart[p.id] ? cart[p.id].quantity : 0;
         
-        // Build image path
-        const imagePath = `/drawable/${p.image}.jpg`;
+        // Build image path smartly
+        let imagePath = p.image || '';
+        if (!imagePath) {
+          imagePath = '/drawable/vss_logo.png';
+        } else if (!imagePath.startsWith('http://') && !imagePath.startsWith('https://') && !imagePath.startsWith('/')) {
+          imagePath = `/drawable/${imagePath}.jpg`;
+        }
 
         const card = document.createElement('div');
         card.className = "bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-transform hover:-translate-y-1 duration-300";
         card.innerHTML = `
           <!-- Image Container (16:9 ratio) -->
           <div class="relative aspect-[16/10] overflow-hidden">
-            <img src="${imagePath}" alt="${p.name}" class="w-full h-full object-cover">
+            <img src="${imagePath}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/drawable/vss_logo.png';">
             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
               <i data-lucide="star" class="h-3 w-3 text-brand-gold fill-current"></i>
               <span class="text-[10px] font-bold text-brand-dark">${p.rating || '4.5'}</span>
