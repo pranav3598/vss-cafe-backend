@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <!-- Burger Bun Bottom -->
+  <path
+      android:fillColor="#8D6E63"
+      android:pathData="M3,18h18a2,2 0,0 1,-2 2H5a2,2 0,0 1,-2 -2z" />
+  <!-- Veggie Stuffing (Lettuce/Patty) -->
+  <path
+      android:fillColor="#4CAF50"
+      android:pathData="M2,15h20v2H2z" />
+  <!-- Cheese Slice (Yellow) -->
+  <path
+      android:fillColor="#FFD54F"
+      android:pathData="M4,13h16l-2,2H6z" />
+  <!-- Burger Bun Top -->
+  <path
+      android:fillColor="#A1887F"
+      android:pathData="M3,12c0,-5 18,-5 18,0z" />
+  <!-- Sesame seeds -->
+  <path
+      android:fillColor="#ECEFF1"
+      android:pathData="M7,9h1v1H7V9z M12,8h1v1h-1V8z M16,9h1v1h-1V9z" />
+</vector>

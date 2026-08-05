@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <!-- Yellow Liquid inside -->
+  <path
+      android:fillColor="#CDDC39"
+      android:pathData="M6.5,8L8,19h8l1.5,-11h-11z" />
+  <!-- Glass Outer Rim/Lines -->
+  <path
+      android:strokeColor="#B0BEC5"
+      android:strokeWidth="1.2"
+      android:pathData="M6,6l2,14c0.2,1 1.2,1.5 2,1.5h4c0.8,0 1.8,-0.5 2,-1.5l2,-14" />
+  <!-- Straw (Pink) -->
+  <path
+      android:strokeColor="#E91E63"
+      android:strokeWidth="1.5"
+      android:strokeLineCap="round"
+      android:pathData="M11,15L15,2 M15,2l2,0.5" />
+  <!-- Lemon Wedge on Rim -->
+  <path
+      android:fillColor="#FFEB3B"
+      android:pathData="M5.5,5.5a2,2 0,1 1,-2.8 2.8a2,2 0,0 1,2.8 -2.8z" />
+</vector>
