@@ -183,6 +183,145 @@
       renderProducts();
     }
 
+    const localIdImageMap = {
+      "snack-french-fries": "french_fries",
+      "snack-masala-fries": "masala_fries",
+      "snack-peri-peri": "peri_peri_fries",
+      "snack-cheese-fries": "cheese_fries",
+      "snack-cheese-shots": "cheese_shots",
+      "snack-veg-nuggets": "veg_nuggets",
+      "snack-smilies": "smilies",
+      "snack-cheese-maggie": "cheese_maggie",
+      "snack-veg-maggie": "veg_maggie",
+      "sand-superveg": "super_veg_sandwich",
+      "sand-superclub": "super_club_veg_sandwich",
+      "sand-veg-cheese": "veg_cheese_sandwich",
+      "sand-chilli-corn": "chilli_corn_sandwich",
+      "sand-cheese-corn": "cheese_corn_sandwich",
+      "sand-mushroom": "mushroom_sandwich",
+      "sand-paneer-cheese": "paneer_cheese_sandwich",
+      "burger-spicy": "veg_spicy_burger",
+      "burger-cheesy": "veg_cheesy_burger",
+      "burger-superveg": "super_veg_burger",
+      "burger-paneer": "paneer_burger",
+      "burger-alootikki": "alootikki_burger",
+      "pasta-mac-creamy": "macaroni_creamy_pasta",
+      "pasta-mac-red": "macaroni_red_sauce_pasta",
+      "pasta-penne-creamy": "penne_creamy_pasta",
+      "pasta-penne-red": "penne_red_sauce_pasta",
+      "pasta-fusilli-creamy": "fusili_creamy_pasta",
+      "pasta-fusilli-red": "fusili_red_sauce_pasta",
+      "ice-scoop": "single_scoop_cup",
+      "ice-double": "double_scoop",
+      "ice-gudbud": "exotic_gudbud",
+      "ice-zest": "fruit_zest",
+      "ice-mango-berry": "mango_berry",
+      "ice-sundae": "banoffee_sundae",
+      "juice-muskmelon": "muskmelon_juice",
+      "juice-watermelon": "watermelon_juice",
+      "juice-apple": "apple_juice",
+      "juice-pineapple": "pineapple_juice",
+      "juice-lemon": "lemon_juice",
+      "shake-chocolate": "chocolate_milkshake",
+      "shake-vanilla": "vanilla_milkshake",
+      "shake-butterscotch": "butterscotch_milkshake",
+      "shake-strawberry": "strawberry_milkshake",
+      "shake-mango": "mango_milkshake",
+      "shake-apple": "apple_milkshake",
+      "mocktail-mojito": "virgin_mojito",
+      "mocktail-sea-blue": "sea_blue",
+      "mocktail-coconut": "coconut_paradise",
+      "mocktail-cooler": "green_apple_cooler",
+      "mocktail-colada": "pina_colada",
+      "mocktail-strawberry": "strawberry_blush",
+      "mocktail-passion": "passion_fruit_basil",
+      "mocktail-punch": "fruit_punch",
+      "soda-sweet-salt": "sweet_salt_soda",
+      "soda-masala": "masala_soda",
+      "soda-lemon": "lemon_soda",
+      "soup-tomato": "cream_of_tomato",
+      "soup-manchow": "veg_manchow",
+      "soup-hot-sour": "hot_sour",
+      "soup-sweetcorn": "sweet_corn",
+      "soup-coriander": "lemon_coriander",
+      "start-gobi-manchurian": "gobi_manchurian",
+      "start-gobi-chilli": "gobi_chilli",
+      "start-gobi-pepper": "gobi_pepper_dry",
+      "start-gobi-65": "gobi_65",
+      "start-paneer-manchurian": "paneer_manchurian",
+      "start-paneer-chilli": "paneer_chilli",
+      "start-paneer-pepper": "paneer_pepper_dry",
+      "start-cottage-paneer": "lemon_cottage_paneer",
+      "start-paneer-satay": "paneer_satay",
+      "start-paneer-65": "paneer_65",
+      "start-babycorn-manch": "babycorn_manchurian",
+      "start-babycorn-chilli": "babycorn_chilli",
+      "start-babycorn-pepper": "babycorn_pepper_dry",
+      "start-crispy-babycorn": "crispy_babycorn",
+      "start-golden-babycorn": "golden_fried_babycorn",
+      "start-babycorn-65": "babycorn_65",
+      "start-mush-manch": "mushroom_manchurian",
+      "start-mush-chilli": "mushroom_chilli",
+      "start-mush-pepper": "mushroom_pepper_dry",
+      "start-mush-65": "mushroom_65",
+      "rice-veg-fried": "veg_fried_rice",
+      "rice-jeera": "jeera_rice",
+      "rice-ghee": "ghee_rice",
+      "rice-paneer-fried": "paneer_fried_rice",
+      "rice-schezwan": "schezwan_fried_rice",
+      "rice-mushroom": "mushroom_fried_rice",
+      "rice-gobi": "gobi_rice",
+      "noodle-veg": "veg_noodles",
+      "noodle-schezwan": "schezwan_noodles",
+      "noodle-chilli-garlic": "chilli_garlic_noodles",
+      "tandoor-paneer-satay": "paneer_satay",
+      "tandoor-masala-papad": "masala_papad",
+      "tandoor-paneer-tikka": "paneer_tikka",
+      "tandoor-harabhara-kabab": "hara_bhara_kabab",
+      "tandoor-stuffed-paneer": "stuffed_paneer",
+      "tandoor-paneer-papdi": "paneer_papdi",
+      "tandoor-paneer-peri-peri": "paneer_tikka_peri_peri",
+      "tandoor-aloo-tikka": "aloo_tikka",
+      "tandoor-veg-platter": "veg_platter",
+      "bread-butter-roti": "butter_tandoori_roti",
+      "bread-butter-naan": "butter_naan",
+      "bread-butter-kulcha": "butter_kulcha",
+      "combo-roti-curry": "roti_curry",
+      "combo-mini-meals": "north_mini_meals",
+      "combo-special-meals": "north_special_meals",
+      "bread-tandoori-roti": "tandoori_roti",
+      "bread-naan": "naan",
+      "bread-garlic-naan": "garlic_naan",
+      "bread-kulcha": "kulcha",
+      "bread-lachha-paratha": "lacha_parata",
+      "curry-paneer-butter": "paneer_butter_masala",
+      "curry-palak-paneer": "palak_paneer",
+      "curry-kadai-paneer": "kadai_paneer",
+      "curry-paneer-tikka": "paneer_tikka_masala",
+      "curry-paneer-piyaza": "paneer_do_piyaza",
+      "curry-mutter-paneer": "mutter_paneer",
+      "curry-kaju-masala": "kaju_masala",
+      "curry-veg-kadai": "veg_kadai",
+      "curry-mix-veg": "mix_veg_curry",
+      "curry-veg-deewani": "veg_deewani",
+      "curry-veg-handi": "veg_handi",
+      "curry-veg-kofta": "veg_kofta",
+      "curry-veg-kholapuri": "veg_kholapuri",
+      "curry-mush-kadai": "mushroom_kadai",
+      "curry-mush-masala": "mushroom_masala",
+      "curry-mush-tikka": "mushroom_tikka_masala",
+      "curry-dal-fry": "dal_fry",
+      "curry-dal-tadka": "dal_tadka",
+      "curry-dal-kholapuri": "dal_kholapuri",
+      "curry-bindi-fry": "bindi_fry",
+      "curry-bindi-masala": "bindi_masala",
+      "curry-capsicum": "capsicum_masala",
+      "curry-veg-kurma": "veg_kurma",
+      "rice-veg-biriyani": "veg_biryani",
+      "rice-dal-kichidi": "dal_kichidi",
+      "rice-palak-dal-kichidi": "palak_dal_kichidi"
+    };
+
     // Render Product Cards Grid
     function renderProducts() {
       const grid = document.getElementById('productGrid');
@@ -195,12 +334,16 @@
       filtered.forEach(p => {
         const qty = cart[p.id] ? cart[p.id].quantity : 0;
         
-        // Build image path smartly
-        let imagePath = p.image || '';
-        if (!imagePath) {
+        // Build image path smartly matching Android local mapping
+        let imagePath = '';
+        if (localIdImageMap[p.id]) {
+          imagePath = `/drawable/${localIdImageMap[p.id]}.jpg`;
+        } else if (p.image && (p.image.startsWith('http://') || p.image.startsWith('https://') || p.image.startsWith('/'))) {
+          imagePath = p.image;
+        } else if (p.image) {
+          imagePath = `/drawable/${p.image}.jpg`;
+        } else {
           imagePath = '/drawable/vss_logo.png';
-        } else if (!imagePath.startsWith('http://') && !imagePath.startsWith('https://') && !imagePath.startsWith('/')) {
-          imagePath = `/drawable/${imagePath}.jpg`;
         }
 
         const card = document.createElement('div');
