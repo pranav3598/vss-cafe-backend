@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSS Cafe - Razorpay Checkout</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-md w-full bg-zinc-800 border border-zinc-700 rounded-3xl p-8 text-center shadow-2xl">
+    <div class="h-16 w-16 bg-gradient-to-tr from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+      ☕
+    </div>
+    <h2 class="text-2xl font-bold mb-1">VSS Cafe Checkout</h2>
+    <p class="text-zinc-400 text-sm mb-6">Processing your order securely via Razorpay</p>
+    
+    <div class="bg-zinc-900/80 rounded-2xl p-4 mb-6 border border-zinc-700 text-left space-y-2">
+      <div class="flex justify-between text-sm text-zinc-400">
+        <span>Amount Payable</span>
+        <span id="displayAmount" class="font-bold text-amber-400 text-base">₹0.00</span>
+      </div>
+      <div class="flex justify-between text-xs text-zinc-500">
+        <span>Payment Options</span>
+        <span>Google Pay, PhonePe, Cards, UPI</span>
+      </div>
+    </div>
+
+    <button id="payBtn" onclick="startPayment()" class="w-full py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-2xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+      Pay Now & Complete Order
+    </button>
+    <div id="statusText" class="mt-4 text-xs text-zinc-400"></div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = parseFloat(urlParams.get('amount') || '0');
+    const customerName = urlParams.get('name') || 'Guest Customer';
+    const phone = urlParams.get('phone') || '0000000000';
+    const address = urlParams.get('address') || 'VSS Cafe Delivery';
+    const itemsJson = urlParams.get('items') || '[]';
+    const checkoutMode = urlParams.get('mode') || 'delivery';
+    const notes = urlParams.get('notes') || '';
+
+    document.getElementById('displayAmount').innerText = '₹' + amount.toFixed(2);
+
+    async function startPayment() {
+      const btn = document.getElementById('payBtn');
+      const statusTxt = document.getElementById('statusText');
+      btn.disabled = true;
+      btn.innerText = 'Initializing Razorpay...';
+
+      try {
+        // 1. Create Razorpay order on backend
+        const orderRes = await fetch('/api/payment/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: amount, currency: 'INR' })
+        });
+        const orderData = await orderRes.json();
+        
+        if (!orderData.orderId) {
+          alert('Failed to initialize payment order: ' + (orderData.error || 'Unknown error'));
+          btn.disabled = false;
+          btn.innerText = 'Pay Now & Complete Order';
+          return;
+        }
+
+        // 2. Configure Razorpay Checkout modal
+        const options = {
+          key: orderData.key,
+          amount: orderData.amount,
+          currency: orderData.currency,
+          name: 'VSS Cafe',
+          description: 'Food Order Payment',
+          image: '/apple-touch-icon.png',
+          order_id: orderData.orderId,
+          prefill: {
+            name: customerName,
+            contact: phone
+          },
+          theme: {
+            color: '#d4af37'
+          },
+          handler: async function (response) {
+            statusTxt.innerText = 'Verifying payment...';
+            
+            // 3. Verify signature on backend
+            const verifyRes = await fetch('/api/payment/verify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature
+              })
+            });
+            const verifyData = await verifyRes.json();
+
+            if (verifyData.success) {
+              statusTxt.innerText = 'Payment verified! Submitting order...';
+              
+              // 4. Submit order to database
+              let itemsArray = [];
+              try { itemsArray = JSON.parse(itemsJson); } catch (e) { itemsArray = []; }
+
+              const orderPayload = {
+                customerName: customerName,
+                phone: phone,
+                address: address,
+                items: itemsArray,
+                total: amount,
+                checkoutMode: checkoutMode,
+                paymentMethod: 'Razorpay UPI (' + response.razorpay_payment_id + ')',
+                notes: notes,
+                timestamp: new Date().toISOString()
+              };
+
+              const submitRes = await fetch('/api/orders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderPayload)
+              });
+
+              if (submitRes.ok) {
+                alert('🎉 Payment Successful! Your order has been placed.');
+                window.location.href = '/?orderSuccess=true';
+              } else {
+                alert('Payment received, but order submission failed. Contact cafe admin.');
+              }
+            } else {
+              alert('Payment verification failed!');
+              btn.disabled = false;
+              btn.innerText = 'Pay Now & Complete Order';
+            }
+          },
+          modal: {
+            ondismiss: function () {
+              btn.disabled = false;
+              btn.innerText = 'Pay Now & Complete Order';
+              statusTxt.innerText = 'Payment cancelled.';
+            }
+          }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+      } catch (err) {
+        console.error('Checkout error:', err);
+        alert('Error launching Razorpay: ' + err.message);
+        btn.disabled = false;
+        btn.innerText = 'Pay Now & Complete Order';
+      }
+    }
+
+    // Auto trigger checkout on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      startPayment();
+    });
+  </script>
+</body>
+</html>

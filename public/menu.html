@@ -520,6 +520,27 @@
     document.getElementById('closeCartBtn').addEventListener('click', closeDrawer);
     document.getElementById('cartOverlay').addEventListener('click', closeDrawer);
 
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      const itemsList = Object.values(cart);
+      if (itemsList.length === 0) {
+        alert("Your basket is empty!");
+        return;
+      }
+      let subtotal = 0;
+      const formattedItems = itemsList.map(item => {
+        subtotal += item.product.price * item.quantity;
+        return {
+          product: { id: item.product.id, name: item.product.name, price: item.product.price },
+          quantity: item.quantity
+        };
+      });
+      const deliveryFee = subtotal < 199 ? 20 : 0;
+      const totalAmount = subtotal + deliveryFee;
+
+      const checkoutUrl = `/checkout.html?amount=${totalAmount}&name=${encodeURIComponent('VSS Customer')}&phone=9999999999&address=${encodeURIComponent('VSS Delivery Address')}&items=${encodeURIComponent(JSON.stringify(formattedItems))}`;
+      window.location.href = checkoutUrl;
+    });
+
     // Initial Load
     loadMenu();
 
