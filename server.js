@@ -7,6 +7,67 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Razorpay Payment Gateway Setup
+const Razorpay = require('razorpay');
+const crypto = require('crypto');
+
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || 'rzp_test_TYkOXp23yUhM0t';
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'w11phMSpsE7kBUw3Arx0vw7z';
+
+const razorpayInstance = new Razorpay({
+  key_id: RAZORPAY_KEY_ID,
+  key_secret: RAZORPAY_KEY_SECRET
+});
+
+// API: Create Razorpay Payment Order
+app.post('/api/payment/create-order', async (req, res) => {
+  try {
+    const { amount, currency } = req.body;
+    if (!amount) {
+      return res.status(400).json({ error: "Amount is required" });
+    }
+    const options = {
+      amount: Math.round(amount * 100), // amount in paise
+      currency: currency || "INR",
+      receipt: "rcpt_" + Date.now()
+    };
+    const order = await razorpayInstance.orders.create(options);
+    res.json({
+      orderId: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      key: RAZORPAY_KEY_ID
+    });
+  } catch (err) {
+    console.error("Error creating Razorpay order:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// API: Verify Razorpay Payment Signature
+app.post('/api/payment/verify', (req, res) => {
+  try {
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
+      return res.status(400).json({ success: false, error: "Missing payment verification parameters" });
+    }
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+    const expectedSignature = crypto
+      .createHmac('sha256', RAZORPAY_KEY_SECRET)
+      .update(body.toString())
+      .digest('hex');
+
+    if (expectedSignature === razorpay_signature) {
+      res.json({ success: true, message: "Payment verified successfully" });
+    } else {
+      res.status(400).json({ success: false, error: "Invalid payment signature" });
+    }
+  } catch (err) {
+    console.error("Error verifying Razorpay payment:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Background tracking simulator loop using portability layer
 setInterval(async () => {
   try {

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "^4.21.2",
-    "mongodb": "^6.3.0"
+    "mongodb": "^6.3.0",
+    "razorpay": "^2.9.5"
   }
 }
