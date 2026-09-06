@@ -77,7 +77,24 @@
           order_id: orderData.orderId,
           prefill: {
             name: customerName,
-            contact: phone
+            contact: phone,
+            method: 'upi'
+          },
+          config: {
+            display: {
+              blocks: {
+                upi: {
+                  name: 'Pay via UPI (GPay, PhonePe, Paytm, BHIM)',
+                  instruments: [
+                    { method: 'upi' }
+                  ]
+                }
+              },
+              sequence: ['block.upi'],
+              preferences: {
+                show_default_blocks: true
+              }
+            }
           },
           theme: {
             color: '#d4af37'
