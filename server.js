@@ -10,19 +10,42 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Razorpay Payment Gateway Setup
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
+const fs = require('fs');
 
-const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || 'rzp_test_TYkOXp23yUhM0t';
-const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'w11phMSpsE7kBUw3Arx0vw7z';
+// Load environment variables from .env file if available
+if (fs.existsSync(path.join(__dirname, '.env'))) {
+  try {
+    const envContent = fs.readFileSync(path.join(__dirname, '.env'), 'utf8');
+    envContent.split('\n').forEach(line => {
+      const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
+      if (match) {
+        const key = match[1];
+        let value = match[2] || '';
+        if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
+        if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
+        process.env[key] = value.trim();
+      }
+    });
+  } catch (e) {
+    console.error("Error loading .env file:", e.message);
+  }
+}
+
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || 'rzp_live_TZDam5mZaTCog1';
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'c3D0AUXAIONuj8rjIbA2b4hg';
 
 const razorpayInstance = new Razorpay({
   key_id: RAZORPAY_KEY_ID,
   key_secret: RAZORPAY_KEY_SECRET
 });
 
+// Pending orders draft map for Razorpay callbacks
+const pendingOrders = new Map();
+
 // API: Create Razorpay Payment Order
 app.post('/api/payment/create-order', async (req, res) => {
   try {
-    const { amount, currency } = req.body;
+    const { amount, currency, customerName, phone, address, items, checkoutMode, notes } = req.body;
     if (!amount) {
       return res.status(400).json({ error: "Amount is required" });
     }
@@ -32,6 +55,19 @@ app.post('/api/payment/create-order', async (req, res) => {
       receipt: "rcpt_" + Date.now()
     };
     const order = await razorpayInstance.orders.create(options);
+    
+    // Store draft order in memory linked to Razorpay orderId
+    pendingOrders.set(order.id, {
+      customerName: customerName || "Guest Customer",
+      phone: phone || "",
+      address: address || "",
+      items: items || [],
+      total: amount,
+      checkoutMode: checkoutMode || "delivery",
+      notes: notes || "",
+      timestamp: new Date().toISOString()
+    });
+
     res.json({
       orderId: order.id,
       amount: order.amount,
@@ -45,7 +81,7 @@ app.post('/api/payment/create-order', async (req, res) => {
 });
 
 // API: Verify Razorpay Payment Signature
-app.post('/api/payment/verify', (req, res) => {
+app.post('/api/payment/verify', async (req, res) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
@@ -65,6 +101,97 @@ app.post('/api/payment/verify', (req, res) => {
   } catch (err) {
     console.error("Error verifying Razorpay payment:", err);
     res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint: Razorpay Callback Handler (Handles POST & GET from Razorpay / Browser after UPI payment)
+app.all('/api/payment/callback', async (req, res) => {
+  try {
+    const params = req.method === 'POST' ? req.body : req.query;
+    const razorpay_order_id = params.razorpay_order_id;
+    const razorpay_payment_id = params.razorpay_payment_id;
+    const razorpay_signature = params.razorpay_signature;
+
+    console.log(`[Payment Callback] Received for Order: ${razorpay_order_id}, Payment: ${razorpay_payment_id}`);
+
+    if (!razorpay_order_id || !razorpay_payment_id) {
+      return res.status(400).send("Invalid callback data");
+    }
+
+    // Verify signature
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+    const expectedSignature = crypto
+      .createHmac('sha256', RAZORPAY_KEY_SECRET)
+      .update(body.toString())
+      .digest('hex');
+
+    let isValid = true;
+    if (razorpay_signature && expectedSignature !== razorpay_signature) {
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return res.status(400).send("Payment Signature Verification Failed");
+    }
+
+    // Retrieve pending draft order
+    const draft = pendingOrders.get(razorpay_order_id) || {};
+    pendingOrders.delete(razorpay_order_id);
+
+    const newOrder = {
+      items: draft.items || [],
+      customerName: draft.customerName || "Guest User",
+      email: "Guest",
+      phone: draft.phone || "",
+      address: draft.address || "",
+      notes: draft.notes || "",
+      checkoutMode: draft.checkoutMode || "delivery",
+      paymentMethod: `Razorpay UPI (${razorpay_payment_id})`,
+      total: draft.total || 0,
+      latitude: 0.0,
+      longitude: 0.0,
+      status: "Received",
+      progress: 0.0,
+      timestamp: new Date().toISOString()
+    };
+
+    const savedOrder = await db.addOrder(newOrder);
+    sendWhatsAppAlert(savedOrder).catch(err => console.error("Async WhatsApp error:", err.message));
+
+    const redirectUrl = `vsscafe://payment-success?orderId=${savedOrder.id}`;
+
+    res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful - VSS Cafe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen flex items-center justify-center p-6 text-center">
+  <div class="max-w-md w-full bg-zinc-800 border border-zinc-700 rounded-3xl p-8 shadow-2xl">
+    <div class="h-20 w-20 bg-green-500/20 text-green-400 border border-green-500/40 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl font-bold">
+      ✓
+    </div>
+    <h2 class="text-2xl font-bold text-white mb-2">Payment Successful!</h2>
+    <p class="text-zinc-400 text-sm mb-6">Order #${savedOrder.id} placed successfully.</p>
+    
+    <a href="${redirectUrl}" class="inline-block w-full py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-2xl shadow-lg mb-4 hover:brightness-110">
+      Open VSS Cafe App
+    </a>
+    
+    <p class="text-xs text-zinc-500">Redirecting to app automatically...</p>
+  </div>
+  <script>
+    setTimeout(() => {
+      window.location.href = "${redirectUrl}";
+    }, 300);
+  </script>
+</body>
+</html>`);
+  } catch (err) {
+    console.error("Error handling payment callback:", err);
+    res.status(500).send("Error processing payment callback: " + err.message);
   }
 });
 
