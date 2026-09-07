@@ -50,12 +50,24 @@
       btn.disabled = true;
       btn.innerText = 'Initializing Razorpay...';
 
+      let itemsArray = [];
+      try { itemsArray = JSON.parse(itemsJson); } catch (e) { itemsArray = []; }
+
       try {
-        // 1. Create Razorpay order on backend
+        // 1. Create Razorpay order on backend and save draft details
         const orderRes = await fetch('/api/payment/create-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: amount, currency: 'INR' })
+          body: JSON.stringify({
+            amount: amount,
+            currency: 'INR',
+            customerName: customerName,
+            phone: phone,
+            address: address,
+            items: itemsArray,
+            checkoutMode: checkoutMode,
+            notes: notes
+          })
         });
         const orderData = await orderRes.json();
         
@@ -73,28 +85,12 @@
           currency: orderData.currency,
           name: 'VSS Cafe',
           description: 'Food Order Payment',
-          image: '/apple-touch-icon.png',
           order_id: orderData.orderId,
+          callback_url: window.location.origin + '/api/payment/callback',
           prefill: {
             name: customerName,
             contact: phone,
             method: 'upi'
-          },
-          config: {
-            display: {
-              blocks: {
-                upi: {
-                  name: 'Pay via UPI (GPay, PhonePe, Paytm, BHIM)',
-                  instruments: [
-                    { method: 'upi' }
-                  ]
-                }
-              },
-              sequence: ['block.upi'],
-              preferences: {
-                show_default_blocks: true
-              }
-            }
           },
           theme: {
             color: '#d4af37'
@@ -140,13 +136,23 @@
               });
 
               if (submitRes.ok) {
-                alert('🎉 Payment Successful! Your order has been placed.');
-                window.location.href = '/?orderSuccess=true';
+                const savedData = await submitRes.json();
+                statusTxt.innerText = 'Order placed successfully!';
+                if (window.AndroidBridge && window.AndroidBridge.onPaymentSuccess) {
+                  window.AndroidBridge.onPaymentSuccess(savedData.id || 1);
+                } else {
+                  alert('🎉 Payment Successful! Your order has been placed.');
+                  window.location.href = '/?orderSuccess=true';
+                }
               } else {
-                alert('Payment received, but order submission failed. Contact cafe admin.');
+                const errText = await submitRes.text();
+                alert('Payment received, but order submission failed: ' + errText);
               }
             } else {
-              alert('Payment verification failed!');
+              alert('Payment verification failed: ' + (verifyData.error || 'Invalid signature'));
+              if (window.AndroidBridge && window.AndroidBridge.onPaymentFailed) {
+                window.AndroidBridge.onPaymentFailed(verifyData.error || 'Payment verification failed');
+              }
               btn.disabled = false;
               btn.innerText = 'Pay Now & Complete Order';
             }
