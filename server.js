@@ -663,6 +663,8 @@ app.get('/login-phone', (req, res) => {
           if (code === "123456" || code === "111111") {
               if (window.AndroidBridge) {
                   window.AndroidBridge.onLoginSuccess(window.mockPhone);
+              } else if (window.parent && window.parent !== window) {
+                  window.parent.postMessage({ type: 'LOGIN_SUCCESS', phone: window.mockPhone }, '*');
               } else {
                   document.body.innerHTML = "<h3>Login Successful!</h3><p>You can close this window now.</p>";
               }
@@ -681,6 +683,8 @@ app.get('/login-phone', (req, res) => {
           const phone = user.phoneNumber;
           if (window.AndroidBridge) {
             window.AndroidBridge.onLoginSuccess(phone);
+          } else if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: 'LOGIN_SUCCESS', phone: phone }, '*');
           } else {
             document.body.innerHTML = "<h3>Login Successful!</h3><p>You can close this window now.</p>";
           }
