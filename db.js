@@ -21,11 +21,11 @@ if (isMongo) {
           await mongoDb.collection('menu').insertMany(localMenu);
           console.log("Initialized menu items in MongoDB collection.");
         } else {
-          // Sync all local image mappings to MongoDB collection
+          // Sync local image, category, description mappings to MongoDB collection (preserve custom prices set by Admin)
           for (const item of localMenu) {
             await mongoDb.collection('menu').updateOne(
               { id: item.id },
-              { $set: { image: item.image, category: item.category, description: item.description, price: item.price } }
+              { $set: { image: item.image, category: item.category, description: item.description } }
             );
           }
           console.log("Synchronized menu image mappings in MongoDB collection.");
