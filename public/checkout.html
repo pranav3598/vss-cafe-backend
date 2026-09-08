@@ -15,14 +15,18 @@
     <h2 class="text-2xl font-bold mb-1">VSS Cafe Checkout</h2>
     <p class="text-zinc-400 text-sm mb-6">Processing your order securely via Razorpay</p>
     
-    <div class="bg-zinc-900/80 rounded-2xl p-4 mb-6 border border-zinc-700 text-left space-y-2">
-      <div class="flex justify-between text-sm text-zinc-400">
-        <span>Amount Payable</span>
-        <span id="displayAmount" class="font-bold text-amber-400 text-base">₹0.00</span>
+    <div id="billSummaryCard" class="bg-zinc-900/80 rounded-2xl p-4 mb-6 border border-zinc-700 text-left space-y-2">
+      <div class="flex justify-between text-xs text-zinc-400">
+        <span>Item Subtotal</span>
+        <span id="displaySubtotal" class="font-medium text-zinc-200">₹0.00</span>
       </div>
-      <div class="flex justify-between text-xs text-zinc-500">
-        <span>Payment Options</span>
-        <span>Google Pay, PhonePe, Cards, UPI</span>
+      <div class="flex justify-between text-xs text-zinc-400">
+        <span>Delivery Fee</span>
+        <span id="displayDelivery" class="font-medium text-amber-400">₹0.00</span>
+      </div>
+      <div class="border-t border-zinc-700/80 pt-2 flex justify-between text-sm">
+        <span class="font-bold text-zinc-300">Total Payable</span>
+        <span id="displayAmount" class="font-bold text-amber-400 text-base">₹0.00</span>
       </div>
     </div>
 
@@ -42,6 +46,30 @@
     const checkoutMode = urlParams.get('mode') || 'delivery';
     const notes = urlParams.get('notes') || '';
 
+    let itemsArray = [];
+    try { itemsArray = JSON.parse(itemsJson); } catch (e) { itemsArray = []; }
+
+    let subtotal = 0;
+    let delivFee = 0;
+    itemsArray.forEach(it => {
+      const price = (it.product ? parseFloat(it.product.price) : 0) || 0;
+      const qty = parseInt(it.quantity) || 1;
+      if (it.product && (it.product.id === 'delivery-fee' || it.product.name === 'Delivery Fee')) {
+        delivFee += price * qty;
+      } else {
+        subtotal += price * qty;
+      }
+    });
+
+    if (delivFee === 0 && amount > subtotal && checkoutMode === 'delivery') {
+      delivFee = amount - subtotal;
+    }
+    if (subtotal === 0) {
+      subtotal = Math.max(0, amount - delivFee);
+    }
+
+    document.getElementById('displaySubtotal').innerText = '₹' + subtotal.toFixed(2);
+    document.getElementById('displayDelivery').innerText = delivFee > 0 ? ('₹' + delivFee.toFixed(2)) : 'FREE';
     document.getElementById('displayAmount').innerText = '₹' + amount.toFixed(2);
 
     async function startPayment() {

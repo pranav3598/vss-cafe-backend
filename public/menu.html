@@ -60,11 +60,19 @@
       </div>
     </div>
     
-    <!-- Floating Cart Button with Badge -->
-    <button id="cartBtn" class="relative h-11 w-11 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center shadow-sm transition-transform active:scale-95 duration-100">
-      <i data-lucide="shopping-bag" class="text-brand-dark h-5 w-5"></i>
-      <span id="cartBadge" class="absolute -top-1 -right-1 bg-gradient-to-r from-brand-gold to-brand-orange text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white scale-0 transition-transform duration-300">0</span>
-    </button>
+    <!-- Right Actions: User Profile/Login + Cart Button -->
+    <div class="flex items-center gap-3">
+      <!-- User Widget -->
+      <div id="userWidgetContainer" class="relative">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Floating Cart Button with Badge -->
+      <button id="cartBtn" class="relative h-11 w-11 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center shadow-sm transition-transform active:scale-95 duration-100">
+        <i data-lucide="shopping-bag" class="text-brand-dark h-5 w-5"></i>
+        <span id="cartBadge" class="absolute -top-1 -right-1 bg-gradient-to-r from-brand-gold to-brand-orange text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white scale-0 transition-transform duration-300">0</span>
+      </button>
+    </div>
   </header>
 
   <!-- Main Hero Banner -->
@@ -138,11 +146,178 @@
     </div>
   </div>
 
+  <!-- Login / Register Modal -->
+  <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-all duration-300 opacity-0 invisible">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl relative border border-gray-100">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 h-8 w-8 hover:bg-gray-100 rounded-full flex items-center justify-center text-gray-400">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <!-- Step 1: Phone Input -->
+      <div id="authStepPhone">
+        <div class="h-12 w-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="smartphone" class="h-6 w-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center text-gray-900">Welcome to VSS Cafe</h3>
+        <p class="text-xs text-center text-gray-500 mt-1 mb-6">Enter your phone number to log in or create an account</p>
+
+        <label class="block text-xs font-bold text-gray-700 mb-1">Mobile Phone Number</label>
+        <div class="relative mb-4">
+          <span class="absolute left-3.5 top-3.5 text-sm font-semibold text-gray-400">+91</span>
+          <input type="tel" id="authPhoneInput" placeholder="9876543210" maxlength="10" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 font-semibold focus:outline-none focus:border-amber-500">
+        </div>
+        <p id="authPhoneError" class="text-xs text-red-500 hidden mb-3"></p>
+
+        <button onclick="handleSendOtp()" id="btnSendOtp" class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-brand-orange text-white font-bold rounded-xl shadow-md hover:brightness-110 active:scale-95 transition-all">
+          Continue with Phone
+        </button>
+      </div>
+
+      <!-- Step 2: OTP Verification -->
+      <div id="authStepOtp" class="hidden">
+        <div class="h-12 w-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="shield-check" class="h-6 w-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center text-gray-900">Verify OTP Code</h3>
+        <p id="otpSubtitle" class="text-xs text-center text-gray-500 mt-1 mb-6">Enter the 6-digit code sent to your phone</p>
+
+        <input type="text" id="authOtpInput" placeholder="123456" maxlength="6" class="w-full text-center tracking-widest text-xl py-3 bg-gray-50 border border-gray-200 rounded-xl font-bold text-gray-900 focus:outline-none focus:border-amber-500 mb-4">
+        <p id="authOtpError" class="text-xs text-red-500 hidden mb-3"></p>
+
+        <button onclick="handleVerifyOtp()" id="btnVerifyOtp" class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-brand-orange text-white font-bold rounded-xl shadow-md hover:brightness-110 active:scale-95 transition-all mb-2">
+          Verify & Continue
+        </button>
+        <button onclick="switchAuthStep('phone')" class="w-full py-2 text-xs font-semibold text-gray-500 hover:text-gray-800">
+          Change Phone Number
+        </button>
+      </div>
+
+      <!-- Step 3: Registration Profile -->
+      <div id="authStepRegister" class="hidden">
+        <div class="h-12 w-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="user-plus" class="h-6 w-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-center text-gray-900">Complete Your Profile</h3>
+        <p class="text-xs text-center text-gray-500 mt-1 mb-6">First time ordering? Tell us your name!</p>
+
+        <div class="space-y-3 mb-6">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Full Name</label>
+            <input type="text" id="regNameInput" placeholder="e.g. Rahul Kumar" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm font-semibold text-gray-900 focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Email Address (Optional)</label>
+            <input type="email" id="regEmailInput" placeholder="e.g. rahul@gmail.com" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm font-semibold text-gray-900 focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+        <p id="authRegError" class="text-xs text-red-500 hidden mb-3"></p>
+
+        <button onclick="handleRegisterProfile()" id="btnRegisterProfile" class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-brand-orange text-white font-bold rounded-xl shadow-md hover:brightness-110 active:scale-95 transition-all">
+          Complete Registration
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Web Checkout Details Modal -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-all duration-300 opacity-0 invisible">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-lg shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 h-8 w-8 hover:bg-gray-100 rounded-full flex items-center justify-center text-gray-400">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-gray-900 mb-1">Checkout Details</h3>
+      <p class="text-xs text-gray-500 mb-5">Confirm your delivery details & preference</p>
+
+      <!-- Order Mode Toggle -->
+      <div class="mb-5">
+        <label class="block text-xs font-bold text-gray-700 mb-2">Order Mode</label>
+        <div class="grid grid-cols-2 gap-2 bg-gray-100 p-1 rounded-2xl">
+          <button id="modeBtnDelivery" onclick="setWebCheckoutMode('delivery')" class="py-2.5 rounded-xl text-xs font-bold bg-white text-brand-dark shadow-sm transition-all">
+            🏠 Home Delivery
+          </button>
+          <button id="modeBtnPickup" onclick="setWebCheckoutMode('pickup')" class="py-2.5 rounded-xl text-xs font-bold text-gray-500 hover:text-brand-dark transition-all">
+            🛍️ Self Pickup
+          </button>
+        </div>
+      </div>
+
+      <!-- Delivery Address Section -->
+      <div id="webAddressSection" class="mb-5">
+        <div class="flex items-center justify-between mb-2">
+          <label class="text-xs font-bold text-gray-700">Delivery Address</label>
+          <button onclick="useWebGPSLocation()" class="text-xs font-bold text-amber-600 hover:underline flex items-center gap-1">
+            <i data-lucide="navigation" class="h-3 w-3"></i> Use Current GPS
+          </button>
+        </div>
+
+        <textarea id="webAddressInput" rows="2" placeholder="House No., Building Name, Street, Gubbi" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs text-gray-900 font-semibold focus:outline-none focus:border-amber-500 mb-2"></textarea>
+      </div>
+
+      <!-- Contact Phone -->
+      <div class="mb-4">
+        <label class="block text-xs font-bold text-gray-700 mb-1">Contact Phone</label>
+        <input type="tel" id="webPhoneInput" placeholder="9876543210" maxlength="10" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold text-gray-900 focus:outline-none focus:border-amber-500">
+      </div>
+
+      <!-- Driver Notes -->
+      <div id="webNotesSection" class="mb-5">
+        <label class="block text-xs font-bold text-gray-700 mb-1">Delivery Instructions (Optional)</label>
+        <input type="text" id="webNotesInput" placeholder="e.g. Ring the bell or leave at pavilion gate" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs text-gray-600 focus:outline-none focus:border-amber-500">
+      </div>
+
+      <!-- Bill Summary Card -->
+      <div class="bg-gray-50 rounded-2xl p-4 mb-6 border border-gray-200 space-y-2">
+        <h4 class="font-bold text-xs text-gray-800 mb-2 uppercase tracking-wider">Bill Summary</h4>
+        <div class="flex justify-between text-xs text-gray-600">
+          <span>Item Subtotal</span>
+          <span id="webSummarySubtotal" class="font-semibold text-gray-900">₹0.00</span>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600">
+          <span>Delivery Fee</span>
+          <span id="webSummaryDelivery" class="font-semibold text-amber-600">₹0.00</span>
+        </div>
+        <div class="border-t border-gray-200 pt-2 flex justify-between text-sm font-bold text-gray-900">
+          <span>Total Payable</span>
+          <span id="webSummaryTotal" class="text-amber-600">₹0.00</span>
+        </div>
+      </div>
+
+      <!-- Proceed Button -->
+      <button onclick="startWebPaymentRedirect()" id="btnWebProceedPay" class="w-full py-4 bg-gradient-to-r from-brand-gold to-brand-orange text-white font-bold rounded-2xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+        Proceed to Pay (₹0)
+      </button>
+    </div>
+  </div>
+
+  <!-- My Orders History Modal -->
+  <div id="ordersModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-all duration-300 opacity-0 invisible">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-lg shadow-2xl relative border border-gray-100 max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="package" class="text-amber-500 h-5 w-5"></i>
+          <h3 class="text-lg font-bold text-gray-900">My Past Orders</h3>
+        </div>
+        <button onclick="closeOrdersModal()" class="h-8 w-8 hover:bg-gray-100 rounded-full flex items-center justify-center text-gray-400">
+          <i data-lucide="x" class="h-5 w-5"></i>
+        </button>
+      </div>
+
+      <div id="ordersListContainer" class="flex-1 overflow-y-auto space-y-4 pr-1">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
   <!-- Web API Integration -->
   <script>
     let products = [];
     let cart = {};
     let selectedCategory = 'All';
+    let webCheckoutMode = 'delivery';
+    let tempAuthPhone = '';
+    let pendingCheckoutAfterLogin = false;
 
     // Fetch initial menu items from server API
     async function loadMenu() {
@@ -151,9 +326,403 @@
         products = await response.json();
         renderCategoryTabs();
         renderProducts();
+        renderUserWidget();
       } catch (err) {
         console.error("Failed to load server menu:", err);
       }
+    }
+
+    // LocalStorage User Session Management
+    function getUserSession() {
+      try {
+        const data = localStorage.getItem('vss_cafe_user');
+        return data ? JSON.parse(data) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function saveUserSession(user) {
+      localStorage.setItem('vss_cafe_user', JSON.stringify(user));
+      renderUserWidget();
+    }
+
+    function clearUserSession() {
+      localStorage.removeItem('vss_cafe_user');
+      renderUserWidget();
+    }
+
+    function renderUserWidget() {
+      const container = document.getElementById('userWidgetContainer');
+      if (!container) return;
+
+      const user = getUserSession();
+      if (user && user.isLoggedIn) {
+        const initial = user.name ? user.name.charAt(0).toUpperCase() : 'U';
+        container.innerHTML = `
+          <div class="relative group">
+            <button class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200/80 px-3 py-1.5 rounded-full transition-colors border border-gray-200/60">
+              <div class="h-7 w-7 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm">
+                ${initial}
+              </div>
+              <span class="text-xs font-bold text-gray-800 hidden sm:inline">${user.name.split(' ')[0]}</span>
+              <i data-lucide="chevron-down" class="h-3.5 w-3.5 text-gray-500"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div class="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-100 rounded-2xl shadow-xl p-2 hidden group-hover:block z-50">
+              <div class="px-3 py-2 border-b border-gray-100">
+                <p class="text-xs font-bold text-gray-900 line-clamp-1">${user.name}</p>
+                <p class="text-[10px] text-gray-400 font-mono">${user.phone}</p>
+              </div>
+              <button onclick="openOrdersModal()" class="w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 rounded-xl transition-colors text-left mt-1">
+                <i data-lucide="package" class="h-4 w-4 text-amber-500"></i> My Orders
+              </button>
+              <button onclick="clearUserSession()" class="w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 rounded-xl transition-colors text-left mt-1">
+                <i data-lucide="log-out" class="h-4 w-4 text-red-500"></i> Log Out
+              </button>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <button onclick="openAuthModal()" class="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-brand-gold to-brand-orange text-white text-xs font-bold rounded-full shadow-sm hover:brightness-110 active:scale-95 transition-all">
+            <i data-lucide="user" class="h-3.5 w-3.5"></i> Log In
+          </button>
+        `;
+      }
+      lucide.createIcons();
+    }
+
+    // Auth Modal Handlers
+    function openAuthModal() {
+      switchAuthStep('phone');
+      const modal = document.getElementById('authModal');
+      modal.classList.remove('opacity-0', 'invisible');
+      modal.classList.add('opacity-100');
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById('authModal');
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'invisible');
+    }
+
+    function switchAuthStep(step) {
+      document.getElementById('authStepPhone').classList.add('hidden');
+      document.getElementById('authStepOtp').classList.add('hidden');
+      document.getElementById('authStepRegister').classList.add('hidden');
+
+      if (step === 'phone') document.getElementById('authStepPhone').classList.remove('hidden');
+      if (step === 'otp') document.getElementById('authStepOtp').classList.remove('hidden');
+      if (step === 'register') document.getElementById('authStepRegister').classList.remove('hidden');
+    }
+
+    async function handleSendOtp() {
+      const input = document.getElementById('authPhoneInput').value.trim();
+      const err = document.getElementById('authPhoneError');
+      err.classList.add('hidden');
+
+      if (!input || !/^[6-9]\d{9}$/.test(input)) {
+        err.innerText = "Please enter a valid 10-digit mobile number";
+        err.classList.remove('hidden');
+        return;
+      }
+
+      tempAuthPhone = input;
+      document.getElementById('otpSubtitle').innerText = `Enter the verification code sent to +91 ${input}`;
+      switchAuthStep('otp');
+    }
+
+    async function handleVerifyOtp() {
+      const code = document.getElementById('authOtpInput').value.trim();
+      const err = document.getElementById('authOtpError');
+      err.classList.add('hidden');
+
+      if (code.length !== 6) {
+        err.innerText = "Please enter a valid 6-digit OTP";
+        err.classList.remove('hidden');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/login-phone', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone: tempAuthPhone })
+        });
+        const data = await res.json();
+
+        if (data.found && data.user) {
+          saveUserSession({
+            name: data.user.name,
+            phone: tempAuthPhone,
+            email: data.user.email || '',
+            isLoggedIn: true
+          });
+          closeAuthModal();
+          alert(`Welcome back, ${data.user.name}!`);
+          if (pendingCheckoutAfterLogin) {
+            pendingCheckoutAfterLogin = false;
+            openCheckoutModal();
+          }
+        } else {
+          switchAuthStep('register');
+        }
+      } catch (e) {
+        err.innerText = "Failed to verify. Please try again.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    async function handleRegisterProfile() {
+      const name = document.getElementById('regNameInput').value.trim();
+      const email = document.getElementById('regEmailInput').value.trim();
+      const err = document.getElementById('authRegError');
+      err.classList.add('hidden');
+
+      if (!name) {
+        err.innerText = "Please enter your name";
+        err.classList.remove('hidden');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/register-phone', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone: tempAuthPhone, name: name, email: email })
+        });
+        const user = await res.json();
+
+        saveUserSession({
+          name: name,
+          phone: tempAuthPhone,
+          email: email || (tempAuthPhone + "@vss.com"),
+          isLoggedIn: true
+        });
+        closeAuthModal();
+        alert(`Account created successfully! Welcome, ${name}.`);
+        if (pendingCheckoutAfterLogin) {
+          pendingCheckoutAfterLogin = false;
+          openCheckoutModal();
+        }
+      } catch (e) {
+        err.innerText = "Failed to register profile. Please try again.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    // Checkout Details Modal Handlers
+    function openCheckoutModal() {
+      const itemsList = Object.values(cart);
+      if (itemsList.length === 0) {
+        alert("Your basket is empty!");
+        return;
+      }
+
+      const user = getUserSession();
+      if (!user || !user.isLoggedIn) {
+        pendingCheckoutAfterLogin = true;
+        closeDrawer();
+        openAuthModal();
+        return;
+      }
+
+      closeDrawer();
+      document.getElementById('webPhoneInput').value = user.phone || '';
+      const savedAddress = localStorage.getItem('vss_web_address') || 'No. 186, 3rd Cross, Vinayaka Nagar, Gubbi';
+      document.getElementById('webAddressInput').value = savedAddress;
+
+      updateWebCheckoutSummary();
+
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.remove('opacity-0', 'invisible');
+      modal.classList.add('opacity-100');
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'invisible');
+    }
+
+    function setWebCheckoutMode(mode) {
+      webCheckoutMode = mode;
+      const btnDeliv = document.getElementById('modeBtnDelivery');
+      const btnPick = document.getElementById('modeBtnPickup');
+      const addrSec = document.getElementById('webAddressSection');
+      const notesSec = document.getElementById('webNotesSection');
+
+      if (mode === 'delivery') {
+        btnDeliv.className = "py-2.5 rounded-xl text-xs font-bold bg-white text-brand-dark shadow-sm transition-all";
+        btnPick.className = "py-2.5 rounded-xl text-xs font-bold text-gray-500 hover:text-brand-dark transition-all";
+        addrSec.classList.remove('hidden');
+        notesSec.classList.remove('hidden');
+      } else {
+        btnPick.className = "py-2.5 rounded-xl text-xs font-bold bg-white text-brand-dark shadow-sm transition-all";
+        btnDeliv.className = "py-2.5 rounded-xl text-xs font-bold text-gray-500 hover:text-brand-dark transition-all";
+        addrSec.classList.add('hidden');
+        notesSec.classList.add('hidden');
+      }
+      updateWebCheckoutSummary();
+    }
+
+    function updateWebCheckoutSummary() {
+      const itemsList = Object.values(cart);
+      let subtotal = 0;
+      itemsList.forEach(item => {
+        subtotal += item.product.price * item.quantity;
+      });
+
+      const deliveryFee = (webCheckoutMode === 'delivery' && subtotal < 199) ? 20 : 0;
+      const grandTotal = subtotal + deliveryFee;
+
+      document.getElementById('webSummarySubtotal').innerText = `₹${subtotal.toFixed(2)}`;
+      document.getElementById('webSummaryDelivery').innerText = deliveryFee > 0 ? `₹${deliveryFee.toFixed(2)}` : 'FREE';
+      document.getElementById('webSummaryTotal').innerText = `₹${grandTotal.toFixed(2)}`;
+
+      document.getElementById('btnWebProceedPay').innerText = `Proceed to Pay (₹${Math.round(grandTotal)})`;
+    }
+
+    function useWebGPSLocation() {
+      if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser");
+        return;
+      }
+      const addrInput = document.getElementById('webAddressInput');
+      addrInput.value = "Fetching GPS coordinates...";
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          addrInput.value = `Current Location GPS (${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)}), Vinayaka Nagar, Gubbi`;
+          localStorage.setItem('vss_web_address', addrInput.value);
+        },
+        (err) => {
+          addrInput.value = "Vinayaka Nagar 3rd Cross, Gubbi";
+          alert("Unable to fetch exact GPS location. Defaulting to Vinayaka Nagar.");
+        }
+      );
+    }
+
+    function startWebPaymentRedirect() {
+      const user = getUserSession();
+      const phone = document.getElementById('webPhoneInput').value.trim();
+      const address = document.getElementById('webAddressInput').value.trim();
+      const notes = document.getElementById('webNotesInput').value.trim();
+
+      if (webCheckoutMode === 'delivery' && !address) {
+        alert("Please enter a valid delivery address!");
+        return;
+      }
+      if (!phone || !/^[6-9]\d{9}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number!");
+        return;
+      }
+
+      if (webCheckoutMode === 'delivery') {
+        localStorage.setItem('vss_web_address', address);
+      }
+
+      const itemsList = Object.values(cart);
+      let subtotal = 0;
+      const formattedItems = itemsList.map(item => {
+        subtotal += item.product.price * item.quantity;
+        return {
+          product: { id: item.product.id, name: item.product.name, price: item.product.price },
+          quantity: item.quantity
+        };
+      });
+
+      const deliveryFee = (webCheckoutMode === 'delivery' && subtotal < 199) ? 20 : 0;
+      if (deliveryFee > 0) {
+        formattedItems.push({
+          product: { id: 'delivery-fee', name: 'Delivery Fee', price: deliveryFee },
+          quantity: 1
+        });
+      }
+
+      const totalAmount = subtotal + deliveryFee;
+
+      const checkoutUrl = `/checkout.html?amount=${totalAmount}&name=${encodeURIComponent(user.name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&mode=${encodeURIComponent(webCheckoutMode)}&notes=${encodeURIComponent(notes)}&items=${encodeURIComponent(JSON.stringify(formattedItems))}`;
+      window.location.href = checkoutUrl;
+    }
+
+    // My Orders Modal Handlers
+    async function openOrdersModal() {
+      const user = getUserSession();
+      if (!user || !user.phone) {
+        alert("Please log in to view your orders.");
+        return;
+      }
+
+      const modal = document.getElementById('ordersModal');
+      const container = document.getElementById('ordersListContainer');
+      container.innerHTML = `
+        <div class="flex items-center justify-center py-12 text-gray-400">
+          <i data-lucide="loader" class="h-6 w-6 animate-spin mr-2"></i> Loading past orders...
+        </div>
+      `;
+      lucide.createIcons();
+
+      modal.classList.remove('opacity-0', 'invisible');
+      modal.classList.add('opacity-100');
+
+      try {
+        const res = await fetch(`/api/orders/phone/${user.phone}`);
+        const orders = await res.json();
+
+        if (!orders || orders.length === 0) {
+          container.innerHTML = `
+            <div class="text-center py-12 text-gray-400">
+              <i data-lucide="package-open" class="h-12 w-12 mx-auto mb-2 opacity-50"></i>
+              <p class="font-bold text-sm text-gray-600">No past orders found</p>
+              <p class="text-xs text-gray-400 mt-1">Orders placed with phone ${user.phone} will appear here.</p>
+            </div>
+          `;
+          lucide.createIcons();
+          return;
+        }
+
+        container.innerHTML = orders.reverse().map(o => {
+          let statusBadgeClass = "bg-amber-100 text-amber-700";
+          if (o.status === 'Delivered') statusBadgeClass = "bg-green-100 text-green-700";
+          else if (o.status === 'Out for Delivery') statusBadgeClass = "bg-orange-100 text-orange-700";
+
+          const itemsText = (o.items || []).map(i => {
+            const pName = i.product ? i.product.name : "Item";
+            return `• ${pName} x ${i.quantity}`;
+          }).join('<br>');
+
+          const dateStr = o.timestamp ? new Date(o.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
+
+          return `
+            <div class="bg-gray-50 border border-gray-200/80 rounded-2xl p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-sm text-gray-900">Order #${o.id}</span>
+                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase ${statusBadgeClass}">${o.status}</span>
+              </div>
+              <p class="text-xs text-gray-500 mb-2">Placed at ${dateStr} • Amount: <strong class="text-gray-900">₹${o.total}</strong></p>
+              <div class="border-t border-gray-200/60 pt-2 text-xs text-gray-700 space-y-0.5">
+                ${itemsText}
+              </div>
+            </div>
+          `;
+        }).join('');
+        lucide.createIcons();
+      } catch (e) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-red-500 text-xs">
+            Failed to load past orders. Please try again.
+          </div>
+        `;
+      }
+    }
+
+    function closeOrdersModal() {
+      const modal = document.getElementById('ordersModal');
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'invisible');
     }
 
     function renderCategoryTabs() {
@@ -334,7 +903,6 @@
       filtered.forEach(p => {
         const qty = cart[p.id] ? cart[p.id].quantity : 0;
         
-        // Build image path smartly matching Android local mapping
         let imagePath = '';
         if (localIdImageMap[p.id]) {
           imagePath = `/drawable/${localIdImageMap[p.id]}.jpg`;
@@ -417,13 +985,9 @@
         cart[id] = { product: prod, quantity: count };
       }
 
-      // Update Product list layout
       renderProducts();
-      
-      // Update Drawer Panel List
       renderCartList();
 
-      // Trigger Badge count + Animation
       const badge = document.getElementById('cartBadge');
       const cartItemsCount = Object.values(cart).reduce((a, b) => a + b.quantity, 0);
       badge.innerText = cartItemsCount;
@@ -521,24 +1085,7 @@
     document.getElementById('cartOverlay').addEventListener('click', closeDrawer);
 
     document.getElementById('checkoutBtn').addEventListener('click', () => {
-      const itemsList = Object.values(cart);
-      if (itemsList.length === 0) {
-        alert("Your basket is empty!");
-        return;
-      }
-      let subtotal = 0;
-      const formattedItems = itemsList.map(item => {
-        subtotal += item.product.price * item.quantity;
-        return {
-          product: { id: item.product.id, name: item.product.name, price: item.product.price },
-          quantity: item.quantity
-        };
-      });
-      const deliveryFee = subtotal < 199 ? 20 : 0;
-      const totalAmount = subtotal + deliveryFee;
-
-      const checkoutUrl = `/checkout.html?amount=${totalAmount}&name=${encodeURIComponent('VSS Customer')}&phone=9999999999&address=${encodeURIComponent('VSS Delivery Address')}&items=${encodeURIComponent(JSON.stringify(formattedItems))}`;
-      window.location.href = checkoutUrl;
+      openCheckoutModal();
     });
 
     // Initial Load
